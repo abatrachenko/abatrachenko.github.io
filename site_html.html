@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resonance Growth Engine</title>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000;
+      --dark: #111;
+      --darker: #0a0a0a;
+      --navy: #192a56;
+      --white: #fff;
+      --accent: #007bff;
+      --accent-dark: #0056b3;
+      --gray: #888;
+      --light-gray: #eee;
+      --body: 'Inter', sans-serif;
+      --head: 'Inter', sans-serif;
+      --transition: all 0.3s ease;
+      --container-padding: 15px;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+      --shadow-md: 0 5px 15px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --border-radius: 8px;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--body);
+      color: var(--white);
+      background: var(--black);
+      line-height: 1.6;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    a:hover { opacity: 0.8; }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 15px;
+    }
+    h1, h2, h3, h4 {
+      font-family: var(--head);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    p { margin-bottom: 1rem; }
+   
+    /* Button Styles */
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--black);
+      padding: 0.875rem 1.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      border: none;
+      font-size: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .btn:active {
+      transform: translateY(0);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-outline:hover {
+      background: var(--accent);
+      color: var(--black);
+    }
+   
+    /* Header */
+    header {
+      background: var(--black);
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav .logo {
+      font-family: var(--head);
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--white);
+    }
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-menu a {
+      color: var(--white);
+      font-weight: 500;
+    }
+    .nav-menu a:hover {
+      color: var(--accent);
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+   
+    /* Hero Section */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 6rem 0;
+    }
+    .hero-text h1 {
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+    }
+    .hero-text p {
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+      color: var(--gray);
+    }
+    .hero-img img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+    }
+   
+    /* Metrics Section */
+    .metrics-section {
+      background: var(--darker);
+      padding: 4rem 0;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .metric-card {
+      background: var(--dark);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .metric-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .metric-label {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+   
+    /* Process Section */
+    .process-section {
+      padding: 6rem 0;
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    .process-card {
+      background: var(--dark);
+      padding: 2rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--accent);
+    }
+    .process-card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .process-card ul {
+      list-style: none;
+    }
+    .process-card li {
+      margin-bottom: 0.75rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .process-card li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+   
+    /* Testimonial Section */
+    .testimonial-section {
+      background: var(--darker);
+      padding: 6rem 0;
+    }
+    .testimonial {
+      background: var(--dark);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 8px;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .testimonial:before {
+      content: """;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      font-size: 4rem;
+      line-height: 1;
+      color: var(--accent);
+      opacity: 0.3;
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 1.25rem;
+      padding-left: 1rem;
+    }
+    .testimonial .author {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    .testimonial .author:before {
+      content: "—";
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+   
+    /* Sections */
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+    .section h2 {
+      position: relative;
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .section h2:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+    }
+   
+    /* Qualifier Section */
+    .qualifier {
+      background: var(--darker);
+      padding: 6rem 0;
+      text-align: center;
+    }
+    .qualifier h2 {
+      margin-bottom: 2rem;
+    }
+    .qualifier ul {
+      list-style: none;
+      margin: 2rem 0;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+    .qualifier li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+    .qualifier li::before {
+      content: '✓';
+      color: var(--accent);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    .qualifier p {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: var(--gray);
+    }
+    .cta-down {
+      margin-top: 2rem;
+      display: inline-block;
+      font-size: 2.5rem;
+      animation: bounce 2s infinite;
+      color: var(--accent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+   
+    /* Form Section */
+    .form-section {
+      background: var(--dark);
+      padding: 6rem 0;
+    }
+    .form-container {
+      background: var(--white);
+      color: var(--black);
+      max-width: 550px;
+      margin: auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .form-header {
+      background: var(--black);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
+    .form-header h2 {
+      margin-bottom: 0.75rem;
+      font-size: 1.75rem;
+    }
+    .form-header p {
+      font-size: 1rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      color: var(--gray);
+    }
+    .form-body {
+      padding: 2.5rem;
+    }
+    .form-body label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #333;
+    }
+    .form-body input,
+    .form-body textarea,
+    .form-body select {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      transition: var(--transition);
+      font-family: var(--body);
+    }
+    .form-body textarea {
+      min-height: 120px;
+    }
+    .form-body input:focus,
+    .form-body textarea:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    .form-body .btn {
+      width: 100%;
+      padding: 1.25rem;
+      font-size: 1.1rem;
+    }
+    .form-footer {
+      text-align: center;
+      font-size: 0.875rem;
+      padding: 1.5rem;
+      color: #666;
+      background: #f9f9f9;
+    }
+   
+    /* FAQ Section */
+    .faq-section {
+      padding: 6rem 0;
+    }
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .accordion {
+      max-width: 800px;
+      margin: auto;
+    }
+    .accordion-item {
+      margin-bottom: 1.5rem;
+      background: var(--dark);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    .accordion-item summary {
+      padding: 1.5rem;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .accordion-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .accordion-item summary:after {
+      content: "+";
+      position: absolute;
+      right: 1.5rem;
+      color: var(--accent);
+      font-size: 1.5rem;
+      line-height: 1;
+      transition: var(--transition);
+    }
+    .accordion-item[open] summary:after {
+      transform: rotate(45deg);
+    }
+    .accordion-item div {
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--light-gray);
+    }
+   
+    /* Floating CTA Button */
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 18px;
+      border-radius: 50px;
+      display: none;
+      z-index: 100;
+      text-align: center;
+      font-weight: 600;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      text-decoration: none;
+    }
+    .floating-cta.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    .floating-cta:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+    }
+   
+    /* Footer */
+    footer {
+      background: var(--black);
+      color: var(--gray);
+      padding: 3rem 0;
+      font-size: 0.875rem;
+    }
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    footer a {
+      color: var(--gray);
+      transition: var(--transition);
+    }
+    footer a:hover {
+      color: var(--white);
+    }
+    .lovable {
+      font-size: 0.75rem;
+      opacity: 0.7;
+    }
+   
+    /* Enhanced Mobile Styles */
+    @media (max-width: 992px) {
+      html { font-size: 15px; }
+      .section { padding: 4rem 0; }
+      .floating-cta {
+        display: flex;
+      }
+    }
+   
+    @media (max-width: 768px) {
+      html { font-size: 14px; }
+      h1 { font-size: 2.5rem; }
+      h2 { font-size: 2rem; }
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 1.5rem;
+        padding: 4rem 0;
+      }
+      .hero-text p {
+        font-size: 1.1rem;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        padding: 1rem;
+        display: none;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+      .nav-menu.active {
+        display: block;
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .nav-menu a {
+        display: block;
+        padding: 12px 15px;
+        color: var(--white);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        transition: var(--transition);
+      }
+      .nav-menu a:hover {
+        background: rgba(255,255,255,0.05);
+        padding-left: 20px;
+      }
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-links {
+        margin-top: 1rem;
+        justify-content: center;
+      }
+      /* Better touch targets on mobile */
+      .card, .accordion-item summary {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+   
+    @media (max-width: 480px) {
+      html { font-size: 13px; }
+      .container { width: 95%; padding: 0 10px; }
+      .btn { width: 100%; }
+      .hero-buttons {
+        flex-direction: column;
+      }
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+      .form-header { padding: 1.5rem; }
+      .form-body { padding: 1.5rem 1rem; }
+      .form-body input {
+        padding: 0.75rem;
+        font-size: 16px; /* Prevent zoom on focus in iOS */
+      }
+      .accordion-item summary { padding: 1rem; }
+      /* Enhanced spacing for better mobile experience */
+      .section { padding: 3rem 0; }
+      .hero { padding: 2rem 0 3rem; }
+      .floating-cta {
+        padding: 14px 20px;
+        right: 15px;
+        bottom: 15px;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Resonance</div>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+      <nav class="nav-menu">
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#form">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container hero">
+    <div class="hero-text">
+      <h1>We Help 7-Figure E-Commerce Brands Hit 8 Figures—<span style="color:var(--accent)">Or You Don't Pay.</span></h1>
+      <p>Premium growth consulting for CEOs tired of "good enough"—let's break your revenue ceiling.</p>
+      <div class="hero-buttons">
+        <a href="#form" class="btn">Book a Free Strategy Call →</a>
+        <a href="#process" class="btn btn-outline">How It Works</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg" alt="Aleksey">
+    </div>
+  </div>
+
+  <section class="metrics-section">
+    <div class="container">
+      <div class="metrics">
+        <div class="metric-card">
+          <div class="metric-number">147%</div>
+          <div class="metric-label">Revenue Growth</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">3.2×</div>
+          <div class="metric-label">ROAS Increase</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-number">64%</div>
+          <div class="metric-label">Conversion Lift</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process-section">
+    <div class="container">
+      <h2>We Don't 'Do SEO'—We Engineer Growth</h2>
+      <div class="process-grid">
+        <div class="process-card">
+          <h3>Onboarding</h3>
+          <ul>
+            <li>Your "FU money" goal</li>
+            <li>Your team's secret sauce</li>
+            <li>Why customers really buy from you</li>
+          </ul>
+        </div>
+        <div class="process-card">
+          <h3>Execution</h3>
+          <ul>
+            <li>Speak your language (JIRA, Data, Brand)</li>
+            <li>Integrate like your in-house team</li>
+            <li>Weekly sprints with measurable KPIs</li>
+          </ul>
+        </div>
+        <div class="process-card">
+          <h3>Results</h3>
+          <ul>
+            <li>Transparent reporting</li>
+            <li>Actionable insights</li>
+            <li>Scalable systems</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial">
+        <p>"Not just SEO—they rebuilt our growth engine. Went from $1.2M to $2.8M in 6 months while cutting ad spend by 30%. Worth every penny."</p>
+        <div class="author">Alex Chen, CEO, FitPro Gear</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="qualifier">
+    <div class="container">
+      <h2>Is This You?</h2>
+      <ul>
+        <li>You're at $1M+ but stuck at $2–3M</li>
+        <li>You'll invest $10K+/month to fix it</li>
+        <li>You want me—not an agency junior</li>
+        <li>You're ready to make real changes to achieve real growth</li>
+      </ul>
+      <p>If you nodded twice, hit the button below.</p>
+      <a href="#form" class="cta-down">↓</a>
+    </div>
+  </section>
+
+  <section id="form" class="form-section">
+    <div class="form-container">
+      <div class="form-header">
+        <h2>Book Your Free Strategy Call</h2>
+        <p>30-minute call. Zero pitch. One actionable growth hack—guaranteed.</p>
+      </div>
+      <div class="form-body">
+        <label for="name">Your Name</label>
+        <input id="name" type="text" placeholder="Jane Smith">
+        <label for="email">Your Email</label>
+        <input id="email" type="email" placeholder="jane@company.com">
+        <label for="website">Company Website</label>
+        <input id="website" type="url" placeholder="https://yourcompany.com">
+        <label for="revenue">Current Monthly Revenue</label>
+        <select id="revenue">
+          <option value="">Select an option</option>
+          <option value="50k-100k">$50K - $100K</option>
+          <option value="100k-250k">$100K - $250K</option>
+          <option value="250k-500k">$250K - $500K</option>
+          <option value="500k-1m">$500K - $1M</option>
+          <option value="1m+">$1M+</option>
+        </select>
+        <label for="message">What's your biggest growth challenge?</label>
+        <textarea id="message" placeholder="We're struggling with..."></textarea>
+        <button class="btn">Schedule My Call →</button>
+      </div>
+      <div class="form-footer">We'll follow up with available time slots within 24 hours.</div>
+    </div>
+  </section>
+
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="accordion">
+        <details class="accordion-item">
+          <summary>How much does this cost?</summary>
+          <div>We work on custom engagements based on your specific needs. After our strategy call, we'll diagnose your growth gap and propose a solution with clear pricing. Most clients invest between $10K-$30K/month depending on scope.</div>
+        </details>
+        <details class="accordion-item">
+          <summary>Why not an agency?</summary>
+          <div>You're paying for my brain—not a 22-year-old's "report." I work directly with you (no account managers) and focus exclusively on e-commerce brands at your stage. This isn't a one-size-fits-all approach but a tailored growth system built for your business.</div>
+        </details>
+        <details class="accordion-item">
+          <summary>How long until I see results?</summary>
+          <div>Most clients see measurable improvements in 60-90 days, with full impact typically in 6 months. We focus on sustainable growth, not quick hacks that disappear next month.</div>
+        </details>
+        <details class="accordion-item">
+          <summary>Do you work with startups?</summary>
+          <div>Yes—if you've got product-market fit and ambitions to scale. Our sweet spot is brands doing $1M-$10M/year that need systems to scale to $10M+.</div>
+        </details>
+        <details class="accordion-item">
+          <summary>What industries do you work with?</summary>
+          <div>E-commerce brands across fashion, home goods, beauty, and specialty retail. If you sell physical products online, we can likely help.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floating Contact Button (Mobile Only) -->
+  <a href="#form" class="floating-cta">
+    <span>Book a Call</span>
+  </a>
+
+  <footer>
+    <div class="container footer-content">
+      <div>© 2025 Resonance <span class="lovable">| Built with Lovable</span></div>
+      <div class="footer-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+        <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu toggle
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const navMenu = document.querySelector('nav.nav-menu');
+     
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          navMenu.classList.toggle('active');
+        });
+      }
+     
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (navMenu && navMenu.classList.contains('active') &&
+            !navMenu.contains(e.target) &&
+            !mobileMenuBtn.contains(e.target)) {
+          navMenu.classList.remove('active');
+        }
+      });
+     
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+         
+          if (navMenu && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+          }
+         
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+         
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+     
+      // Accordion functionality
+      document.querySelectorAll('.accordion-item').forEach(item => {
+        item.addEventListener('toggle', () => {
+          if (item.open) {
+            setTimeout(() => {
+              item.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+              });
+            }, 100);
+          }
+        });
+      });
+     
+      // Form validation
+      const form = document.querySelector('.form-body');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const websiteInput = document.getElementById('website');
+      const revenueSelect = document.getElementById('revenue');
+      const submitBtn = form ? form.querySelector('.btn') : null;
+     
+      if (form && submitBtn) {
+        submitBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          let isValid = true;
+         
+          // Simple validation
+          if (nameInput && nameInput.value.trim() === '') {
+            nameInput.style.borderColor = 'red';
+            isValid = false;
+          } else if (nameInput) {
+            nameInput.style.borderColor = '#ddd';
+          }
+         
+          if (emailInput && (emailInput.value.trim() === '' || !emailInput.value.includes('@'))) {
+            emailInput.style.borderColor = 'red';
+            isValid = false;
+          } else if (emailInput) {
+            emailInput.style.borderColor = '#ddd';
+          }
+         
+          if (revenueSelect && revenueSelect.value === '') {
+            revenueSelect.style.borderColor = 'red';
+            isValid = false;
+          } else if (revenueSelect) {
+            revenueSelect.style.borderColor = '#ddd';
+          }
+         
+          if (isValid) {
+            // Here you would normally submit the form
+            alert('Thanks! We\'ll be in touch shortly to schedule your call.');
+           
+            // Reset form
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (websiteInput) websiteInput.value = '';
+            if (revenueSelect) revenueSelect.value = '';
+          }
+        });
+      }
+     
+      // Floating CTA button visibility
+      const floatingCTA = document.querySelector('.floating-cta');
+      let lastScrollTop = 0;
+     
+      if (floatingCTA) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          // Show floating button when scrolling down and past hero section
+          if (scrollTop > 300 && scrollTop > lastScrollTop) {
+            floatingCTA.classList.add('visible');
+          }
+          // Hide when near the form section or scrolling up
+          else if (scrollTop < lastScrollTop || isNearElement('#form', 300)) {
+            floatingCTA.classList.remove('visible');
+          }
+         
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      }
+     
+      // Helper function to check if scroll position is near an element
+      function isNearElement(selector, distance) {
+        const element = document.querySelector(selector);
+        if (!element) return false;
+       
+        const rect = element.getBoundingClientRect();
+        return (rect.top < distance && rect.top > -rect.height);
+      }
+     
+      // Add page transition effect
+      document.body.classList.add('loaded');
+    });
+  </script>
+</body>
+</html>
