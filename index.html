@@ -69,6 +69,14 @@
       background: var(--black);
       line-height: 1.6;
       overflow-x: hidden;
+      opacity: 0;
+      animation: pageLoad 0.6s ease forwards;
+    }
+
+    @keyframes pageLoad {
+      to {
+        opacity: 1;
+      }
     }
 
     a {
@@ -1099,6 +1107,116 @@
       opacity: 0.7;
     }
 
+    /* Scroll Progress Indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      z-index: 10000;
+      transition: width 0.1s ease;
+    }
+
+    /* Button Ripple Effect */
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:active::after {
+      width: 300px;
+      height: 300px;
+      transition: width 0s, height 0s;
+    }
+
+    /* 3D Card Tilt Effect */
+    .case-study-card {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+    }
+
+    .case-study-card:hover {
+      transform: translateY(-10px) rotateX(2deg);
+    }
+
+    /* Enhanced Testimonial Effects */
+    .testimonial {
+      transform-style: preserve-3d;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 123, 255, 0.3);
+    }
+
+    /* Parallax Elements */
+    .parallax {
+      transform: translateZ(0);
+      will-change: transform;
+    }
+
+    /* Skeleton Loading */
+    @keyframes skeleton-loading {
+      0% {
+        background-position: -200% 0;
+      }
+      100% {
+        background-position: 200% 0;
+      }
+    }
+
+    .skeleton {
+      background: linear-gradient(90deg, var(--darker) 25%, var(--dark) 50%, var(--darker) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+    }
+
+    /* Enhanced Metric Cards with Pulse */
+    .metric-card {
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    .metric-card:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .metric-card:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .metric-card:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+      }
+      50% {
+        box-shadow: 0 0 20px 5px rgba(0, 123, 255, 0.3);
+      }
+    }
+
+    /* Smooth Image Loading */
+    img {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    img.loaded {
+      opacity: 1;
+    }
+
     /* Enhanced Mobile Styles */
     @media (max-width: 992px) {
       html { font-size: 15px; }
@@ -1255,6 +1373,9 @@
   </style>
 </head>
 <body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+
   <!-- Sticky CTA Bar -->
   <div class="sticky-cta-bar">
     <p><i class="fas fa-rocket"></i> Book a free no-sales strategy call</p>
@@ -1634,6 +1755,39 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Scroll Progress Indicator
+      const scrollProgress = document.querySelector('.scroll-progress');
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        if (scrollProgress) {
+          scrollProgress.style.width = scrollPercent + '%';
+        }
+      });
+
+      // Image Lazy Loading with Animation
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+        }
+      });
+
+      // Parallax Scrolling Effect
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        window.addEventListener('scroll', () => {
+          const scrolled = window.pageYOffset;
+          const parallaxSpeed = 0.5;
+          hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        });
+      }
+
       // Intersection Observer for scroll animations
       const observerOptions = {
         threshold: 0.1,
