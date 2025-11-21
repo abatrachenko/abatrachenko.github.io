@@ -1217,6 +1217,305 @@
       opacity: 1;
     }
 
+    /* Exit Intent Popup */
+    .exit-popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 10001;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .exit-popup.show {
+      display: flex;
+      opacity: 1;
+    }
+
+    .exit-popup-content {
+      background: var(--white);
+      color: var(--black);
+      max-width: 600px;
+      border-radius: 16px;
+      padding: 3rem;
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      box-shadow: 0 20px 60px rgba(0, 123, 255, 0.3);
+    }
+
+    .exit-popup.show .exit-popup-content {
+      transform: scale(1);
+    }
+
+    .exit-popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: var(--gray);
+      transition: var(--transition);
+    }
+
+    .exit-popup-close:hover {
+      color: var(--black);
+      transform: rotate(90deg);
+    }
+
+    .exit-popup h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .exit-popup p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    .exit-popup input {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    .exit-popup input:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
+    }
+
+    /* Social Proof Notification */
+    .social-proof-notification {
+      position: fixed;
+      bottom: 80px;
+      left: 20px;
+      background: var(--white);
+      color: var(--black);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1000;
+      transform: translateX(-400px);
+      transition: transform 0.5s ease;
+      max-width: 350px;
+    }
+
+    .social-proof-notification.show {
+      transform: translateX(0);
+    }
+
+    .social-proof-notification img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .social-proof-notification .content {
+      flex: 1;
+    }
+
+    .social-proof-notification .content strong {
+      display: block;
+      color: var(--black);
+      font-size: 0.95rem;
+    }
+
+    .social-proof-notification .content small {
+      color: #666;
+      font-size: 0.85rem;
+    }
+
+    /* Form Steps Progress */
+    .form-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .form-step {
+      flex: 1;
+      text-align: center;
+      position: relative;
+    }
+
+    .form-step::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: #e0e0e0;
+      z-index: -1;
+    }
+
+    .form-step:first-child::before {
+      display: none;
+    }
+
+    .form-step-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e0e0e0;
+      color: #999;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .form-step.active .form-step-circle {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .form-step.completed .form-step-circle {
+      background: #28a745;
+      color: var(--white);
+    }
+
+    .form-step-label {
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .form-step.active .form-step-label {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .form-page {
+      display: none;
+    }
+
+    .form-page.active {
+      display: block;
+    }
+
+    .form-navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .form-navigation .btn {
+      flex: 1;
+    }
+
+    /* Inline Validation */
+    .form-group {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-error {
+      color: #dc3545;
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .form-group.error input,
+    .form-group.error select,
+    .form-group.error textarea {
+      border-color: #dc3545;
+    }
+
+    .form-group.error .form-error {
+      display: block;
+    }
+
+    .form-group.success input,
+    .form-group.success select {
+      border-color: #28a745;
+    }
+
+    .form-group .icon-check {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #28a745;
+      display: none;
+    }
+
+    .form-group.success .icon-check {
+      display: block;
+    }
+
+    /* Urgency Badge */
+    .urgency-badge {
+      background: #ff6b6b;
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-bottom: 1rem;
+      animation: pulse-urgent 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-urgent {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+      }
+      50% {
+        box-shadow: 0 0 0 10px rgba(255, 107, 107, 0);
+      }
+    }
+
+    /* Loading State */
+    .btn.loading {
+      position: relative;
+      pointer-events: none;
+      color: transparent;
+    }
+
+    .btn.loading::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      left: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      border: 2px solid var(--white);
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spinner 0.8s linear infinite;
+    }
+
+    @keyframes spinner {
+      to { transform: rotate(360deg); }
+    }
+
     /* Enhanced Mobile Styles */
     @media (max-width: 992px) {
       html { font-size: 15px; }
@@ -1378,7 +1677,7 @@
 
   <!-- Sticky CTA Bar -->
   <div class="sticky-cta-bar">
-    <p><i class="fas fa-rocket"></i> Book a free no-sales strategy call</p>
+    <p><i class="fas fa-fire"></i> <strong>Only 3 spots left this month</strong> - Book your free strategy call</p>
     <a href="#form" class="btn">Get Started</a>
   </div>
 
@@ -1658,6 +1957,7 @@
   <section id="form" class="form-section">
     <div class="form-container fade-in">
       <div class="form-header">
+        <span class="urgency-badge" style="background: rgba(255,255,255,0.2);"><i class="fas fa-clock"></i> Only 3 Spots Left This Month</span>
         <i class="fas fa-calendar-alt"></i>
         <h2>Book Your Free Strategy Call</h2>
         <p>30-minute call. Zero pitch. One actionable growth hack—guaranteed.</p>
@@ -1741,6 +2041,28 @@
     <i class="fas fa-phone-alt"></i>
     <span>Book a Call</span>
   </a>
+
+  <!-- Exit Intent Popup -->
+  <div class="exit-popup" id="exitPopup">
+    <div class="exit-popup-content">
+      <button class="exit-popup-close" aria-label="Close popup">&times;</button>
+      <span class="urgency-badge"><i class="fas fa-gift"></i> Limited Time Offer</span>
+      <h3>Wait! Get Your Free SEO Audit</h3>
+      <p>Before you go, let me send you a <strong>free 10-point SEO audit checklist</strong> that reveals the exact gaps holding your site back from ranking.</p>
+      <input type="email" placeholder="Enter your email" id="exitEmail">
+      <button class="btn" id="exitSubmit"><i class="fas fa-download"></i> Send Me The Checklist →</button>
+      <small style="color: #999; font-size: 0.85rem; display: block; margin-top: 1rem;">No spam. Unsubscribe anytime.</small>
+    </div>
+  </div>
+
+  <!-- Social Proof Notification -->
+  <div class="social-proof-notification" id="socialProof">
+    <i class="fas fa-user-circle" style="font-size: 48px; color: var(--accent);"></i>
+    <div class="content">
+      <strong>Someone just booked a call</strong>
+      <small>2 minutes ago from California</small>
+    </div>
+  </div>
 
   <footer>
     <div class="container footer-content">
@@ -1999,6 +2321,157 @@
 
         const rect = element.getBoundingClientRect();
         return (rect.top < distance && rect.top > -rect.height);
+      }
+
+      // Exit Intent Popup
+      const exitPopup = document.getElementById('exitPopup');
+      const exitPopupClose = document.querySelector('.exit-popup-close');
+      const exitSubmitBtn = document.getElementById('exitSubmit');
+      const exitEmailInput = document.getElementById('exitEmail');
+      let exitIntentShown = false;
+
+      // Show popup when cursor leaves viewport
+      document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 10 && !exitIntentShown) {
+          exitPopup.classList.add('show');
+          exitIntentShown = true;
+          localStorage.setItem('exitIntentShown', 'true');
+        }
+      });
+
+      // Check if already shown
+      if (localStorage.getItem('exitIntentShown')) {
+        exitIntentShown = true;
+      }
+
+      // Close popup
+      exitPopupClose.addEventListener('click', () => {
+        exitPopup.classList.remove('show');
+      });
+
+      exitPopup.addEventListener('click', (e) => {
+        if (e.target === exitPopup) {
+          exitPopup.classList.remove('show');
+        }
+      });
+
+      // Exit popup form submit
+      exitSubmitBtn.addEventListener('click', () => {
+        const email = exitEmailInput.value.trim();
+        if (email && email.includes('@')) {
+          exitSubmitBtn.classList.add('loading');
+          setTimeout(() => {
+            exitSubmitBtn.classList.remove('loading');
+            exitPopup.classList.remove('show');
+            alert('Thanks! Check your email for the free SEO audit checklist.');
+            exitEmailInput.value = '';
+          }, 1500);
+        } else {
+          alert('Please enter a valid email address.');
+        }
+      });
+
+      // Social Proof Notifications
+      const socialProof = document.getElementById('socialProof');
+      const socialProofData = [
+        { name: 'Someone', location: 'California', action: 'booked a call', time: '2 minutes ago' },
+        { name: 'A business owner', location: 'New York', action: 'requested an audit', time: '5 minutes ago' },
+        { name: 'An e-commerce brand', location: 'Texas', action: 'booked a call', time: '8 minutes ago' },
+        { name: 'Someone', location: 'Florida', action: 'downloaded the checklist', time: '12 minutes ago' },
+      ];
+
+      let currentProofIndex = 0;
+
+      function showSocialProof() {
+        const proof = socialProofData[currentProofIndex];
+        socialProof.querySelector('strong').textContent = proof.name + ' just ' + proof.action;
+        socialProof.querySelector('small').textContent = proof.time + ' from ' + proof.location;
+
+        socialProof.classList.add('show');
+
+        setTimeout(() => {
+          socialProof.classList.remove('show');
+        }, 5000);
+
+        currentProofIndex = (currentProofIndex + 1) % socialProofData.length;
+      }
+
+      // Show first notification after 10 seconds
+      setTimeout(showSocialProof, 10000);
+
+      // Show notifications every 20 seconds
+      setInterval(showSocialProof, 20000);
+
+      // Enhanced Form Validation
+      const formInputs = document.querySelectorAll('.form-body input, .form-body select, .form-body textarea');
+
+      formInputs.forEach(input => {
+        input.addEventListener('blur', () => {
+          validateInput(input);
+        });
+
+        input.addEventListener('input', () => {
+          if (input.parentElement.classList.contains('error')) {
+            validateInput(input);
+          }
+        });
+      });
+
+      function validateInput(input) {
+        const parent = input.parentElement;
+        parent.classList.remove('error', 'success');
+
+        if (input.hasAttribute('required') && !input.value.trim()) {
+          parent.classList.add('error');
+          return false;
+        }
+
+        if (input.type === 'email' && input.value.trim()) {
+          if (!input.value.includes('@') || !input.value.includes('.')) {
+            parent.classList.add('error');
+            return false;
+          }
+        }
+
+        if (input.value.trim()) {
+          parent.classList.add('success');
+        }
+
+        return true;
+      }
+
+      // Enhanced Form Submit with Loading State
+      const submitButton = document.querySelector('.form-body .btn');
+      if (submitButton) {
+        submitButton.addEventListener('click', (e) => {
+          e.preventDefault();
+
+          const allInputs = document.querySelectorAll('.form-body input[required], .form-body select[required]');
+          let allValid = true;
+
+          allInputs.forEach(input => {
+            if (!validateInput(input)) {
+              allValid = false;
+            }
+          });
+
+          if (allValid) {
+            submitButton.classList.add('loading');
+
+            setTimeout(() => {
+              submitButton.classList.remove('loading');
+              alert('Thanks! We\'ll be in touch shortly to schedule your call.');
+
+              // Reset form
+              document.querySelectorAll('.form-body input, .form-body select, .form-body textarea').forEach(input => {
+                input.value = '';
+                input.parentElement.classList.remove('success', 'error');
+              });
+            }, 2000);
+          } else {
+            alert('Please fill in all required fields correctly.');
+          }
+        });
       }
     });
   </script>
