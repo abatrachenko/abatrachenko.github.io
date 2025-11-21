@@ -320,6 +320,8 @@ header {
   gap: 3rem;
   padding: 6rem 0;
   position: relative;
+  z-index: 1;
+  isolation: isolate;
 }
 
 .hero::before {
@@ -381,6 +383,8 @@ header {
   padding: 3rem 0;
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 2;
 }
 
 .trust-badges {
@@ -411,6 +415,8 @@ header {
   overflow: hidden;
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  z-index: 3;
 }
 
 .clients-section h2 {
@@ -544,6 +550,8 @@ header {
 .metrics-section {
   background: var(--black);
   padding: 5rem 0;
+  position: relative;
+  z-index: 4;
 }
 
 .metrics {
