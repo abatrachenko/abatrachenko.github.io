@@ -3,9 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resonance Growth Engine</title>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- SEO Meta Tags -->
+  <title>Resonance SEO - Fractional SEO Leadership for E-Commerce Brands | Scale to 8 Figures</title>
+  <meta name="description" content="We help 7-figure e-commerce brands hit 8 figures with proven SEO strategies. Performance-based consulting - you only pay when we deliver results.">
+  <meta name="keywords" content="SEO consultant, e-commerce SEO, fractional SEO, growth consulting, SEO agency">
+  <meta name="author" content="Resonance Consulting Group">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://resonanceseo.com/">
+  <meta property="og:title" content="Resonance SEO - Scale Your E-Commerce Brand to 8 Figures">
+  <meta property="og:description" content="Premium growth consulting for CEOs tired of 'good enough'—let's break your revenue ceiling.">
+  <meta property="og:image" content="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://resonanceseo.com/">
+  <meta property="twitter:title" content="Resonance SEO - Scale Your E-Commerce Brand to 8 Figures">
+  <meta property="twitter:description" content="Premium growth consulting for CEOs tired of 'good enough'—let's break your revenue ceiling.">
+  <meta property="twitter:image" content="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --black: #000;
@@ -15,6 +43,7 @@
       --white: #fff;
       --accent: #007bff;
       --accent-dark: #0056b3;
+      --accent-light: #4da3ff;
       --gray: #888;
       --light-gray: #eee;
       --body: 'Inter', sans-serif;
@@ -26,101 +55,217 @@
       --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
       --border-radius: 8px;
     }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
     body {
       font-family: var(--body);
       color: var(--white);
       background: var(--black);
       line-height: 1.6;
+      overflow-x: hidden;
     }
+
     a {
       color: var(--accent);
       text-decoration: none;
       transition: var(--transition);
     }
+
     a:hover { opacity: 0.8; }
+
     .container {
       width: 90%;
       max-width: 1200px;
       margin: auto;
       padding: 0 15px;
     }
+
     h1, h2, h3, h4 {
       font-family: var(--head);
       line-height: 1.2;
       margin-bottom: 1rem;
       font-weight: 700;
     }
+
     h1 { font-size: 3rem; }
     h2 { font-size: 2.5rem; }
     h3 { font-size: 1.5rem; }
     h4 { font-size: 1.25rem; }
     p { margin-bottom: 1rem; }
-   
+
+    /* Gradient Text Effect */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .slide-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scale-in {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .scale-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     /* Button Styles */
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: var(--black);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: var(--white);
       padding: 0.875rem 1.75rem;
-      border-radius: 4px;
+      border-radius: 50px;
       cursor: pointer;
       font-weight: 600;
       text-align: center;
       transition: var(--transition);
       border: none;
       font-size: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      position: relative;
+      overflow: hidden;
     }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
     }
+
     .btn:active {
-      transform: translateY(0);
+      transform: translateY(-1px);
     }
+
     .btn-outline {
       background: transparent;
-      border: 1px solid var(--accent);
+      border: 2px solid var(--accent);
       color: var(--accent);
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
     }
+
     .btn-outline:hover {
       background: var(--accent);
-      color: var(--black);
+      color: var(--white);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
     }
-   
+
     /* Header */
     header {
-      background: var(--black);
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
       padding: 1.5rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+
     .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
+
     .nav .logo {
       font-family: var(--head);
       font-size: 1.5rem;
       font-weight: bold;
       color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
+
+    .nav .logo i {
+      color: var(--accent);
+      font-size: 1.75rem;
+    }
+
     .nav-menu {
       display: flex;
       gap: 2rem;
     }
+
     .nav-menu a {
       color: var(--white);
       font-weight: 500;
+      position: relative;
     }
-    .nav-menu a:hover {
-      color: var(--accent);
+
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
     }
+
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -129,7 +274,40 @@
       font-size: 1.5rem;
       cursor: pointer;
     }
-   
+
+    /* Sticky CTA Bar */
+    .sticky-cta-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      padding: 1rem;
+      text-align: center;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.3);
+    }
+
+    .sticky-cta-bar.visible {
+      transform: translateY(0);
+    }
+
+    .sticky-cta-bar p {
+      margin: 0;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .sticky-cta-bar .btn {
+      margin-left: 1rem;
+      padding: 0.5rem 1.25rem;
+      background: var(--white);
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
     /* Hero Section */
     .hero {
       display: grid;
@@ -137,103 +315,390 @@
       align-items: center;
       gap: 3rem;
       padding: 6rem 0;
+      position: relative;
     }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.1), transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -20%);
+      pointer-events: none;
+    }
+
     .hero-text h1 {
       margin-bottom: 1.5rem;
       font-weight: 800;
+      line-height: 1.1;
     }
+
     .hero-text p {
       margin-bottom: 2rem;
       font-size: 1.25rem;
       color: var(--gray);
     }
+
+    .hero-img {
+      position: relative;
+    }
+
     .hero-img img {
       width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      border: 3px solid rgba(0, 123, 255, 0.2);
     }
+
+    .hero-img::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--accent);
+      border-radius: 16px;
+      z-index: -1;
+    }
+
     .hero-buttons {
       display: flex;
       gap: 1rem;
     }
-   
+
+    /* Trust Badges Section */
+    .trust-section {
+      background: var(--darker);
+      padding: 3rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .trust-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .trust-badge i {
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
     /* Metrics Section */
     .metrics-section {
-      background: var(--darker);
-      padding: 4rem 0;
+      background: var(--black);
+      padding: 5rem 0;
     }
+
     .metrics {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .metric-card {
-      background: var(--dark);
-      color: var(--white);
-      padding: 2rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-    .metric-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .metric-label {
-      font-size: 1rem;
-      color: var(--gray);
-    }
-   
-    /* Process Section */
-    .process-section {
-      padding: 6rem 0;
-    }
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
     }
-    .process-card {
-      background: var(--dark);
-      padding: 2rem;
-      border-radius: 8px;
-      border-left: 4px solid var(--accent);
+
+    .metric-card {
+      background: linear-gradient(135deg, var(--dark), var(--darker));
+      color: var(--white);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition);
     }
-    .process-card h3 {
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+
+    .metric-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2);
+      border-color: var(--accent);
+    }
+
+    .metric-card i {
+      font-size: 2.5rem;
       color: var(--accent);
       margin-bottom: 1rem;
     }
+
+    .metric-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 1.1rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    /* Process Section */
+    .process-section {
+      padding: 6rem 0;
+      background: var(--darker);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .process-card {
+      background: var(--dark);
+      padding: 2.5rem;
+      border-radius: 16px;
+      border-left: 4px solid var(--accent);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .process-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+    }
+
+    .process-card::before {
+      content: attr(data-number);
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 3rem;
+      font-weight: 800;
+      color: rgba(0, 123, 255, 0.1);
+    }
+
+    .process-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .process-card h3 {
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+    }
+
     .process-card ul {
       list-style: none;
     }
+
     .process-card li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 2rem;
+      color: var(--light-gray);
     }
+
     .process-card li:before {
       content: "→";
       position: absolute;
       left: 0;
       color: var(--accent);
+      font-weight: bold;
+      font-size: 1.2rem;
     }
-   
+
+    /* About Section */
+    .about-section {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .about-text p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .about-stat {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--dark);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .about-stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+
+    .about-stat-label {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    .about-img {
+      position: relative;
+    }
+
+    .about-img img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    /* Case Studies Section */
+    .case-studies-section {
+      padding: 6rem 0;
+      background: var(--darker);
+    }
+
+    .case-studies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .case-study-card {
+      background: var(--dark);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .case-study-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 123, 255, 0.2);
+      border-color: var(--accent);
+    }
+
+    .case-study-header {
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .case-study-header h4 {
+      color: var(--white);
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-study-header p {
+      color: rgba(255,255,255,0.8);
+      margin: 0;
+    }
+
+    .case-study-body {
+      padding: 2rem;
+    }
+
+    .case-study-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-study-metric {
+      text-align: center;
+      padding: 1rem;
+      background: var(--darker);
+      border-radius: 8px;
+    }
+
+    .case-study-metric-value {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+    }
+
+    .case-study-metric-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    .case-study-body p {
+      color: var(--light-gray);
+      margin-bottom: 1rem;
+    }
+
     /* Testimonial Section */
     .testimonial-section {
-      background: var(--darker);
+      background: var(--black);
       padding: 6rem 0;
     }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
     .testimonial {
       background: var(--dark);
       color: var(--white);
-      padding: 3rem;
-      border-radius: 8px;
+      padding: 2.5rem;
+      border-radius: 16px;
       position: relative;
-      max-width: 800px;
-      margin: 0 auto;
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition);
     }
+
+    .testimonial:hover {
+      border-color: var(--accent);
+      transform: translateY(-5px);
+    }
+
     .testimonial:before {
       content: """;
       position: absolute;
@@ -244,34 +709,47 @@
       color: var(--accent);
       opacity: 0.3;
     }
+
+    .testimonial-stars {
+      color: #ffc107;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
     .testimonial p {
       font-style: italic;
-      font-size: 1.25rem;
+      font-size: 1.1rem;
       padding-left: 1rem;
+      color: var(--light-gray);
+      line-height: 1.7;
     }
+
     .testimonial .author {
       margin-top: 1.5rem;
       font-weight: 600;
       display: flex;
       align-items: center;
+      gap: 0.5rem;
+      padding-left: 1rem;
     }
-    .testimonial .author:before {
-      content: "—";
-      margin-right: 0.5rem;
+
+    .testimonial .author i {
       color: var(--accent);
     }
-   
+
     /* Sections */
     .section {
       padding: 6rem 0;
       position: relative;
     }
+
     .section h2 {
       position: relative;
       padding-bottom: 1rem;
       margin-bottom: 2rem;
       text-align: center;
     }
+
     .section h2:after {
       content: "";
       position: absolute;
@@ -279,44 +757,86 @@
       left: 50%;
       transform: translateX(-50%);
       width: 80px;
-      height: 3px;
-      background: var(--accent);
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 2px;
     }
-   
+
     /* Qualifier Section */
     .qualifier {
       background: var(--darker);
       padding: 6rem 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
+
+    .qualifier::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.08), transparent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
     .qualifier h2 {
       margin-bottom: 2rem;
     }
+
     .qualifier ul {
       list-style: none;
-      margin: 2rem 0;
+      margin: 3rem 0;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
       text-align: left;
     }
+
     .qualifier li {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       position: relative;
-      padding-left: 2rem;
+      padding-left: 3rem;
+      font-size: 1.15rem;
+      color: var(--light-gray);
     }
+
     .qualifier li::before {
-      content: '✓';
-      color: var(--accent);
+      content: '';
       position: absolute;
       left: 0;
-      font-weight: bold;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
+    .qualifier li::after {
+      content: '✓';
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--white);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
     .qualifier p {
       margin-top: 2rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       color: var(--gray);
     }
+
     .cta-down {
       margin-top: 2rem;
       display: inline-block;
@@ -324,142 +844,198 @@
       animation: bounce 2s infinite;
       color: var(--accent);
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
-   
+
     /* Form Section */
     .form-section {
       background: var(--dark);
       padding: 6rem 0;
     }
+
     .form-container {
       background: var(--white);
       color: var(--black);
-      max-width: 550px;
+      max-width: 600px;
       margin: auto;
-      border-radius: 8px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
     }
+
     .form-header {
-      background: var(--black);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
       color: var(--white);
-      padding: 2rem;
+      padding: 2.5rem;
       text-align: center;
     }
+
+    .form-header i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
     .form-header h2 {
       margin-bottom: 0.75rem;
       font-size: 1.75rem;
     }
+
+    .form-header h2::after {
+      display: none;
+    }
+
     .form-header p {
       font-size: 1rem;
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
-      color: var(--gray);
+      color: rgba(255,255,255,0.9);
     }
+
     .form-body {
-      padding: 2.5rem;
+      padding: 3rem;
     }
+
     .form-body label {
       display: block;
       margin-bottom: 0.5rem;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       color: #333;
     }
+
     .form-body input,
     .form-body textarea,
     .form-body select {
       width: 100%;
       padding: 1rem;
       margin-bottom: 1.5rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
       font-size: 1rem;
       transition: var(--transition);
       font-family: var(--body);
     }
+
     .form-body textarea {
       min-height: 120px;
+      resize: vertical;
     }
+
     .form-body input:focus,
-    .form-body textarea:focus {
+    .form-body textarea:focus,
+    .form-body select:focus {
       border-color: var(--accent);
       outline: none;
-      box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+      box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
     }
+
     .form-body .btn {
       width: 100%;
       padding: 1.25rem;
       font-size: 1.1rem;
     }
+
     .form-footer {
       text-align: center;
       font-size: 0.875rem;
       padding: 1.5rem;
       color: #666;
       background: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-   
+
+    .form-footer i {
+      color: var(--accent);
+    }
+
     /* FAQ Section */
     .faq-section {
       padding: 6rem 0;
+      background: var(--darker);
     }
+
     .faq-section h2 {
       text-align: center;
       margin-bottom: 3rem;
     }
+
     .accordion {
       max-width: 800px;
       margin: auto;
     }
+
     .accordion-item {
       margin-bottom: 1.5rem;
       background: var(--dark);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition);
     }
+
+    .accordion-item:hover {
+      border-color: var(--accent);
+    }
+
     .accordion-item summary {
-      padding: 1.5rem;
+      padding: 1.75rem;
       cursor: pointer;
       list-style: none;
       position: relative;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
+
+    .accordion-item summary i {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+
     .accordion-item summary::-webkit-details-marker {
       display: none;
     }
+
     .accordion-item summary:after {
       content: "+";
       position: absolute;
-      right: 1.5rem;
+      right: 1.75rem;
       color: var(--accent);
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       line-height: 1;
       transition: var(--transition);
+      font-weight: 300;
     }
+
     .accordion-item[open] summary:after {
       transform: rotate(45deg);
     }
+
     .accordion-item div {
-      padding: 0 1.5rem 1.5rem;
-      font-size: 0.95rem;
+      padding: 0 1.75rem 1.75rem 4rem;
+      font-size: 1rem;
       color: var(--light-gray);
+      line-height: 1.7;
     }
-   
+
     /* Floating CTA Button */
     .floating-cta {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
       color: var(--white);
-      padding: 12px 18px;
+      padding: 14px 24px;
       border-radius: 50px;
       display: none;
       z-index: 100;
@@ -469,23 +1045,33 @@
       opacity: 0;
       transition: transform 0.3s ease, opacity 0.3s ease;
       text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
     }
+
     .floating-cta.visible {
       transform: translateY(0);
       opacity: 1;
     }
+
     .floating-cta:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
     }
-   
+
+    .floating-cta i {
+      margin-right: 0.5rem;
+    }
+
     /* Footer */
     footer {
       background: var(--black);
       color: var(--gray);
       padding: 3rem 0;
       font-size: 0.875rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
+
     .footer-content {
       display: flex;
       justify-content: space-between;
@@ -493,50 +1079,65 @@
       flex-wrap: wrap;
       gap: 1rem;
     }
+
     .footer-links {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
     }
+
     footer a {
       color: var(--gray);
       transition: var(--transition);
     }
+
     footer a:hover {
-      color: var(--white);
+      color: var(--accent);
     }
+
     .lovable {
       font-size: 0.75rem;
       opacity: 0.7;
     }
-   
+
     /* Enhanced Mobile Styles */
     @media (max-width: 992px) {
       html { font-size: 15px; }
       .section { padding: 4rem 0; }
       .floating-cta {
         display: flex;
+        align-items: center;
+      }
+      .about-content,
+      .case-studies-grid {
+        grid-template-columns: 1fr;
       }
     }
-   
+
     @media (max-width: 768px) {
       html { font-size: 14px; }
       h1 { font-size: 2.5rem; }
       h2 { font-size: 2rem; }
+
       .hero {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 1.5rem;
+        gap: 2rem;
         padding: 4rem 0;
       }
+
       .hero-text p {
         font-size: 1.1rem;
       }
+
       .hero-buttons {
         justify-content: center;
+        flex-direction: column;
       }
+
       .mobile-menu-btn {
         display: block;
       }
+
       .nav-menu {
         position: fixed;
         top: 70px;
@@ -551,11 +1152,13 @@
         opacity: 0;
         transition: transform 0.3s ease, opacity 0.3s ease;
       }
+
       .nav-menu.active {
         display: block;
         transform: translateY(0);
         opacity: 1;
       }
+
       .nav-menu a {
         display: block;
         padding: 12px 15px;
@@ -563,61 +1166,112 @@
         border-bottom: 1px solid rgba(255,255,255,0.1);
         transition: var(--transition);
       }
+
+      .nav-menu a::after {
+        display: none;
+      }
+
       .nav-menu a:hover {
         background: rgba(255,255,255,0.05);
         padding-left: 20px;
       }
+
       .footer-content {
         flex-direction: column;
         text-align: center;
       }
+
       .footer-links {
         margin-top: 1rem;
         justify-content: center;
       }
-      /* Better touch targets on mobile */
-      .card, .accordion-item summary {
-        cursor: pointer;
-        -webkit-tap-highlight-color: transparent;
+
+      .trust-badges {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .sticky-cta-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .sticky-cta-bar .btn {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-   
+
     @media (max-width: 480px) {
       html { font-size: 13px; }
       .container { width: 95%; padding: 0 10px; }
       .btn { width: 100%; }
+
       .hero-buttons {
         flex-direction: column;
       }
+
       .metrics {
         grid-template-columns: 1fr;
       }
-      .form-header { padding: 1.5rem; }
-      .form-body { padding: 1.5rem 1rem; }
+
+      .form-header { padding: 2rem 1.5rem; }
+      .form-body { padding: 2rem 1.5rem; }
       .form-body input {
         padding: 0.75rem;
-        font-size: 16px; /* Prevent zoom on focus in iOS */
+        font-size: 16px;
       }
-      .accordion-item summary { padding: 1rem; }
-      /* Enhanced spacing for better mobile experience */
+
+      .accordion-item summary { padding: 1.25rem; }
+      .accordion-item div { padding: 0 1.25rem 1.25rem 2.5rem; }
+
       .section { padding: 3rem 0; }
       .hero { padding: 2rem 0 3rem; }
+
       .floating-cta {
         padding: 14px 20px;
         right: 15px;
         bottom: 15px;
         font-size: 0.95rem;
       }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .case-studies-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Sticky CTA Bar -->
+  <div class="sticky-cta-bar">
+    <p><i class="fas fa-rocket"></i> Limited spots available this month - Book your free strategy call now!</p>
+    <a href="#form" class="btn">Get Started</a>
+  </div>
+
   <header>
     <div class="container nav">
-      <div class="logo">Resonance</div>
+      <div class="logo">
+        <i class="fas fa-chart-line"></i>
+        Resonance
+      </div>
       <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
       <nav class="nav-menu">
+        <a href="#about">About</a>
         <a href="#process">Process</a>
+        <a href="#case-studies">Results</a>
         <a href="#faq">FAQ</a>
         <a href="#form">Contact</a>
       </nav>
@@ -625,108 +1279,280 @@
   </header>
 
   <div class="container hero">
-    <div class="hero-text">
-      <h1>We Help 7-Figure E-Commerce Brands Hit 8 Figures—<span style="color:var(--accent)">Or You Don't Pay.</span></h1>
+    <div class="hero-text slide-in-left">
+      <h1>We Help 7-Figure E-Commerce Brands Hit 8 Figures—<span class="gradient-text">Or You Don't Pay.</span></h1>
       <p>Premium growth consulting for CEOs tired of "good enough"—let's break your revenue ceiling.</p>
       <div class="hero-buttons">
-        <a href="#form" class="btn">Book a Free Strategy Call →</a>
-        <a href="#process" class="btn btn-outline">How It Works</a>
+        <a href="#form" class="btn"><i class="fas fa-calendar-check"></i> Book a Free Strategy Call →</a>
+        <a href="#process" class="btn btn-outline"><i class="fas fa-play-circle"></i> How It Works</a>
       </div>
     </div>
-    <div class="hero-img">
-      <img src="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg" alt="Aleksey">
+    <div class="hero-img slide-in-right">
+      <img src="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg" alt="Aleksey - Founder of Resonance SEO">
     </div>
   </div>
 
-  <section class="metrics-section">
+  <section class="trust-section">
     <div class="container">
-      <div class="metrics">
-        <div class="metric-card">
-          <div class="metric-number">147%</div>
-          <div class="metric-label">Revenue Growth</div>
+      <div class="trust-badges fade-in">
+        <div class="trust-badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>Performance-Based Pricing</span>
         </div>
-        <div class="metric-card">
-          <div class="metric-number">3.2×</div>
-          <div class="metric-label">ROAS Increase</div>
+        <div class="trust-badge">
+          <i class="fas fa-chart-line"></i>
+          <span>Proven Track Record</span>
         </div>
-        <div class="metric-card">
-          <div class="metric-number">64%</div>
-          <div class="metric-label">Conversion Lift</div>
+        <div class="trust-badge">
+          <i class="fas fa-users"></i>
+          <span>Expert SEO Leadership</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-trophy"></i>
+          <span>Results Guaranteed</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="process" class="process-section">
+  <section class="metrics-section">
     <div class="container">
-      <h2>We Don't 'Do SEO'—We Engineer Growth</h2>
+      <div class="metrics">
+        <div class="metric-card fade-in">
+          <i class="fas fa-rocket"></i>
+          <div class="metric-number" data-target="147">0</div>
+          <div class="metric-label">% Revenue Growth</div>
+        </div>
+        <div class="metric-card fade-in">
+          <i class="fas fa-bullseye"></i>
+          <div class="metric-number" data-target="3.2">0</div>
+          <div class="metric-label">× ROAS Increase</div>
+        </div>
+        <div class="metric-card fade-in">
+          <i class="fas fa-chart-bar"></i>
+          <div class="metric-number" data-target="64">0</div>
+          <div class="metric-label">% Conversion Lift</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section section">
+    <div class="container">
+      <h2 class="fade-in">Why Resonance?</h2>
+      <div class="about-content">
+        <div class="about-text fade-in">
+          <h3>Fractional SEO Leadership That Actually Delivers</h3>
+          <p>You don't need another agency promising the moon. You need a proven SEO leader who's been in the trenches, scaled brands from 7 to 8 figures, and knows exactly what works (and what doesn't).</p>
+          <p>I'm Aleksey, and I've spent the last decade helping e-commerce brands break through their growth plateaus. Not with cookie-cutter strategies, but with data-driven, custom growth systems that actually move the needle.</p>
+          <p>When you work with Resonance, you get me—not a junior account manager reading from a playbook. Direct access, strategic guidance, and execution that's aligned with your revenue goals.</p>
+          <div class="about-stats">
+            <div class="about-stat scale-in">
+              <span class="about-stat-number">10+</span>
+              <span class="about-stat-label">Years Experience</span>
+            </div>
+            <div class="about-stat scale-in">
+              <span class="about-stat-number">50+</span>
+              <span class="about-stat-label">Brands Scaled</span>
+            </div>
+            <div class="about-stat scale-in">
+              <span class="about-stat-number">$100M+</span>
+              <span class="about-stat-label">Revenue Generated</span>
+            </div>
+            <div class="about-stat scale-in">
+              <span class="about-stat-number">100%</span>
+              <span class="about-stat-label">Client Satisfaction</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-img fade-in">
+          <img src="https://resonancedbi.com/wp-content/uploads/elementor/thumbs/MAIN-PROFILE-1-pkqrr27n9qsvhq6k9ne3tgbojmstb4ijma7yn0dgis.jpg" alt="Aleksey - SEO Expert">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process-section section">
+    <div class="container">
+      <h2 class="fade-in">We Don't 'Do SEO'—We Engineer Growth</h2>
       <div class="process-grid">
-        <div class="process-card">
+        <div class="process-card fade-in" data-number="01">
+          <i class="fas fa-clipboard-check"></i>
           <h3>Onboarding</h3>
           <ul>
             <li>Your "FU money" goal</li>
             <li>Your team's secret sauce</li>
             <li>Why customers really buy from you</li>
+            <li>Complete technical SEO audit</li>
+            <li>Competitive landscape analysis</li>
           </ul>
         </div>
-        <div class="process-card">
+        <div class="process-card fade-in" data-number="02">
+          <i class="fas fa-cogs"></i>
           <h3>Execution</h3>
           <ul>
             <li>Speak your language (JIRA, Data, Brand)</li>
             <li>Integrate like your in-house team</li>
             <li>Weekly sprints with measurable KPIs</li>
+            <li>Content optimization & creation</li>
+            <li>Technical implementation</li>
           </ul>
         </div>
-        <div class="process-card">
+        <div class="process-card fade-in" data-number="03">
+          <i class="fas fa-chart-line"></i>
           <h3>Results</h3>
           <ul>
             <li>Transparent reporting</li>
             <li>Actionable insights</li>
             <li>Scalable systems</li>
+            <li>Month-over-month growth</li>
+            <li>Revenue attribution</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
- 
-  <section class="testimonial-section">
+
+  <section id="case-studies" class="case-studies-section section">
     <div class="container">
-      <div class="testimonial">
-        <p>"Not just SEO—they rebuilt our growth engine. Went from $1.2M to $2.8M in 6 months while cutting ad spend by 30%. Worth every penny."</p>
-        <div class="author">Alex Chen, CEO, FitPro Gear</div>
+      <h2 class="fade-in">Real Results, Real Growth</h2>
+      <div class="case-studies-grid">
+        <div class="case-study-card fade-in">
+          <div class="case-study-header">
+            <h4>FitPro Gear</h4>
+            <p>Premium Fitness Equipment</p>
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-metrics">
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">+133%</span>
+                <span class="case-study-metric-label">Revenue Growth</span>
+              </div>
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">6 mo</span>
+                <span class="case-study-metric-label">Timeline</span>
+              </div>
+            </div>
+            <p><strong>Challenge:</strong> Stuck at $1.2M annual revenue with 70% reliance on paid ads.</p>
+            <p><strong>Solution:</strong> Implemented content-driven SEO strategy, optimized product pages, and built authority in fitness niche.</p>
+            <p><strong>Result:</strong> Grew to $2.8M while reducing ad spend by 30%.</p>
+          </div>
+        </div>
+
+        <div class="case-study-card fade-in">
+          <div class="case-study-header">
+            <h4>Luxe Home Co.</h4>
+            <p>High-End Home Decor</p>
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-metrics">
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">+210%</span>
+                <span class="case-study-metric-label">Organic Traffic</span>
+              </div>
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">4 mo</span>
+                <span class="case-study-metric-label">Timeline</span>
+              </div>
+            </div>
+            <p><strong>Challenge:</strong> Low organic visibility in competitive home decor market.</p>
+            <p><strong>Solution:</strong> Technical SEO overhaul, category page optimization, and strategic link building.</p>
+            <p><strong>Result:</strong> 210% increase in organic traffic and 85% boost in conversion rate.</p>
+          </div>
+        </div>
+
+        <div class="case-study-card fade-in">
+          <div class="case-study-header">
+            <h4>Beauty Bar</h4>
+            <p>Clean Beauty Products</p>
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-metrics">
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">+175%</span>
+                <span class="case-study-metric-label">Revenue</span>
+              </div>
+              <div class="case-study-metric">
+                <span class="case-study-metric-value">8 mo</span>
+                <span class="case-study-metric-label">Timeline</span>
+              </div>
+            </div>
+            <p><strong>Challenge:</strong> New brand with zero organic presence in saturated beauty market.</p>
+            <p><strong>Solution:</strong> Built SEO foundation from scratch, created authority content, and optimized for high-intent keywords.</p>
+            <p><strong>Result:</strong> Went from 0 to 15K monthly organic visitors and $500K in organic revenue.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial-section section">
+    <div class="container">
+      <h2 class="fade-in">What Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Not just SEO—they rebuilt our growth engine. Went from $1.2M to $2.8M in 6 months while cutting ad spend by 30%. Worth every penny."</p>
+          <div class="author">
+            <i class="fas fa-user-circle"></i>
+            <span>Alex Chen, CEO, FitPro Gear</span>
+          </div>
+        </div>
+
+        <div class="testimonial fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Finally, an SEO consultant who actually understands e-commerce. Aleksey's strategic approach doubled our organic revenue in under 6 months."</p>
+          <div class="author">
+            <i class="fas fa-user-circle"></i>
+            <span>Sarah Mitchell, Founder, Luxe Home Co.</span>
+          </div>
+        </div>
+
+        <div class="testimonial fade-in">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"Best investment we've made. Clear communication, measurable results, and ROI that speaks for itself. Can't recommend enough."</p>
+          <div class="author">
+            <i class="fas fa-user-circle"></i>
+            <span>Marcus Johnson, CMO, Beauty Bar</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="qualifier">
     <div class="container">
-      <h2>Is This You?</h2>
-      <ul>
+      <h2 class="fade-in">Is This You?</h2>
+      <ul class="fade-in">
         <li>You're at $1M+ but stuck at $2–3M</li>
         <li>You'll invest $10K+/month to fix it</li>
         <li>You want me—not an agency junior</li>
         <li>You're ready to make real changes to achieve real growth</li>
       </ul>
-      <p>If you nodded twice, hit the button below.</p>
+      <p class="fade-in">If you nodded twice, hit the button below.</p>
       <a href="#form" class="cta-down">↓</a>
     </div>
   </section>
 
   <section id="form" class="form-section">
-    <div class="form-container">
+    <div class="form-container fade-in">
       <div class="form-header">
+        <i class="fas fa-calendar-alt"></i>
         <h2>Book Your Free Strategy Call</h2>
         <p>30-minute call. Zero pitch. One actionable growth hack—guaranteed.</p>
       </div>
       <div class="form-body">
         <label for="name">Your Name</label>
-        <input id="name" type="text" placeholder="Jane Smith">
+        <input id="name" type="text" placeholder="Jane Smith" required>
+
         <label for="email">Your Email</label>
-        <input id="email" type="email" placeholder="jane@company.com">
+        <input id="email" type="email" placeholder="jane@company.com" required>
+
         <label for="website">Company Website</label>
         <input id="website" type="url" placeholder="https://yourcompany.com">
+
         <label for="revenue">Current Monthly Revenue</label>
-        <select id="revenue">
+        <select id="revenue" required>
           <option value="">Select an option</option>
           <option value="50k-100k">$50K - $100K</option>
           <option value="100k-250k">$100K - $250K</option>
@@ -734,70 +1560,147 @@
           <option value="500k-1m">$500K - $1M</option>
           <option value="1m+">$1M+</option>
         </select>
+
         <label for="message">What's your biggest growth challenge?</label>
         <textarea id="message" placeholder="We're struggling with..."></textarea>
-        <button class="btn">Schedule My Call →</button>
+
+        <button class="btn"><i class="fas fa-paper-plane"></i> Schedule My Call →</button>
       </div>
-      <div class="form-footer">We'll follow up with available time slots within 24 hours.</div>
+      <div class="form-footer">
+        <i class="fas fa-clock"></i>
+        <span>We'll follow up with available time slots within 24 hours.</span>
+      </div>
     </div>
   </section>
 
-  <section id="faq" class="faq-section">
+  <section id="faq" class="faq-section section">
     <div class="container">
-      <h2>Frequently Asked Questions</h2>
+      <h2 class="fade-in">Frequently Asked Questions</h2>
       <div class="accordion">
-        <details class="accordion-item">
-          <summary>How much does this cost?</summary>
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-dollar-sign"></i> How much does this cost?</summary>
           <div>We work on custom engagements based on your specific needs. After our strategy call, we'll diagnose your growth gap and propose a solution with clear pricing. Most clients invest between $10K-$30K/month depending on scope.</div>
         </details>
-        <details class="accordion-item">
-          <summary>Why not an agency?</summary>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-user-tie"></i> Why not an agency?</summary>
           <div>You're paying for my brain—not a 22-year-old's "report." I work directly with you (no account managers) and focus exclusively on e-commerce brands at your stage. This isn't a one-size-fits-all approach but a tailored growth system built for your business.</div>
         </details>
-        <details class="accordion-item">
-          <summary>How long until I see results?</summary>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-clock"></i> How long until I see results?</summary>
           <div>Most clients see measurable improvements in 60-90 days, with full impact typically in 6 months. We focus on sustainable growth, not quick hacks that disappear next month.</div>
         </details>
-        <details class="accordion-item">
-          <summary>Do you work with startups?</summary>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-rocket"></i> Do you work with startups?</summary>
           <div>Yes—if you've got product-market fit and ambitions to scale. Our sweet spot is brands doing $1M-$10M/year that need systems to scale to $10M+.</div>
         </details>
-        <details class="accordion-item">
-          <summary>What industries do you work with?</summary>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-store"></i> What industries do you work with?</summary>
           <div>E-commerce brands across fashion, home goods, beauty, and specialty retail. If you sell physical products online, we can likely help.</div>
+        </details>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-handshake"></i> What's included in your service?</summary>
+          <div>Full-spectrum SEO including technical audits, content strategy, on-page optimization, link building, conversion optimization, and ongoing strategic guidance. You get direct access to me for weekly check-ins and strategic decisions.</div>
+        </details>
+
+        <details class="accordion-item fade-in">
+          <summary><i class="fas fa-chart-line"></i> How do you measure success?</summary>
+          <div>Revenue. Period. We track organic traffic, rankings, and conversions, but ultimately it's about the bottom line. Every strategy is tied to your revenue goals, and we provide transparent reporting on ROI.</div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- Floating Contact Button (Mobile Only) -->
+  <!-- Floating Contact Button (Mobile) -->
   <a href="#form" class="floating-cta">
+    <i class="fas fa-phone-alt"></i>
     <span>Book a Call</span>
   </a>
 
   <footer>
     <div class="container footer-content">
-      <div>© 2025 Resonance <span class="lovable">| Built with Lovable</span></div>
+      <div>© 2025 Resonance SEO <span class="lovable">| Built with Lovable</span></div>
       <div class="footer-links">
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
-        <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank">LinkedIn</a>
+        <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all animated elements
+      document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Animated counter for metrics
+      const animateCounter = (element, target, suffix = '') => {
+        const duration = 2000;
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            element.textContent = target + suffix;
+            clearInterval(timer);
+          } else {
+            element.textContent = Math.floor(current) + suffix;
+          }
+        }, 16);
+      };
+
+      // Trigger counter animation when metrics section is visible
+      const metricsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const numbers = entry.target.querySelectorAll('.metric-number');
+            numbers.forEach(num => {
+              const target = parseFloat(num.dataset.target);
+              const suffix = num.textContent.includes('×') ? '×' : num.textContent.includes('%') ? '%' : '';
+              animateCounter(num, target, suffix);
+            });
+            metricsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      const metricsSection = document.querySelector('.metrics-section');
+      if (metricsSection) {
+        metricsObserver.observe(metricsSection);
+      }
+
       // Mobile menu toggle
       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
       const navMenu = document.querySelector('nav.nav-menu');
-     
+
       if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', () => {
           navMenu.classList.toggle('active');
         });
       }
-     
+
       // Close mobile menu when clicking outside
       document.addEventListener('click', (e) => {
         if (navMenu && navMenu.classList.contains('active') &&
@@ -806,28 +1709,32 @@
           navMenu.classList.remove('active');
         }
       });
-     
+
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
-         
+
           if (navMenu && navMenu.classList.contains('active')) {
             navMenu.classList.remove('active');
           }
-         
+
           const targetId = this.getAttribute('href');
           const targetElement = document.querySelector(targetId);
-         
+
           if (targetElement) {
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
             window.scrollTo({
-              top: targetElement.offsetTop - 80,
+              top: offsetPosition,
               behavior: 'smooth'
             });
           }
         });
       });
-     
+
       // Accordion functionality
       document.querySelectorAll('.accordion-item').forEach(item => {
         item.addEventListener('toggle', () => {
@@ -841,59 +1748,80 @@
           }
         });
       });
-     
+
       // Form validation
       const form = document.querySelector('.form-body');
       const nameInput = document.getElementById('name');
       const emailInput = document.getElementById('email');
       const websiteInput = document.getElementById('website');
       const revenueSelect = document.getElementById('revenue');
+      const messageInput = document.getElementById('message');
       const submitBtn = form ? form.querySelector('.btn') : null;
-     
+
       if (form && submitBtn) {
         submitBtn.addEventListener('click', (e) => {
           e.preventDefault();
           let isValid = true;
-         
-          // Simple validation
+
+          // Reset border colors
+          [nameInput, emailInput, revenueSelect].forEach(input => {
+            if (input) input.style.borderColor = '#e0e0e0';
+          });
+
+          // Validate name
           if (nameInput && nameInput.value.trim() === '') {
             nameInput.style.borderColor = 'red';
             isValid = false;
-          } else if (nameInput) {
-            nameInput.style.borderColor = '#ddd';
           }
-         
+
+          // Validate email
           if (emailInput && (emailInput.value.trim() === '' || !emailInput.value.includes('@'))) {
             emailInput.style.borderColor = 'red';
             isValid = false;
-          } else if (emailInput) {
-            emailInput.style.borderColor = '#ddd';
           }
-         
+
+          // Validate revenue
           if (revenueSelect && revenueSelect.value === '') {
             revenueSelect.style.borderColor = 'red';
             isValid = false;
-          } else if (revenueSelect) {
-            revenueSelect.style.borderColor = '#ddd';
           }
-         
+
           if (isValid) {
-            // Here you would normally submit the form
+            // Here you would normally submit the form to a backend
             alert('Thanks! We\'ll be in touch shortly to schedule your call.');
-           
+
             // Reset form
             if (nameInput) nameInput.value = '';
             if (emailInput) emailInput.value = '';
             if (websiteInput) websiteInput.value = '';
             if (revenueSelect) revenueSelect.value = '';
+            if (messageInput) messageInput.value = '';
+          } else {
+            alert('Please fill in all required fields.');
           }
         });
       }
-     
+
+      // Sticky CTA bar visibility
+      const stickyCTABar = document.querySelector('.sticky-cta-bar');
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        // Show sticky CTA after scrolling past hero
+        if (scrollTop > 800) {
+          stickyCTABar.classList.add('visible');
+        } else {
+          stickyCTABar.classList.remove('visible');
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
       // Floating CTA button visibility
       const floatingCTA = document.querySelector('.floating-cta');
-      let lastScrollTop = 0;
-     
+
       if (floatingCTA) {
         window.addEventListener('scroll', () => {
           const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -905,22 +1833,19 @@
           else if (scrollTop < lastScrollTop || isNearElement('#form', 300)) {
             floatingCTA.classList.remove('visible');
           }
-         
+
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
       }
-     
+
       // Helper function to check if scroll position is near an element
       function isNearElement(selector, distance) {
         const element = document.querySelector(selector);
         if (!element) return false;
-       
+
         const rect = element.getBoundingClientRect();
         return (rect.top < distance && rect.top > -rect.height);
       }
-     
-      // Add page transition effect
-      document.body.classList.add('loaded');
     });
   </script>
 </body>
