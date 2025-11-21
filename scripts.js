@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Parallax Scrolling Effect
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const parallaxSpeed = 0.5;
-      hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-    });
-  }
+  // Parallax Scrolling Effect - Disabled to prevent overlap issues
+  // const hero = document.querySelector('.hero');
+  // if (hero) {
+  //   window.addEventListener('scroll', () => {
+  //     const scrolled = window.pageYOffset;
+  //     const parallaxSpeed = 0.5;
+  //     hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+  //   });
+  // }
 
   // Intersection Observer for scroll animations
   const observerOptions = {
