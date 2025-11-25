@@ -412,11 +412,11 @@ header {
 
 /* Clients Section */
 .clients-section {
-  background: var(--black);
+  background: #f8f9fa;
   padding: 5rem 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   position: relative;
   z-index: 3;
 }
@@ -424,11 +424,12 @@ header {
 .clients-section h2 {
   text-align: center;
   margin-bottom: 1rem;
+  color: var(--black);
 }
 
 .clients-subtitle {
   text-align: center;
-  color: var(--gray);
+  color: #6c757d;
   font-size: 1.1rem;
   margin-bottom: 3rem;
 }
@@ -453,12 +454,12 @@ header {
 
 .clients-carousel::before {
   left: 0;
-  background: linear-gradient(to right, var(--black), transparent);
+  background: linear-gradient(to right, #f8f9fa, transparent);
 }
 
 .clients-carousel::after {
   right: 0;
-  background: linear-gradient(to left, var(--black), transparent);
+  background: linear-gradient(to left, #f8f9fa, transparent);
 }
 
 .clients-track {
@@ -489,12 +490,13 @@ header {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: var(--dark);
+  background: var(--white);
   border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,0,0,0.08);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .client-logo::before {
@@ -523,12 +525,12 @@ header {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(100%) brightness(0.8) contrast(1.2);
+  filter: grayscale(100%) opacity(0.6);
   transition: filter 0.4s ease;
 }
 
 .client-logo:hover img {
-  filter: grayscale(0%) brightness(1) contrast(1);
+  filter: grayscale(0%) opacity(1);
 }
 
 .client-logo-placeholder {
