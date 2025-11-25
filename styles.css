@@ -546,7 +546,7 @@ header {
 .client-logo img[src*="harvard"],
 .client-logo img[src*="hbs"] {
   height: 80px;
-  max-width: 190px;
+  max-width: 140px;
 }
 
 .client-logo-placeholder {
