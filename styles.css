@@ -543,9 +543,10 @@ header {
 /* Force specific sizing for logos with large intrinsic dimensions */
 .client-logo img[src*="ethereum"],
 .client-logo img[src*="alchemy"],
-.client-logo img[src*="harvard"] {
-  height: 70px;
-  max-width: 180px;
+.client-logo img[src*="harvard"],
+.client-logo img[src*="hbs"] {
+  height: 80px;
+  max-width: 190px;
 }
 
 .client-logo-placeholder {
