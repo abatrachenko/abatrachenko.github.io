@@ -533,12 +533,19 @@ header {
   filter: grayscale(0%) opacity(1);
 }
 
-/* Scale up smaller logos for better visibility */
-.client-logo img[src*="alchemy"],
+/* Ensure consistent logo sizing regardless of intrinsic dimensions */
+.client-logo img {
+  width: auto;
+  height: 60px;
+  max-width: 160px;
+}
+
+/* Force specific sizing for logos with large intrinsic dimensions */
 .client-logo img[src*="ethereum"],
+.client-logo img[src*="alchemy"],
 .client-logo img[src*="harvard"] {
-  min-width: 140px;
-  width: 140px;
+  height: 70px;
+  max-width: 180px;
 }
 
 .client-logo-placeholder {
