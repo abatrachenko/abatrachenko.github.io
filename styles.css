@@ -694,6 +694,16 @@ header {
   font-size: 1.2rem;
 }
 
+.process-card p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: var(--text-dark);
+}
+
+.process-card p:last-of-type {
+  margin-bottom: 0;
+}
+
 /* About Section */
 .about-section {
   padding: 6rem 0;
