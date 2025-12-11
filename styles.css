@@ -89,7 +89,7 @@ textarea:focus-visible {
   padding: 0 15px;
 }
 
-h1, h3, h4 {
+h1, h2, h3, h4 {
   font-family: var(--head);
   line-height: 1.2;
   margin-bottom: 1rem;
@@ -97,6 +97,7 @@ h1, h3, h4 {
 }
 
 h1 { font-size: 3rem; }
+h2 { font-size: 2.25rem; }
 h3 { font-size: 1.5rem; }
 h4 { font-size: 1.25rem; }
 p { margin-bottom: 1rem; }
