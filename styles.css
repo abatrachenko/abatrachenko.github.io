@@ -212,7 +212,7 @@ p { margin-bottom: 1rem; }
 header {
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(10px);
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -318,7 +318,7 @@ header {
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
   gap: 3rem;
-  padding: 6rem 0;
+  padding: 2rem 0 3rem 0;
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -449,7 +449,7 @@ header {
 /* Clients Section */
 .clients-section {
   background: #f8f9fa;
-  padding: 5rem 0;
+  padding: 2.5rem 0;
   overflow: hidden;
   border-top: 1px solid rgba(0,0,0,0.08);
   border-bottom: 1px solid rgba(0,0,0,0.08);
@@ -605,7 +605,7 @@ header {
 /* Metrics Section */
 .metrics-section {
   background: var(--black);
-  padding: 5rem 0;
+  padding: 3rem 0;
   position: relative;
   z-index: 4;
 }
@@ -943,7 +943,7 @@ header {
 
 /* Sections */
 .section {
-  padding: 6rem 0;
+  padding: 3.5rem 0;
   position: relative;
 }
 
@@ -1715,7 +1715,7 @@ img.loaded {
 /* Enhanced Mobile Styles */
 @media (max-width: 992px) {
   html { font-size: 15px; }
-  .section { padding: 4rem 0; }
+  .section { padding: 2.5rem 0; }
   .floating-cta {
     display: flex;
     align-items: center;
@@ -1735,7 +1735,7 @@ img.loaded {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
-    padding: 4rem 0;
+    padding: 1.5rem 0 2.5rem 0;
   }
 
   .hero-text p {
@@ -1824,7 +1824,7 @@ img.loaded {
   }
 
   .clients-section {
-    padding: 4rem 0;
+    padding: 2rem 0;
   }
 
   .clients-subtitle {
@@ -1900,8 +1900,8 @@ img.loaded {
   .accordion-item summary { padding: 1.25rem; }
   .accordion-item div { padding: 0 1.25rem 1.25rem 2.5rem; }
 
-  .section { padding: 3rem 0; }
-  .hero { padding: 2rem 0 3rem; }
+  .section { padding: 2rem 0; }
+  .hero { padding: 1rem 0 2rem; }
 
   .floating-cta {
     padding: 14px 20px;
@@ -1919,7 +1919,7 @@ img.loaded {
   }
 
   .clients-section {
-    padding: 3rem 0;
+    padding: 1.5rem 0;
   }
 
   .client-logo {
