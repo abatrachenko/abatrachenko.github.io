@@ -349,6 +349,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const parent = input.parentElement;
     parent.classList.remove('error', 'success');
 
+    // Basic XSS protection - sanitize input value
+    if (input.value) {
+      input.value = input.value.replace(/[<>]/g, '');
+    }
+
     if (input.hasAttribute('required') && !input.value.trim()) {
       parent.classList.add('error');
       return false;
