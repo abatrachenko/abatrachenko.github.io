@@ -153,58 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Form validation
-  const form = document.querySelector('.form-body');
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const websiteInput = document.getElementById('website');
-  const revenueSelect = document.getElementById('revenue');
-  const messageInput = document.getElementById('message');
-  const submitBtn = form ? form.querySelector('.btn') : null;
-
-  if (form && submitBtn) {
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      let isValid = true;
-
-      // Reset border colors
-      [nameInput, emailInput, revenueSelect].forEach(input => {
-        if (input) input.style.borderColor = '#e0e0e0';
-      });
-
-      // Validate name
-      if (nameInput && nameInput.value.trim() === '') {
-        nameInput.style.borderColor = 'red';
-        isValid = false;
-      }
-
-      // Validate email
-      if (emailInput && (emailInput.value.trim() === '' || !emailInput.value.includes('@'))) {
-        emailInput.style.borderColor = 'red';
-        isValid = false;
-      }
-
-      // Validate revenue
-      if (revenueSelect && revenueSelect.value === '') {
-        revenueSelect.style.borderColor = 'red';
-        isValid = false;
-      }
-
-      if (isValid) {
-        // Here you would normally submit the form to a backend
-        alert('Thanks! We\'ll be in touch shortly to schedule your call.');
-
-        // Reset form
-        if (nameInput) nameInput.value = '';
-        if (emailInput) emailInput.value = '';
-        if (websiteInput) websiteInput.value = '';
-        if (revenueSelect) revenueSelect.value = '';
-        if (messageInput) messageInput.value = '';
-      } else {
-        alert('Please fill in all required fields.');
-      }
-    });
-  }
 
   // Sticky CTA bar visibility
   const stickyCTABar = document.querySelector('.sticky-cta-bar');
@@ -233,22 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (scrollTop > 300 && scrollTop > lastScrollTop) {
         floatingCTA.classList.add('visible');
       }
-      // Hide when near the form section or scrolling up
-      else if (scrollTop < lastScrollTop || isNearElement('#form', 300)) {
+      // Hide when scrolling up
+      else if (scrollTop < lastScrollTop) {
         floatingCTA.classList.remove('visible');
       }
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
-  }
-
-  // Helper function to check if scroll position is near an element
-  function isNearElement(selector, distance) {
-    const element = document.querySelector(selector);
-    if (!element) return false;
-
-    const rect = element.getBoundingClientRect();
-    return (rect.top < distance && rect.top > -rect.height);
   }
 
   // Exit Intent Popup
@@ -329,81 +268,4 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Show notifications every 20 seconds
   setInterval(showSocialProof, 20000);
-
-  // Enhanced Form Validation
-  const formInputs = document.querySelectorAll('.form-body input, .form-body select, .form-body textarea');
-
-  formInputs.forEach(input => {
-    input.addEventListener('blur', () => {
-      validateInput(input);
-    });
-
-    input.addEventListener('input', () => {
-      if (input.parentElement.classList.contains('error')) {
-        validateInput(input);
-      }
-    });
-  });
-
-  function validateInput(input) {
-    const parent = input.parentElement;
-    parent.classList.remove('error', 'success');
-
-    // Basic XSS protection - sanitize input value
-    if (input.value) {
-      input.value = input.value.replace(/[<>]/g, '');
-    }
-
-    if (input.hasAttribute('required') && !input.value.trim()) {
-      parent.classList.add('error');
-      return false;
-    }
-
-    if (input.type === 'email' && input.value.trim()) {
-      if (!input.value.includes('@') || !input.value.includes('.')) {
-        parent.classList.add('error');
-        return false;
-      }
-    }
-
-    if (input.value.trim()) {
-      parent.classList.add('success');
-    }
-
-    return true;
-  }
-
-  // Enhanced Form Submit with Loading State
-  const submitButton = document.querySelector('.form-body .btn');
-  if (submitButton) {
-    submitButton.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const allInputs = document.querySelectorAll('.form-body input[required], .form-body select[required]');
-      let allValid = true;
-
-      allInputs.forEach(input => {
-        if (!validateInput(input)) {
-          allValid = false;
-        }
-      });
-
-      if (allValid) {
-        submitButton.classList.add('loading');
-
-        setTimeout(() => {
-          submitButton.classList.remove('loading');
-          alert('Thanks! We\'ll be in touch shortly to schedule your call.');
-
-          // Reset form
-          document.querySelectorAll('.form-body input, .form-body select, .form-body textarea').forEach(input => {
-            input.value = '';
-            input.parentElement.classList.remove('success', 'error');
-          });
-        }, 2000);
-      } else {
-        alert('Please fill in all required fields correctly.');
-      }
-    });
-  }
 });
