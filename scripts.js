@@ -56,43 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // Animated counter for metrics
-  const animateCounter = (element, target, suffix = '') => {
-    const duration = 2000;
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        element.textContent = target + suffix;
-        clearInterval(timer);
-      } else {
-        element.textContent = Math.floor(current) + suffix;
-      }
-    }, 16);
-  };
-
-  // Trigger counter animation when metrics section is visible
-  const metricsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const numbers = entry.target.querySelectorAll('.metric-number');
-        numbers.forEach(num => {
-          const target = parseFloat(num.dataset.target);
-          const suffix = num.textContent.includes('×') ? '×' : num.textContent.includes('%') ? '%' : '';
-          animateCounter(num, target, suffix);
-        });
-        metricsObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  const metricsSection = document.querySelector('.metrics-section');
-  if (metricsSection) {
-    metricsObserver.observe(metricsSection);
-  }
 
   // Mobile menu toggle
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
