@@ -269,6 +269,28 @@ header {
   width: 100%;
 }
 
+/* Navigation CTA Button */
+.nav-menu a.nav-cta {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--white);
+  padding: 0.625rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(228, 132, 117, 0.3);
+  transition: var(--transition);
+}
+
+.nav-menu a.nav-cta::after {
+  display: none;
+}
+
+.nav-menu a.nav-cta:hover {
+  background: linear-gradient(135deg, var(--accent-light), var(--accent));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(228, 132, 117, 0.4);
+  opacity: 1;
+}
+
 .mobile-menu-btn {
   display: none;
   background: none;
@@ -2291,6 +2313,20 @@ img.loaded {
 
   .nav-menu a:last-child {
     border-bottom: none;
+  }
+
+  /* Mobile CTA Button in Navigation */
+  .nav-menu a.nav-cta {
+    margin: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 50px;
+    border: none;
+  }
+
+  .nav-menu a.nav-cta:hover,
+  .nav-menu a.nav-cta:active {
+    padding-left: 1.5rem;
+    transform: translateY(0);
   }
 
   /* Sticky CTA Bar */
