@@ -4,6 +4,64 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Google Analytics Conversion Tracking
+  function trackConversion(ctaLocation) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'conversion', {
+        'send_to': 'G-XXXXXXXXXX/CONVERSION_ID',
+        'event_category': 'CTA',
+        'event_label': ctaLocation
+      });
+      gtag('event', 'book_call_click', {
+        'cta_location': ctaLocation
+      });
+    }
+  }
+
+  // Track all "Book a Call" CTA clicks
+  document.querySelectorAll('a[href*="calendly.com"]').forEach((cta, index) => {
+    cta.addEventListener('click', (e) => {
+      let ctaLocation = 'unknown';
+
+      // Identify which CTA was clicked
+      if (cta.closest('.sticky-cta-bar')) {
+        ctaLocation = 'sticky_bar';
+      } else if (cta.closest('.hero')) {
+        ctaLocation = 'hero_section';
+      } else if (cta.classList.contains('floating-cta')) {
+        ctaLocation = 'floating_button';
+      } else if (cta.closest('.consulting-section')) {
+        ctaLocation = 'consulting_section';
+      } else if (cta.classList.contains('nav-cta')) {
+        ctaLocation = 'nav_menu';
+      } else {
+        ctaLocation = 'cta_' + index;
+      }
+
+      trackConversion(ctaLocation);
+    });
+  });
+
+  // Capture and store UTM parameters
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmParams = {
+    utm_source: urlParams.get('utm_source'),
+    utm_medium: urlParams.get('utm_medium'),
+    utm_campaign: urlParams.get('utm_campaign'),
+    utm_term: urlParams.get('utm_term'),
+    utm_content: urlParams.get('utm_content')
+  };
+
+  // Store UTM parameters in sessionStorage if they exist
+  if (utmParams.utm_source) {
+    sessionStorage.setItem('utm_params', JSON.stringify(utmParams));
+
+    // Send UTM data to GA4
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_view', utmParams);
+    }
+  }
+
   // Scroll Progress Indicator
   const scrollProgress = document.querySelector('.scroll-progress');
   window.addEventListener('scroll', () => {
