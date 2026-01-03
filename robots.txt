@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://resonanceseo.com/sitemap.xml
+
+# Crawl-delay for good citizenship
+Crawl-delay: 1
