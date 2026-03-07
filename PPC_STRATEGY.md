@@ -59,7 +59,7 @@
 Headline 1: Fractional SEO for E-Commerce
 Headline 2: $700M+ Revenue Generated | 15 Years
 Headline 3: No Agency Overhead or Junior Staff
-Description 1: Partner with an SEO leader who's scaled Adidas, J.Crew & more. Strategic leadership 8-16 hrs/week.
+Description 1: Partner with an SEO leader who's scaled Adidas, J.Crew & more. Strategic leadership 32-64 hrs/month.
 Description 2: Transparent pricing. Direct access. Real results in 90-120 days. Book your free intro call today.
 ```
 
@@ -168,7 +168,7 @@ You need strategic SEO leadership from someone who's actually done this before�
 
 I've spent 15 years helping e-commerce brands like Adidas, J.Crew, and Alchemy double their organic traffic and revenue.
 
-No account managers. No overhead. Just direct access to senior SEO strategy 8-16 hours per week.
+No account managers. No overhead. Just direct access to senior SEO strategy 32-64 hours per month.
 
 Book a free intro call →
 
@@ -209,7 +209,7 @@ They're either:
 
 I've helped brands like Adidas, J.Crew, and Alchemy scale organic traffic by 95-315% in 9-24 months.
 
-I offer fractional SEO leadership (8-16 hrs/week) at a fraction of agency cost—and you work directly with me, not an account manager.
+I offer fractional SEO leadership (32-64 hrs/month) at a fraction of agency cost—and you work directly with me, not an account manager.
 
 Would it make sense to hop on a 20-minute intro call?
 
