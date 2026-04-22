@@ -62,14 +62,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Scroll Progress Indicator
+  // Scroll Progress Indicator & Header Enhancement
   const scrollProgress = document.querySelector('.scroll-progress');
+  const header = document.querySelector('header');
+
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
+
     if (scrollProgress) {
       scrollProgress.style.width = scrollPercent + '%';
+    }
+
+    // Add scrolled class to header for glassmorphism effect
+    if (scrollTop > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
     }
   });
 
@@ -105,6 +115,12 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+
+        // Trigger counter animation for stat numbers
+        if (entry.target.classList.contains('about-stat-number') && !entry.target.classList.contains('counted')) {
+          animateCounter(entry.target);
+          entry.target.classList.add('counted');
+        }
       }
     });
   }, observerOptions);
@@ -113,6 +129,48 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
     observer.observe(el);
   });
+
+  // Observe stat numbers for counter animation
+  document.querySelectorAll('.about-stat-number').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Animated Counter Function - 2026 Modern
+  function animateCounter(element) {
+    const text = element.textContent;
+    const hasPlus = text.includes('+');
+    const hasDollar = text.includes('$');
+    const hasM = text.includes('M');
+
+    // Extract number
+    let number = parseInt(text.replace(/[^\d]/g, ''));
+    if (hasM) {
+      number = parseInt(text.match(/\d+/)[0]);
+    }
+
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const stepValue = number / steps;
+    const stepTime = duration / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += stepValue;
+      if (current >= number) {
+        current = number;
+        clearInterval(timer);
+      }
+
+      let displayValue = Math.floor(current);
+      let displayText = displayValue.toString();
+
+      if (hasDollar) displayText = '$' + displayText;
+      if (hasM) displayText += 'M';
+      if (hasPlus) displayText += '+';
+
+      element.textContent = displayText;
+    }, stepTime);
+  }
 
 
   // Mobile menu toggle
