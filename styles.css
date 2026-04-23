@@ -333,10 +333,7 @@ header.scrolled {
   gap: 0.5rem;
 }
 
-.nav .logo i {
-  color: var(--accent);
-  font-size: 1.75rem;
-}
+/* .nav .logo i removed — Font Awesome icon replaced with typographic wordmark. */
 
 .nav-menu {
   display: flex;
@@ -797,11 +794,7 @@ header.scrolled {
   color: rgba(228, 132, 117, 0.1);
 }
 
-.process-card i {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
+/* .process-card i removed — icons dropped from process cards (numbers carry hierarchy). */
 
 .process-card h3 {
   color: var(--accent);
