@@ -1,2 +1,17 @@
 title: Fractional SEO Leadership | Resonance Consulting Group
 description: Welcome to Resonance. We're here to untangle your SEO and help your organic clicks thrive.
+
+# Exclude internal working docs from the published site.
+# These live in git for session rehydration and team reference,
+# but must not be served at resonanceseo.com/<folder>/.
+exclude:
+  - tasks/
+  - benchmarks/
+  - design-system/
+  - conversion/
+  - tmp-lh-*.json
+  - README.md
+  - SECURITY.md
+  - PPC_STRATEGY.md
+  - node_modules/
+  - .playwright-mcp/
