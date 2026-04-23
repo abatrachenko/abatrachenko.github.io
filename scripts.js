@@ -23,27 +23,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ----- Newsletter stub (backend wired in a later commit) -------------- */
+  /* ----- Newsletter stub (handles every .newsletter form; backend wired later) ----- */
 
-  const newsletterForm = document.getElementById('newsletterForm');
-  if (newsletterForm) {
-    const status = document.getElementById('newsletter-status');
-    newsletterForm.addEventListener('submit', (e) => {
+  document.querySelectorAll('form.newsletter').forEach((form) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const input = document.getElementById('newsletter-email');
+      const input = form.querySelector('.newsletter__input');
+      const status = form.querySelector('.newsletter__status');
       const email = (input.value || '').trim();
       if (!email || !email.includes('@')) {
-        status.textContent = 'Please enter a valid email address.';
+        if (status) status.textContent = 'Please enter a valid email address.';
         input.focus();
         return;
       }
-      status.textContent = 'Thanks — the newsletter launches soon. You’ll be first on the list.';
+      if (status) status.textContent = 'Thanks — the newsletter launches soon. You’ll be first on the list.';
       input.value = '';
       if (typeof gtag !== 'undefined') {
-        gtag('event', 'newsletter_signup_attempt', { cta_location: 'hero' });
+        const location = form.closest('footer') ? 'footer' : 'hero';
+        gtag('event', 'newsletter_signup_attempt', { cta_location: location });
       }
     });
-  }
+  });
 
   /* ----- UTM capture ---------------------------------------------------- */
 

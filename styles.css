@@ -367,15 +367,17 @@ header.scrolled {
   width: 100%;
 }
 
-/* Navigation CTA Button */
+/* Navigation CTA Button — MASTER.md §9.1 button with nav sizing */
 .nav-menu a.nav-cta {
-  background: var(--accent);
-  color: var(--white);
-  padding: 0.625rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
-  transition: var(--transition);
+  background-color: var(--accent);
+  color: var(--surface-primary);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--text-small);
+  border: 1px solid var(--accent);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
 .nav-menu a.nav-cta::after {
@@ -383,9 +385,9 @@ header.scrolled {
 }
 
 .nav-menu a.nav-cta:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4);
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--surface-primary);
   opacity: 1;
 }
 
@@ -1388,182 +1390,247 @@ header.scrolled {
 }
 
 /* FAQ Section */
+/* FAQ — MASTER.md §9.11. Native <details>/<summary>, monospace +/× glyph toggle,
+   no decorative icons inside summary. */
 .faq-section {
-  padding: 6rem 0;
-  background: var(--white);
+  padding: var(--space-24) 0;
 }
 
-.faq-section h3 {
+.faq-section h2 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-12);
 }
 
 .accordion {
-  max-width: 800px;
-  margin: auto;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .accordion-item {
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  transition: var(--transition-bounce);
-  position: relative;
+  border-bottom: 1px solid var(--border-default);
+  padding: 0;
 }
 
-.accordion-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 0;
-  background: linear-gradient(180deg, var(--accent), var(--secondary));
-  transition: height 0.4s ease;
-}
-
-.accordion-item:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md), 0 0 30px rgba(255, 51, 102, 0.1);
-  transform: translateX(5px);
-}
-
-.accordion-item[open]::before {
-  height: 100%;
+.accordion-item:first-of-type {
+  border-top: 1px solid var(--border-default);
 }
 
 .accordion-item summary {
-  padding: 1.75rem;
+  padding: var(--space-6) 0;
   cursor: pointer;
   list-style: none;
-  position: relative;
-  font-weight: 600;
-  font-size: 1.15rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.accordion-item summary i {
-  color: var(--accent);
-  font-size: 1.25rem;
-}
-
-.accordion-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion-item summary:after {
-  content: "+";
-  position: absolute;
-  right: 1.75rem;
-  color: var(--accent);
-  font-size: 1.75rem;
-  line-height: 1;
-  transition: var(--transition);
-  font-weight: 300;
-}
-
-.accordion-item[open] summary:after {
-  transform: rotate(45deg);
-}
-
-.accordion-item div {
-  padding: 0 1.75rem 1.75rem 4rem;
-  font-size: 1rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-
-/* Floating CTA Button - 2026 Modern */
-.floating-cta {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-  color: var(--white);
-  padding: 16px 28px;
-  border-radius: 50px;
-  display: none;
-  z-index: 100;
-  text-align: center;
-  font-weight: 700;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  text-decoration: none;
-  box-shadow: var(--shadow-glow);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  letter-spacing: 0.02em;
-}
-
-.floating-cta.visible {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  animation: pulse-float 3s ease-in-out infinite;
-}
-
-@keyframes pulse-float {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    box-shadow: var(--shadow-glow);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 0 60px rgba(255, 51, 102, 0.6), 0 8px 40px rgba(255, 51, 102, 0.4);
-  }
-}
-
-.floating-cta:hover {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-  transform: translateY(-6px) scale(1.08);
-  box-shadow: 0 0 80px rgba(255, 51, 102, 0.7), 0 12px 48px rgba(255, 51, 102, 0.5);
-  animation: none;
-}
-
-.floating-cta i {
-  margin-right: 0.5rem;
-}
-
-/* Footer */
-footer {
-  background: var(--light-gray);
-  color: var(--text-light);
-  padding: 3rem 0;
-  font-size: 0.875rem;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.footer-content {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-4);
+}
+
+.accordion-item summary::-webkit-details-marker { display: none; }
+.accordion-item summary i { display: none; }     /* strip any leftover FA icons */
+
+.accordion-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: var(--text-large);
+  font-weight: 400;
+  color: var(--text-secondary);
+  transition: transform var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.accordion-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.accordion-item summary:hover {
+  color: var(--accent);
+}
+
+.accordion-item summary:hover::after {
+  color: var(--accent);
+}
+
+.accordion-item div {
+  padding: 0 0 var(--space-6);
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
+  max-width: 65ch;
+}
+
+/* Floating CTA Button — fully removed (markup and handler removed in commit 1,
+   CSS cleaned up here). Any stale class references become no-ops. */
+.floating-cta { display: none; }
+
+/* Bio — MASTER.md §9.12. Placed LAST per Julian Shapiro. */
+.bio {
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--border-default);
+}
+
+.bio__inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bio__portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--surface-secondary);
+}
+
+.bio__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bio__name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+}
+
+.bio__role {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-large);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
+}
+
+.bio__body {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-body);
+  color: var(--text-primary);
+  line-height: var(--leading-body);
+  max-width: 60ch;
+}
+
+.bio__credentials {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.bio__cta {
+  display: inline-block;
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.bio__cta:hover {
+  color: var(--accent-hover);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .bio {
+    padding: var(--space-16) 0;
+  }
+  .bio__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 480px;
+  }
+  .bio__portrait {
+    width: 144px;
+    height: 144px;
+  }
+}
+
+/* Footer — MASTER.md §9.13. Minimal, with secondary newsletter capture. */
+footer {
+  background-color: var(--surface-secondary);
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-12) 0;
+  color: var(--text-secondary);
+  font-size: var(--text-micro);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.footer-content__copy {
+  justify-self: start;
+}
+
+.footer-content__newsletter {
+  justify-self: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.footer-content__newsletter .newsletter__label {
+  font-size: var(--text-micro);
+  margin-bottom: var(--space-2);
+}
+
+.footer-content__newsletter .newsletter__row .btn {
+  height: 40px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-micro);
+}
+
+.footer-content__newsletter .newsletter__input {
+  height: 40px;
+  font-size: var(--text-small);
 }
 
 .footer-links {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-5);
+  justify-self: end;
+  align-items: center;
 }
 
 footer a {
-  color: var(--text-light);
-  transition: var(--transition);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 footer a:hover {
-  color: var(--accent);
+  color: var(--text-primary);
+  opacity: 1;
 }
 
-.lovable {
-  font-size: 0.75rem;
-  opacity: 0.7;
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+  .footer-content__copy,
+  .footer-content__newsletter,
+  .footer-links {
+    justify-self: center;
+  }
 }
 
 /* Scroll Progress Indicator - 2026 Enhanced */

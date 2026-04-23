@@ -176,15 +176,12 @@
         <i class="fas fa-chart-line" aria-hidden="true"></i>
         Resonance SEO
       </a>
-      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">Menu</button>
       <nav class="nav-menu" role="navigation" aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#consulting">Availability</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#process">Process</a>
-        <a href="#case-studies">Results</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#consulting">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Call</a>
+        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a call</a>
       </nav>
     </div>
   </header>
@@ -472,39 +469,53 @@
     </div>
   </section>
 
-  <section id="faq" class="faq-section section">
+  <section id="faq" class="faq-section">
     <div class="container">
-      <h2 class="fade-in">Frequently Asked Questions</h2>
+      <h2 class="fade-in">Frequently asked questions</h2>
       <div class="accordion">
+
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-dollar-sign"></i> How much does this cost?</summary>
-          <div>$200 per hour with a minimum 32 hours per month and a 3 month minimum commitment.</div>
+          <summary>What does it cost?</summary>
+          <div>$200 per hour. Engagements start at 32 hours/month ($6,400) with a 3-month minimum. Most run 6&ndash;12 months. Exact scope gets set during discovery.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-clock"></i> How long until I see results?</summary>
-          <div>Most clients see measurable improvements in 90-120 days, with full impact typically in 6 months. I focus on sustainable growth, not quick hacks that disappear next month.</div>
+          <summary>When do results typically land?</summary>
+          <div>Measurable traffic movement usually shows in 90&ndash;120 days. Compounding organic growth &mdash; the durable kind &mdash; typically takes 6 months to pattern. I give a specific forecast for your situation during discovery, tied to what we're actually working with.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-rocket"></i> Do you work with startups?</summary>
-          <div>Yes—if you've got product-market fit and ambitions to scale. My sweet spot is brands doing $1M-$10M/year that need systems to scale to $10M+.</div>
+          <summary>Who is this not right for?</summary>
+          <div>Brands under $50M annual revenue, early-stage DTC still finding product-market fit, or teams looking for paid media, brand strategy, or growth marketing outside of organic search. My work is SEO and AI search, embedded directly &mdash; not a generalist consulting retainer.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-store"></i> What industries do you work with?</summary>
-          <div>E-commerce brands across fashion, home goods, beauty, and specialty retail. If you sell physical products online, we can likely help. I also have deep experience helping Web 3 achieve organic growth</div>
+          <summary>How do you measure whether it's working?</summary>
+          <div>Revenue. Organic traffic, rankings, and conversions are leading indicators, but every strategy ties to pipeline or revenue impact. You get monthly reporting against targets we set during integration.</div>
         </details>
 
-        <details class="accordion-item fade-in">
-          <summary><i class="fas fa-handshake"></i> What's included in your service?</summary>
-          <div>Full-spectrum SEO including technical audits, content strategy, on-page optimization, link building, conversion optimization, and ongoing strategic guidance. You get direct access to me for weekly check-ins and strategic decisions.</div>
-        </details>
+      </div>
+    </div>
+  </section>
 
-        <details class="accordion-item fade-in">
-          <summary><i class="fas fa-chart-line"></i> How do you measure success?</summary>
-          <div>Revenue. Period. We track organic traffic, rankings, and conversions, but ultimately it's about the bottom line. Every strategy is tied to your revenue goals.</div>
-        </details>
+  <section class="bio" id="bio">
+    <div class="container">
+      <div class="bio__inner">
+        <div class="bio__portrait">
+          <img src="aleksey-batrachenko-seo-consultant.jpg" alt="Portrait of Aleksey Batrachenko" width="200" height="200">
+        </div>
+        <div>
+          <h2 class="bio__name">Aleksey Batrachenko</h2>
+          <p class="bio__role">Senior SEO + AI search leadership for enterprise e-commerce.</p>
+          <p class="bio__body">
+            Fifteen years in SEO. $700M+ in organic revenue generated across 35+ brands &mdash; Adidas, Samsung, J.Crew, Madewell, Ethereum Foundation, Harvard Business School, KPN, and Alchemy among them. Most of that work happened embedded in the teams running the business, not delivered from an agency wall. The pattern I keep seeing: organic growth plateaus when nobody senior is watching the system, and in-house teams take the blame for gaps that start one org layer up. I'm the senior set of eyes that closes that gap.
+          </p>
+          <p class="bio__credentials">
+            15+ years &middot; 35+ brands &middot; Advisor, Reach LLM &middot;
+            <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </p>
+          <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="bio__cta">Book a strategy call &rarr;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -513,11 +524,23 @@
 
   <footer role="contentinfo">
     <div class="container footer-content">
-      <div>© 2025 Resonance SEO</div>
+      <div class="footer-content__copy">&copy; 2026 Aleksey Batrachenko &middot; Resonance SEO</div>
+
+      <div class="footer-content__newsletter">
+        <form class="newsletter" id="newsletterFormFooter" novalidate>
+          <label for="newsletter-email-footer" class="newsletter__label">Organic growth patterns &middot; every other Tuesday</label>
+          <div class="newsletter__row">
+            <input type="email" id="newsletter-email-footer" name="email" class="newsletter__input" placeholder="Your work email" autocomplete="email" required aria-describedby="newsletter-status-footer">
+            <button type="submit" class="btn">Subscribe</button>
+          </div>
+          <p class="newsletter__status" id="newsletter-status-footer" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
       <div class="footer-links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>
