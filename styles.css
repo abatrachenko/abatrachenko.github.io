@@ -838,124 +838,76 @@ header.scrolled {
 }
 
 /* About Section */
-.about-section {
-  padding: 6rem 0;
-  background: var(--light-gray);
+/* Why Resonance — MASTER.md §9.4-adjacent (3-pillar differentiator block, Kevin
+   Indig pattern per benchmarks/SYNTHESIS.md §3). Replaces the old Agency Problem /
+   Resonance Solution callouts and the sticky portrait. Portrait moves to bio in
+   commit 5. */
+
+.why-resonance {
+  padding: var(--space-24) 0;
 }
 
-.about-intro {
-  max-width: 900px;
-  margin: 2rem auto 3rem;
+.why-resonance h2 {
   text-align: center;
+  margin-bottom: var(--space-16);
 }
 
-.about-intro-text {
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-  font-weight: 500;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: 12px;
-  border-left: 4px solid var(--accent);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.about-content {
+.why-resonance__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
 }
 
-.about-text h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-dark);
-}
-
-.about-text > p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.about-callout {
-  margin: 2rem 0;
-  padding: 1.75rem;
-  border-radius: 12px;
+.pillar {
   display: flex;
-  gap: 1.25rem;
-  transition: var(--transition);
-  border: 2px solid transparent;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.about-callout.problem {
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.08), rgba(255, 107, 107, 0.05));
-  border-color: rgba(255, 107, 107, 0.2);
+.pillar__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
 }
 
-.about-callout.solution {
-  background: linear-gradient(135deg, rgba(40, 167, 69, 0.08), rgba(40, 167, 69, 0.05));
-  border-color: rgba(40, 167, 69, 0.2);
-}
-
-.about-callout:hover {
-  transform: translateX(5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.callout-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-}
-
-.about-callout.problem .callout-icon {
-  background: rgba(255, 107, 107, 0.15);
-  color: #ff6b6b;
-}
-
-.about-callout.solution .callout-icon {
-  background: rgba(40, 167, 69, 0.15);
-  color: #28a745;
-}
-
-.callout-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-dark);
+.pillar__title {
+  margin: 0;
+  font-size: var(--text-h2);
   font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
 }
 
-.callout-content p {
-  font-size: 1rem;
-  color: var(--text-light);
-  line-height: 1.7;
+.pillar__body {
   margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  max-width: 42ch;
 }
 
-.about-value-prop {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(228, 132, 117, 0.1), rgba(228, 132, 117, 0.05));
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
+@media (max-width: 900px) {
+  .why-resonance {
+    padding: var(--space-16) 0;
+  }
+  .why-resonance h2 {
+    margin-bottom: var(--space-12);
+  }
+  .why-resonance__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
 }
 
-.about-value-prop p {
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-  margin: 0;
-}
+/* Legacy about/callout rules — kept as display:none shims so stale references in
+   other CSS files don't break rendering. Markup for these is removed in this commit. */
+.about-section { padding: 0; }
+.about-content, .about-text, .about-callout, .callout-icon, .callout-content,
+.about-value-prop, .about-intro, .about-intro-text { display: none; }
 
 /* Stats band — MASTER.md §9.6. Numbers-as-design. */
 .stats-band {
@@ -1023,25 +975,8 @@ header.scrolled {
 .about-stats { display: none; }
 .about-stat { display: none; }
 
-.about-img {
-  position: relative;
-  position: sticky;
-  top: 100px;
-}
-
-.about-img img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  border: 2px solid rgba(228, 132, 117, 0.2);
-  transition: var(--transition);
-}
-
-.about-img img:hover {
-  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-  border-color: var(--accent);
-  transform: translateY(-5px);
-}
+/* .about-img — portrait moves to bio block in commit 5. Hidden here until that lands. */
+.about-img { display: none; }
 
 /* Case studies — MASTER.md §9.7. Metric-forward cards. */
 .case-studies {
@@ -1152,89 +1087,87 @@ header.scrolled {
 }
 
 /* Testimonial Section */
-.testimonial-section {
-  background: var(--light-gray);
-  padding: 6rem 0;
+/* Testimonials — MASTER.md §9.9. Plain cards, no decorative quote marks, no stars,
+   no photos. Relational quote + attribution only. */
+
+.testimonials {
+  padding: var(--space-24) 0;
+  background-color: var(--surface-secondary);
 }
 
-.testimonials-grid {
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
 }
 
-.testimonial {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-  backdrop-filter: blur(12px);
-  color: var(--text-dark);
-  padding: 2.5rem;
-  border-radius: 20px;
-  position: relative;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  transition: var(--transition-bounce);
-  box-shadow: var(--shadow-md);
-}
-
-.testimonial::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--accent), var(--secondary));
-  opacity: 0;
-  transition: var(--transition);
-  z-index: -1;
-  padding: 2px;
-}
-
-.testimonial:hover {
-  border-color: var(--accent);
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 51, 102, 0.15);
-}
-
-.testimonial:hover::after {
-  opacity: 0.1;
-}
-
-.testimonial:before {
-  content: """;
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 4rem;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.3;
-}
-
-.testimonial-stars {
-  color: #ffc107;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial p {
-  font-style: italic;
-  font-size: 1.1rem;
-  padding-left: 1rem;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-.testimonial .author {
-  margin-top: 1.5rem;
-  font-weight: 600;
+.testimonial-card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-left: 1rem;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
-.testimonial .author i {
-  color: var(--accent);
+.testimonial-card__quote {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  font-style: normal;         /* override default <blockquote> italic */
 }
+
+.testimonial-card__attribution {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--leading-tight);
+  color: var(--text-secondary);
+  font-style: normal;         /* override default <cite> italic */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
+}
+
+.testimonial-card__role {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.testimonial-card__company {
+  color: var(--text-secondary);
+}
+
+.testimonials__cta {
+  text-align: center;
+  margin-top: var(--space-16);
+}
+
+@media (max-width: 900px) {
+  .testimonials {
+    padding: var(--space-16) 0;
+  }
+  .testimonials h2 {
+    margin-bottom: var(--space-12);
+  }
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Legacy testimonial classes (from old grid/card design) — shim to display:none
+   so any stale references don't render empty elements. New markup uses
+   .testimonial-card__*. */
+.testimonial-section, .testimonials-grid { display: block; }
+.testimonial, .testimonial-stars, .testimonial .author { display: none; }
 
 /* Sections */
 .section {
@@ -1681,15 +1614,7 @@ footer a:hover {
 
 /* (Old 3D tilt effect on case-study-card removed — overridden by MASTER.md §9.7 rules) */
 
-/* Enhanced Testimonial Effects */
-.testimonial {
-  transform-style: preserve-3d;
-}
-
-.testimonial:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(228, 132, 117, 0.2);
-}
+/* (Old 3D testimonial hover removed — .testimonial-card in MASTER.md §9.9 has no hover transform.) */
 
 /* Parallax Elements */
 .parallax {
