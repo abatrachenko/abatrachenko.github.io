@@ -957,44 +957,71 @@ header.scrolled {
   margin: 0;
 }
 
-.about-stats {
+/* Stats band — MASTER.md §9.6. Numbers-as-design. */
+.stats-band {
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.stats-band__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+  align-items: baseline;
 }
 
-.about-stat {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--white);
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.08);
-  transition: var(--transition);
+.stats-band__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
-.about-stat:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(228, 132, 117, 0.15);
-  border-color: var(--accent);
+.stats-band__value {
+  font-family: var(--font-mono);
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 4rem);  /* 36 → 64 */
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
 
-.about-stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.about-stat-label {
-  color: var(--text-light);
-  font-size: 0.95rem;
+.stats-band__plus {
+  font-size: 0.65em;
   font-weight: 500;
 }
+
+.stats-band__label {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+@media (max-width: 900px) {
+  .stats-band {
+    padding: var(--space-16) 0;
+  }
+  .stats-band__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-band__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* Legacy about-stats — kept temporarily for cascade safety; removed when about
+   section gets rebuilt as 'Why Resonance' 3-pillar in commit 3. */
+.about-stats { display: none; }
+.about-stat { display: none; }
 
 .about-img {
   position: relative;
@@ -1016,103 +1043,112 @@ header.scrolled {
   transform: translateY(-5px);
 }
 
-/* Case Studies Section */
-.case-studies-section {
-  padding: 6rem 0;
-  background: var(--white);
+/* Case studies — MASTER.md §9.7. Metric-forward cards. */
+.case-studies {
+  padding: var(--space-24) 0;
 }
 
-.case-studies-grid {
+.case-studies h2 {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.case-studies__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
 }
 
 .case-study-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  overflow: hidden;
-  transition: var(--transition-bounce);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: var(--shadow-md);
-  position: relative;
-}
-
-.case-study-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 51, 102, 0.05), rgba(79, 70, 229, 0.05));
-  opacity: 0;
-  transition: var(--transition);
-  pointer-events: none;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .case-study-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 0 60px rgba(255, 51, 102, 0.2);
-  border-color: var(--accent);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
-.case-study-card:hover::before {
-  opacity: 1;
+.case-study-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
-.case-study-header {
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-  padding: 2rem;
-  text-align: center;
-}
-
-.case-study-header h3 {
-  color: var(--white);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.case-study-header p {
-  color: rgba(255,255,255,0.8);
+.case-study-card__name {
   margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: var(--leading-heading);
 }
 
-.case-study-body {
-  padding: 2rem;
+.case-study-card__category {
+  margin: 0;
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.case-study-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+.case-study-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
-.case-study-metric {
+.case-study-card__metric-value {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);  /* 32 → 40 */
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.case-study-card__metric-label {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+
+.case-study-card__description {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  max-width: 40ch;
+}
+
+.case-studies__footer-cta {
   text-align: center;
-  padding: 1rem;
-  background: var(--white);
-  border-radius: 8px;
+  margin-top: var(--space-16);
+  font-size: var(--text-body);
+  color: var(--text-secondary);
 }
 
-.case-study-metric-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent);
-  display: block;
+.case-studies__footer-cta .btn {
+  margin-top: var(--space-4);
 }
 
-.case-study-metric-label {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-.case-study-body p {
-  color: var(--text-dark);
-  margin-bottom: 1rem;
+@media (max-width: 900px) {
+  .case-studies__grid {
+    grid-template-columns: 1fr;
+  }
+  .case-studies h2 {
+    margin-bottom: var(--space-12);
+  }
 }
 
 /* Testimonial Section */
@@ -1643,15 +1679,7 @@ footer a:hover {
   transition: width 0s, height 0s;
 }
 
-/* 3D Card Tilt Effect */
-.case-study-card {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
-
-.case-study-card:hover {
-  transform: translateY(-10px) rotateX(2deg);
-}
+/* (Old 3D tilt effect on case-study-card removed — overridden by MASTER.md §9.7 rules) */
 
 /* Enhanced Testimonial Effects */
 .testimonial {
@@ -1712,14 +1740,8 @@ footer a:hover {
 }
 
 /* Smooth Image Loading */
-img {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-img.loaded {
-  opacity: 1;
-}
+/* Image lazy-load fade removed — images render immediately. Keep .loaded as a no-op
+   shim in case any selector still references it. */
 
 /* Exit Intent Popup */
 .exit-popup {
