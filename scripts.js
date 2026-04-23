@@ -4,14 +4,10 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Google Analytics Conversion Tracking
+  // Track CTA clicks as a GA4 custom event. When paid ad conversions are wired,
+  // add a second gtag('event', 'conversion', {send_to: '<real-id>/<label>'}) call.
   function trackConversion(ctaLocation) {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'conversion', {
-        'send_to': 'G-XXXXXXXXXX/CONVERSION_ID',
-        'event_category': 'CTA',
-        'event_label': ctaLocation
-      });
       gtag('event', 'book_call_click', {
         'cta_location': ctaLocation
       });
@@ -269,82 +265,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Exit Intent Popup
-  const exitPopup = document.getElementById('exitPopup');
-  const exitPopupClose = document.querySelector('.exit-popup-close');
-  const exitSubmitBtn = document.getElementById('exitSubmit');
-  const exitEmailInput = document.getElementById('exitEmail');
-  let exitIntentShown = false;
-
-  // Show popup when cursor leaves viewport
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY < 10 && !exitIntentShown) {
-      exitPopup.classList.add('show');
-      exitIntentShown = true;
-      localStorage.setItem('exitIntentShown', 'true');
-    }
-  });
-
-  // Check if already shown
-  if (localStorage.getItem('exitIntentShown')) {
-    exitIntentShown = true;
-  }
-
-  // Close popup
-  exitPopupClose.addEventListener('click', () => {
-    exitPopup.classList.remove('show');
-  });
-
-  exitPopup.addEventListener('click', (e) => {
-    if (e.target === exitPopup) {
-      exitPopup.classList.remove('show');
-    }
-  });
-
-  // Exit popup form submit
-  exitSubmitBtn.addEventListener('click', () => {
-    const email = exitEmailInput.value.trim();
-    if (email && email.includes('@')) {
-      exitSubmitBtn.classList.add('loading');
-      setTimeout(() => {
-        exitSubmitBtn.classList.remove('loading');
-        exitPopup.classList.remove('show');
-        alert('Thanks! Check your email for the free SEO audit checklist.');
-        exitEmailInput.value = '';
-      }, 1500);
-    } else {
-      alert('Please enter a valid email address.');
-    }
-  });
-
-  // Social Proof Notifications
-  const socialProof = document.getElementById('socialProof');
-  const socialProofData = [
-    { name: 'Someone', location: 'California', action: 'booked a call', time: '2 minutes ago' },
-    { name: 'A business owner', location: 'New York', action: 'requested an audit', time: '5 minutes ago' },
-    { name: 'An e-commerce brand', location: 'Texas', action: 'booked a call', time: '8 minutes ago' },
-    { name: 'Someone', location: 'Florida', action: 'downloaded the checklist', time: '12 minutes ago' },
-  ];
-
-  let currentProofIndex = 0;
-
-  function showSocialProof() {
-    const proof = socialProofData[currentProofIndex];
-    socialProof.querySelector('strong').textContent = proof.name + ' just ' + proof.action;
-    socialProof.querySelector('small').textContent = proof.time + ' from ' + proof.location;
-
-    socialProof.classList.add('show');
-
-    setTimeout(() => {
-      socialProof.classList.remove('show');
-    }, 5000);
-
-    currentProofIndex = (currentProofIndex + 1) % socialProofData.length;
-  }
-
-  // Show first notification after 10 seconds
-  setTimeout(showSocialProof, 10000);
-
-  // Show notifications every 20 seconds
-  setInterval(showSocialProof, 20000);
 });

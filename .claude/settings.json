@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m http.server:*)",
+      "Bash(python3 -m http.server:*)",
+      "Bash(npx -y lighthouse:*)",
+      "Bash(npx -y @lhci/cli:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(file:*)",
+      "Bash(stat:*)",
+      "Bash(find:*)",
+      "Bash(mkdir:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_click",
+      "mcp__playwright__browser_hover",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_network_requests",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_type",
+      "mcp__playwright__browser_close",
+      "mcp__perplexity__perplexity_ask",
+      "mcp__perplexity__perplexity_search",
+      "mcp__perplexity__perplexity_research",
+      "mcp__perplexity__perplexity_reason"
+    ],
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/secrets*)",
+      "Read(**/*credentials*)"
+    ]
+  }
+}

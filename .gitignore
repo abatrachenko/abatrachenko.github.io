@@ -33,3 +33,12 @@ build/
 # Temporary files
 *.tmp
 *.log
+
+# Lighthouse / tooling scratch
+tmp-lh-*.json
+lighthouse-report*.html
+lighthouse-report*.json
+.lighthouseci/
+
+# Playwright MCP scratch
+.playwright-mcp/
