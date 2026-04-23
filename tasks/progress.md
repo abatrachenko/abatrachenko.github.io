@@ -4,7 +4,7 @@ Last updated: 2026-04-23 (continuing session)
 
 ## Current state
 
-Track A (tooling) complete. Track B phase 0 (audit) complete. Track B P0 stabilization fixes shipped to production (PR #72 merged, live verified). Track B phase 1 (positioning brief) complete — see `conversion/positioning.md`.
+Track A (tooling) complete. Track B phase 0 (audit) complete. Track B P0 stabilization fixes shipped to production (PR #72 merged, live verified). Track B phase 1 (positioning brief) complete — see `conversion/positioning.md`. Track B phase 2 (benchmark analysis) complete — six analyses in `benchmarks/` with synthesis at `benchmarks/SYNTHESIS.md`. GEO Readiness Framework outline drafted at `conversion/geo-readiness-framework-outline.md` awaiting user review.
 
 ### Audit headline findings
 - Mobile Lighthouse: Perf 60 / A11y 98 / Best Prac 54 / SEO 100 (targets all 95+)
@@ -28,13 +28,14 @@ Track A originals:
 - `design-system/MASTER.md` — skeleton, awaiting Track B phase 3
 - `conversion/positioning.md` — skeleton, awaiting Track B phase 1 (though the live site has more positioning than the skeleton implies — see audit)
 
-## Next up (Track B phase 2)
+## Next up (Track B phase 3)
 
-**Benchmark analysis.** Run `researcher` agent on 6–8 sites from the candidate list in `benchmarks/README.md`, focusing on the solo-consultant and premium-agency tiers. Produce one `analysis.md` per site capturing hero format, proof structure, CTA ladder, design tokens, and what to steal vs. leave.
+**Design-system reset.** Use `benchmarks/SYNTHESIS.md §5` as the direction. Extract current tokens from `styles.css`, propose the restraint-based direction (Inter, neutral+one-accent palette, 96–128px section padding, fade-rise motion only), then codify in `design-system/MASTER.md`. Decision points during phase 3: (a) exact accent color, (b) Inter vs. Inter Tight vs. Geist, (c) the one editorial moment that separates us from yesterday's-SEO-consultant visual defaults.
 
-**Blocker on phase 3 (design system) and phase 4 (copy rebuild):**
-GEO Readiness Framework production bandwidth — see open questions in `conversion/positioning.md §9`. The two-layer CTA strategy can't fully go live until the lead magnet exists.
+**Parallel (user-facing):** review the GEO Readiness Framework outline at `conversion/geo-readiness-framework-outline.md` and answer the 5 structural questions at the bottom. Framework production starts after review.
+
+**Staged CTA reminder:** Stage 1 (newsletter capture) ships with the rebuild. Stage 2 (framework swap) ships when the framework is ready.
 
 ## Where we left off
 
-Phase 1 positioning brief locked and written to `conversion/positioning.md`. Fourteen decisions recorded in `tasks/decisions.md`. Ready to start phase 2 (benchmark analysis) whenever user wants to continue.
+Phase 2 benchmarks done — six analyses + synthesis at `benchmarks/SYNTHESIS.md`. Information architecture proposed in SYNTHESIS §4 for phase 4. Ready to start phase 3 (design-system reset) whenever user wants to continue, or take a break here — everything staged is safe to merge regardless.
