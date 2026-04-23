@@ -333,10 +333,7 @@ header.scrolled {
   gap: 0.5rem;
 }
 
-.nav .logo i {
-  color: var(--accent);
-  font-size: 1.75rem;
-}
+/* .nav .logo i removed — Font Awesome icon replaced with typographic wordmark. */
 
 .nav-menu {
   display: flex;
@@ -367,15 +364,17 @@ header.scrolled {
   width: 100%;
 }
 
-/* Navigation CTA Button */
+/* Navigation CTA Button — MASTER.md §9.1 button with nav sizing */
 .nav-menu a.nav-cta {
-  background: var(--accent);
-  color: var(--white);
-  padding: 0.625rem 1.5rem;
-  border-radius: 50px;
-  font-weight: 600;
-  box-shadow: 0 4px 15px rgba(255, 51, 102, 0.3);
-  transition: var(--transition);
+  background-color: var(--accent);
+  color: var(--surface-primary);
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  font-size: var(--text-small);
+  border: 1px solid var(--accent);
+  transition: background-color var(--duration-fast) var(--ease-out),
+              border-color var(--duration-fast) var(--ease-out);
 }
 
 .nav-menu a.nav-cta::after {
@@ -383,9 +382,9 @@ header.scrolled {
 }
 
 .nav-menu a.nav-cta:hover {
-  background: var(--accent-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 51, 102, 0.4);
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: var(--surface-primary);
   opacity: 1;
 }
 
@@ -795,11 +794,7 @@ header.scrolled {
   color: rgba(228, 132, 117, 0.1);
 }
 
-.process-card i {
-  font-size: 2rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
+/* .process-card i removed — icons dropped from process cards (numbers carry hierarchy). */
 
 .process-card h3 {
   color: var(--accent);
@@ -838,367 +833,336 @@ header.scrolled {
 }
 
 /* About Section */
-.about-section {
-  padding: 6rem 0;
-  background: var(--light-gray);
+/* Why Resonance — MASTER.md §9.4-adjacent (3-pillar differentiator block, Kevin
+   Indig pattern per benchmarks/SYNTHESIS.md §3). Replaces the old Agency Problem /
+   Resonance Solution callouts and the sticky portrait. Portrait moves to bio in
+   commit 5. */
+
+.why-resonance {
+  padding: var(--space-24) 0;
 }
 
-.about-intro {
-  max-width: 900px;
-  margin: 2rem auto 3rem;
+.why-resonance h2 {
   text-align: center;
+  margin-bottom: var(--space-16);
 }
 
-.about-intro-text {
-  font-size: 1.25rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-  font-weight: 500;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: 12px;
-  border-left: 4px solid var(--accent);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-  margin-top: 3rem;
-}
-
-.about-text h3 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-dark);
-}
-
-.about-text > p {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  line-height: 1.8;
-  margin-bottom: 2rem;
-}
-
-.about-callout {
-  margin: 2rem 0;
-  padding: 1.75rem;
-  border-radius: 12px;
-  display: flex;
-  gap: 1.25rem;
-  transition: var(--transition);
-  border: 2px solid transparent;
-}
-
-.about-callout.problem {
-  background: linear-gradient(135deg, rgba(255, 107, 107, 0.08), rgba(255, 107, 107, 0.05));
-  border-color: rgba(255, 107, 107, 0.2);
-}
-
-.about-callout.solution {
-  background: linear-gradient(135deg, rgba(40, 167, 69, 0.08), rgba(40, 167, 69, 0.05));
-  border-color: rgba(40, 167, 69, 0.2);
-}
-
-.about-callout:hover {
-  transform: translateX(5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-.callout-icon {
-  flex-shrink: 0;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  font-size: 1.5rem;
-}
-
-.about-callout.problem .callout-icon {
-  background: rgba(255, 107, 107, 0.15);
-  color: #ff6b6b;
-}
-
-.about-callout.solution .callout-icon {
-  background: rgba(40, 167, 69, 0.15);
-  color: #28a745;
-}
-
-.callout-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.75rem;
-  color: var(--text-dark);
-  font-weight: 700;
-}
-
-.callout-content p {
-  font-size: 1rem;
-  color: var(--text-light);
-  line-height: 1.7;
-  margin: 0;
-}
-
-.about-value-prop {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(228, 132, 117, 0.1), rgba(228, 132, 117, 0.05));
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-}
-
-.about-value-prop p {
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-  margin: 0;
-}
-
-.about-stats {
+.why-resonance__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: var(--space-8);
 }
 
-.about-stat {
-  text-align: center;
-  padding: 2rem 1.5rem;
-  background: var(--white);
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.08);
-  transition: var(--transition);
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
 }
 
-.about-stat:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(228, 132, 117, 0.15);
-  border-color: var(--accent);
-}
-
-.about-stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
+.pillar__number {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
   color: var(--accent);
-  display: block;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
 }
 
-.about-stat-label {
-  color: var(--text-light);
-  font-size: 0.95rem;
+.pillar__title {
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+}
+
+.pillar__body {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  max-width: 42ch;
+}
+
+@media (max-width: 900px) {
+  .why-resonance {
+    padding: var(--space-16) 0;
+  }
+  .why-resonance h2 {
+    margin-bottom: var(--space-12);
+  }
+  .why-resonance__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+}
+
+/* Legacy about/callout rules — kept as display:none shims so stale references in
+   other CSS files don't break rendering. Markup for these is removed in this commit. */
+.about-section { padding: 0; }
+.about-content, .about-text, .about-callout, .callout-icon, .callout-content,
+.about-value-prop, .about-intro, .about-intro-text { display: none; }
+
+/* Stats band — MASTER.md §9.6. Numbers-as-design. */
+.stats-band {
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.stats-band__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-12);
+  align-items: baseline;
+}
+
+.stats-band__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.stats-band__value {
+  font-family: var(--font-mono);
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 4rem);  /* 36 → 64 */
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.stats-band__plus {
+  font-size: 0.65em;
   font-weight: 500;
 }
 
-.about-img {
-  position: relative;
-  position: sticky;
-  top: 100px;
+.stats-band__label {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
-.about-img img {
-  width: 100%;
-  border-radius: 16px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-  border: 2px solid rgba(228, 132, 117, 0.2);
-  transition: var(--transition);
+@media (max-width: 900px) {
+  .stats-band {
+    padding: var(--space-16) 0;
+  }
+  .stats-band__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-10);
+  }
 }
 
-.about-img img:hover {
-  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-  border-color: var(--accent);
-  transform: translateY(-5px);
+@media (max-width: 480px) {
+  .stats-band__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
 }
 
-/* Case Studies Section */
-.case-studies-section {
-  padding: 6rem 0;
-  background: var(--white);
+/* Legacy about-stats — kept temporarily for cascade safety; removed when about
+   section gets rebuilt as 'Why Resonance' 3-pillar in commit 3. */
+.about-stats { display: none; }
+.about-stat { display: none; }
+
+/* .about-img — portrait moves to bio block in commit 5. Hidden here until that lands. */
+.about-img { display: none; }
+
+/* Case studies — MASTER.md §9.7. Metric-forward cards. */
+.case-studies {
+  padding: var(--space-24) 0;
 }
 
-.case-studies-grid {
+.case-studies h2 {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.case-studies__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 3rem;
-  margin-top: 4rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
 }
 
 .case-study-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
-  backdrop-filter: blur(10px);
-  border-radius: 24px;
-  overflow: hidden;
-  transition: var(--transition-bounce);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: var(--shadow-md);
-  position: relative;
-}
-
-.case-study-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 51, 102, 0.05), rgba(79, 70, 229, 0.05));
-  opacity: 0;
-  transition: var(--transition);
-  pointer-events: none;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
 }
 
 .case-study-card:hover {
-  transform: translateY(-12px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 0 60px rgba(255, 51, 102, 0.2);
-  border-color: var(--accent);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
 }
 
-.case-study-card:hover::before {
-  opacity: 1;
+.case-study-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
-.case-study-header {
-  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
-  padding: 2rem;
-  text-align: center;
-}
-
-.case-study-header h3 {
-  color: var(--white);
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.case-study-header p {
-  color: rgba(255,255,255,0.8);
+.case-study-card__name {
   margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: var(--leading-heading);
 }
 
-.case-study-body {
-  padding: 2rem;
+.case-study-card__category {
+  margin: 0;
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.case-study-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+.case-study-card__metric {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--border-default);
+  border-bottom: 1px solid var(--border-default);
 }
 
-.case-study-metric {
+.case-study-card__metric-value {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);  /* 32 → 40 */
+  font-weight: 500;
+  line-height: 1;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.case-study-card__metric-label {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+
+.case-study-card__description {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--leading-body);
+  color: var(--text-secondary);
+  max-width: 40ch;
+}
+
+.case-studies__footer-cta {
   text-align: center;
-  padding: 1rem;
-  background: var(--white);
-  border-radius: 8px;
+  margin-top: var(--space-16);
+  font-size: var(--text-body);
+  color: var(--text-secondary);
 }
 
-.case-study-metric-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent);
-  display: block;
+.case-studies__footer-cta .btn {
+  margin-top: var(--space-4);
 }
 
-.case-study-metric-label {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-.case-study-body p {
-  color: var(--text-dark);
-  margin-bottom: 1rem;
+@media (max-width: 900px) {
+  .case-studies__grid {
+    grid-template-columns: 1fr;
+  }
+  .case-studies h2 {
+    margin-bottom: var(--space-12);
+  }
 }
 
 /* Testimonial Section */
-.testimonial-section {
-  background: var(--light-gray);
-  padding: 6rem 0;
+/* Testimonials — MASTER.md §9.9. Plain cards, no decorative quote marks, no stars,
+   no photos. Relational quote + attribution only. */
+
+.testimonials {
+  padding: var(--space-24) 0;
+  background-color: var(--surface-secondary);
 }
 
-.testimonials-grid {
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+
+.testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
 }
 
-.testimonial {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-  backdrop-filter: blur(12px);
-  color: var(--text-dark);
-  padding: 2.5rem;
-  border-radius: 20px;
-  position: relative;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  transition: var(--transition-bounce);
-  box-shadow: var(--shadow-md);
-}
-
-.testimonial::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  background: linear-gradient(135deg, var(--accent), var(--secondary));
-  opacity: 0;
-  transition: var(--transition);
-  z-index: -1;
-  padding: 2px;
-}
-
-.testimonial:hover {
-  border-color: var(--accent);
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 51, 102, 0.15);
-}
-
-.testimonial:hover::after {
-  opacity: 0.1;
-}
-
-.testimonial:before {
-  content: """;
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  font-size: 4rem;
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.3;
-}
-
-.testimonial-stars {
-  color: #ffc107;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.testimonial p {
-  font-style: italic;
-  font-size: 1.1rem;
-  padding-left: 1rem;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-.testimonial .author {
-  margin-top: 1.5rem;
-  font-weight: 600;
+.testimonial-card {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-left: 1rem;
+  flex-direction: column;
+  gap: var(--space-6);
 }
 
-.testimonial .author i {
-  color: var(--accent);
+.testimonial-card__quote {
+  margin: 0;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--text-primary);
+  font-style: normal;         /* override default <blockquote> italic */
 }
+
+.testimonial-card__attribution {
+  margin: 0;
+  font-size: var(--text-small);
+  line-height: var(--leading-tight);
+  color: var(--text-secondary);
+  font-style: normal;         /* override default <cite> italic */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-default);
+}
+
+.testimonial-card__role {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.testimonial-card__company {
+  color: var(--text-secondary);
+}
+
+.testimonials__cta {
+  text-align: center;
+  margin-top: var(--space-16);
+}
+
+@media (max-width: 900px) {
+  .testimonials {
+    padding: var(--space-16) 0;
+  }
+  .testimonials h2 {
+    margin-bottom: var(--space-12);
+  }
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Legacy testimonial classes (from old grid/card design) — shim to display:none
+   so any stale references don't render empty elements. New markup uses
+   .testimonial-card__*. */
+.testimonial-section, .testimonials-grid { display: block; }
+.testimonial, .testimonial-stars, .testimonial .author { display: none; }
 
 /* Sections */
 .section {
@@ -1419,182 +1383,247 @@ header.scrolled {
 }
 
 /* FAQ Section */
+/* FAQ — MASTER.md §9.11. Native <details>/<summary>, monospace +/× glyph toggle,
+   no decorative icons inside summary. */
 .faq-section {
-  padding: 6rem 0;
-  background: var(--white);
+  padding: var(--space-24) 0;
 }
 
-.faq-section h3 {
+.faq-section h2 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-12);
 }
 
 .accordion {
-  max-width: 800px;
-  margin: auto;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
 .accordion-item {
-  margin-bottom: 1.5rem;
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,249,250,0.95));
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  transition: var(--transition-bounce);
-  position: relative;
+  border-bottom: 1px solid var(--border-default);
+  padding: 0;
 }
 
-.accordion-item::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 4px;
-  height: 0;
-  background: linear-gradient(180deg, var(--accent), var(--secondary));
-  transition: height 0.4s ease;
-}
-
-.accordion-item:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-md), 0 0 30px rgba(255, 51, 102, 0.1);
-  transform: translateX(5px);
-}
-
-.accordion-item[open]::before {
-  height: 100%;
+.accordion-item:first-of-type {
+  border-top: 1px solid var(--border-default);
 }
 
 .accordion-item summary {
-  padding: 1.75rem;
+  padding: var(--space-6) 0;
   cursor: pointer;
   list-style: none;
-  position: relative;
-  font-weight: 600;
-  font-size: 1.15rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.accordion-item summary i {
-  color: var(--accent);
-  font-size: 1.25rem;
-}
-
-.accordion-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.accordion-item summary:after {
-  content: "+";
-  position: absolute;
-  right: 1.75rem;
-  color: var(--accent);
-  font-size: 1.75rem;
-  line-height: 1;
-  transition: var(--transition);
-  font-weight: 300;
-}
-
-.accordion-item[open] summary:after {
-  transform: rotate(45deg);
-}
-
-.accordion-item div {
-  padding: 0 1.75rem 1.75rem 4rem;
-  font-size: 1rem;
-  color: var(--text-dark);
-  line-height: 1.7;
-}
-
-/* Floating CTA Button - 2026 Modern */
-.floating-cta {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
-  color: var(--white);
-  padding: 16px 28px;
-  border-radius: 50px;
-  display: none;
-  z-index: 100;
-  text-align: center;
-  font-weight: 700;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  text-decoration: none;
-  box-shadow: var(--shadow-glow);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  letter-spacing: 0.02em;
-}
-
-.floating-cta.visible {
-  transform: translateY(0) scale(1);
-  opacity: 1;
-  animation: pulse-float 3s ease-in-out infinite;
-}
-
-@keyframes pulse-float {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    box-shadow: var(--shadow-glow);
-  }
-  50% {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 0 60px rgba(255, 51, 102, 0.6), 0 8px 40px rgba(255, 51, 102, 0.4);
-  }
-}
-
-.floating-cta:hover {
-  background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-  transform: translateY(-6px) scale(1.08);
-  box-shadow: 0 0 80px rgba(255, 51, 102, 0.7), 0 12px 48px rgba(255, 51, 102, 0.5);
-  animation: none;
-}
-
-.floating-cta i {
-  margin-right: 0.5rem;
-}
-
-/* Footer */
-footer {
-  background: var(--light-gray);
-  color: var(--text-light);
-  padding: 3rem 0;
-  font-size: 0.875rem;
-  border-top: 1px solid rgba(0,0,0,0.08);
-}
-
-.footer-content {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text-primary);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-4);
+}
+
+.accordion-item summary::-webkit-details-marker { display: none; }
+.accordion-item summary i { display: none; }     /* strip any leftover FA icons */
+
+.accordion-item summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: var(--text-large);
+  font-weight: 400;
+  color: var(--text-secondary);
+  transition: transform var(--duration-fast) var(--ease-out),
+              color var(--duration-fast) var(--ease-out);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.accordion-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--accent);
+}
+
+.accordion-item summary:hover {
+  color: var(--accent);
+}
+
+.accordion-item summary:hover::after {
+  color: var(--accent);
+}
+
+.accordion-item div {
+  padding: 0 0 var(--space-6);
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
+  max-width: 65ch;
+}
+
+/* Floating CTA Button — fully removed (markup and handler removed in commit 1,
+   CSS cleaned up here). Any stale class references become no-ops. */
+.floating-cta { display: none; }
+
+/* Bio — MASTER.md §9.12. Placed LAST per Julian Shapiro. */
+.bio {
+  padding: var(--space-24) 0;
+  border-top: 1px solid var(--border-default);
+}
+
+.bio__inner {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.bio__portrait {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--surface-secondary);
+}
+
+.bio__portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bio__name {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-h1);
+  font-weight: 700;
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  color: var(--text-primary);
+}
+
+.bio__role {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-large);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
+}
+
+.bio__body {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-body);
+  color: var(--text-primary);
+  line-height: var(--leading-body);
+  max-width: 60ch;
+}
+
+.bio__credentials {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.bio__cta {
+  display: inline-block;
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.bio__cta:hover {
+  color: var(--accent-hover);
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .bio {
+    padding: var(--space-16) 0;
+  }
+  .bio__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    max-width: 480px;
+  }
+  .bio__portrait {
+    width: 144px;
+    height: 144px;
+  }
+}
+
+/* Footer — MASTER.md §9.13. Minimal, with secondary newsletter capture. */
+footer {
+  background-color: var(--surface-secondary);
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-12) 0;
+  color: var(--text-secondary);
+  font-size: var(--text-micro);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.footer-content__copy {
+  justify-self: start;
+}
+
+.footer-content__newsletter {
+  justify-self: center;
+  max-width: 420px;
+  width: 100%;
+}
+
+.footer-content__newsletter .newsletter__label {
+  font-size: var(--text-micro);
+  margin-bottom: var(--space-2);
+}
+
+.footer-content__newsletter .newsletter__row .btn {
+  height: 40px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-micro);
+}
+
+.footer-content__newsletter .newsletter__input {
+  height: 40px;
+  font-size: var(--text-small);
 }
 
 .footer-links {
   display: flex;
-  gap: 2rem;
+  gap: var(--space-5);
+  justify-self: end;
+  align-items: center;
 }
 
 footer a {
-  color: var(--text-light);
-  transition: var(--transition);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
 }
 
 footer a:hover {
-  color: var(--accent);
+  color: var(--text-primary);
+  opacity: 1;
 }
 
-.lovable {
-  font-size: 0.75rem;
-  opacity: 0.7;
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+  .footer-content__copy,
+  .footer-content__newsletter,
+  .footer-links {
+    justify-self: center;
+  }
 }
 
 /* Scroll Progress Indicator - 2026 Enhanced */
@@ -1643,25 +1672,9 @@ footer a:hover {
   transition: width 0s, height 0s;
 }
 
-/* 3D Card Tilt Effect */
-.case-study-card {
-  transform-style: preserve-3d;
-  perspective: 1000px;
-}
+/* (Old 3D tilt effect on case-study-card removed — overridden by MASTER.md §9.7 rules) */
 
-.case-study-card:hover {
-  transform: translateY(-10px) rotateX(2deg);
-}
-
-/* Enhanced Testimonial Effects */
-.testimonial {
-  transform-style: preserve-3d;
-}
-
-.testimonial:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 50px rgba(228, 132, 117, 0.2);
-}
+/* (Old 3D testimonial hover removed — .testimonial-card in MASTER.md §9.9 has no hover transform.) */
 
 /* Parallax Elements */
 .parallax {
@@ -1712,14 +1725,8 @@ footer a:hover {
 }
 
 /* Smooth Image Loading */
-img {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-img.loaded {
-  opacity: 1;
-}
+/* Image lazy-load fade removed — images render immediately. Keep .loaded as a no-op
+   shim in case any selector still references it. */
 
 /* Exit Intent Popup */
 .exit-popup {
@@ -2021,366 +2028,204 @@ img.loaded {
 }
 
 /* Consulting Section */
+/* Availability & pricing — MASTER.md §9.8 instrument-grade scarcity bar + §9.10 pricing tiers */
+
 .consulting-section {
-  padding: 6rem 0;
-  background: var(--light-gray);
+  padding: var(--space-24) 0;
+  background-color: var(--surface-secondary);
 }
 
-.availability-progress {
-  max-width: 700px;
-  margin: 3rem auto;
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 16px;
-  border: 2px solid rgba(228, 132, 117, 0.2);
+.consulting-section h2 {
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
-.progress-header {
+/* Instrument-grade scarcity bar (MASTER.md §9.8).
+   Fill uses --text-primary (data color), NOT --accent (interaction color). */
+.scarcity-bar {
+  max-width: 640px;
+  margin: 0 auto var(--space-16);
+  display: grid;
+  gap: var(--space-3);
+}
+
+.scarcity-bar__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  align-items: baseline;
+  gap: var(--space-4);
 }
 
-.progress-label {
-  font-weight: 600;
-  color: var(--text-dark);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.scarcity-bar__label {
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
-.progress-label i {
-  color: var(--accent);
+.scarcity-bar__value {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
 }
 
-.progress-value {
-  font-weight: 700;
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-
-.progress-bar-container {
-  width: 100%;
-  height: 24px;
-  background: rgba(0,0,0,0.05);
-  border-radius: 12px;
+.scarcity-bar__track {
+  height: 6px;
+  background-color: var(--border-default);
+  border-radius: 3px;
   overflow: hidden;
-  position: relative;
 }
 
-.progress-bar-fill {
+.scarcity-bar__fill {
   height: 100%;
-  background: linear-gradient(90deg, #ff6b6b, var(--accent));
-  border-radius: 12px;
-  transition: width 0.5s ease;
-  position: relative;
-  animation: pulse-glow 2s ease-in-out infinite;
+  background-color: var(--text-primary);
+  border-radius: 3px;
+  /* No transition — renders static per MASTER.md §9.8 */
 }
 
-@keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
-  }
-}
-
-.progress-note {
-  margin-top: 1rem;
-  text-align: center;
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.progress-note i {
-  animation: flicker 1.5s ease-in-out infinite;
-}
-
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
-}
-
-.availability-status {
-  text-align: center;
-  margin: 3rem 0;
-}
-
-.status-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 1rem 2rem;
-  background: var(--white);
-  border-radius: 50px;
-  border: 2px solid rgba(0,0,0,0.08);
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: var(--transition);
-}
-
-.status-indicator.available {
-  border-color: #28a745;
-}
-
-.status-indicator.available i {
-  color: #28a745;
-  animation: pulse-status 2s ease-in-out infinite;
-}
-
-.status-indicator.waitlist {
-  border-color: #ffc107;
-}
-
-.status-indicator.waitlist i {
-  color: #ffc107;
-}
-
-@keyframes pulse-status {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-}
-
+/* Pricing tiers (MASTER.md §9.10) */
 .consulting-tiers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 4rem 0;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  gap: var(--space-6);
+  max-width: var(--container-max);
+  margin: 0 auto;
 }
 
 .tier-card {
-  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
-  backdrop-filter: blur(12px);
-  padding: 2.5rem;
-  border-radius: 24px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  transition: var(--transition-bounce);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
   position: relative;
-  box-shadow: var(--shadow-md);
-  overflow: hidden;
-}
-
-.tier-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 51, 102, 0.08), transparent 60%);
-  opacity: 0;
-  transition: var(--transition);
-  pointer-events: none;
-}
-
-.tier-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: var(--shadow-lg), 0 0 50px rgba(255, 51, 102, 0.2);
-  border-color: var(--accent);
-}
-
-.tier-card:hover::before {
-  opacity: 1;
 }
 
 .tier-card.featured {
-  border-color: var(--accent);
-  box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 51, 102, 0.2);
-  background: linear-gradient(135deg, rgba(255, 51, 102, 0.05), rgba(255,255,255,0.95));
-}
-
-.tier-card.featured::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 24px;
-  background: linear-gradient(135deg, var(--accent), var(--secondary));
-  opacity: 0.03;
-  pointer-events: none;
-}
-
-.popular-badge {
-  position: absolute;
-  top: -12px;
-  right: 20px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: var(--white);
-  padding: 0.5rem 1.25rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  border: 2px solid var(--accent);
+  padding: calc(var(--space-8) - 1px);    /* compensate for 1px → 2px border */
 }
 
 .tier-card h3 {
-  color: var(--accent);
-  font-size: 1.75rem;
-  margin-bottom: 0.75rem;
+  margin: 0;
+  font-size: var(--text-h2);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: var(--leading-heading);
 }
 
 .tier-description {
-  color: var(--text-light);
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-
-.tier-features {
-  list-style: none;
-  padding: 0;
   margin: 0;
-}
-
-.tier-features li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-  font-size: 1rem;
-}
-
-.tier-features li i {
-  color: var(--accent);
-  font-size: 1.1rem;
-  flex-shrink: 0;
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
 }
 
 .tier-price {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);
+  font-weight: 500;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
   display: flex;
   align-items: baseline;
-  gap: 0.25rem;
+  gap: var(--space-1);
+  padding-top: var(--space-4);
+  margin-top: auto;
+  border-top: 1px solid var(--border-default);
 }
 
 .tier-price span {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--text-light);
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 400;
+  color: var(--text-secondary);
+  letter-spacing: 0;
 }
 
+/* Pricing note — plain small text centered below tiers */
 .pricing-note {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1.5rem 2rem;
-  background: rgba(228, 132, 117, 0.1);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.pricing-note i {
-  color: var(--accent);
-  font-size: 1.5rem;
-  flex-shrink: 0;
-  margin-top: 0.25rem;
+  max-width: 640px;
+  margin: var(--space-10) auto 0;
+  text-align: center;
 }
 
 .pricing-note p {
   margin: 0;
-  color: var(--text-dark);
-  line-height: 1.6;
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
 }
 
+/* Engagement terms — small typographic data block */
 .engagement-terms {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 700px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: var(--white);
-  border-radius: 16px;
-  border: 1px solid rgba(0,0,0,0.08);
+  gap: var(--space-8);
+  max-width: 640px;
+  margin: var(--space-8) auto var(--space-12);
+  padding: var(--space-6) var(--space-8);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--surface-primary);
 }
 
 .term-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.term-item i {
-  color: var(--accent);
-  font-size: 1.75rem;
-  margin-top: 0.25rem;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: var(--space-1);
 }
 
 .term-item strong {
-  display: block;
-  color: var(--text-dark);
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
+  font-size: var(--text-micro);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .term-item p {
-  color: var(--text-light);
-  font-size: 0.95rem;
   margin: 0;
-}
-
-.consulting-qualifier {
-  max-width: 700px;
-  margin: 3rem auto;
-  text-align: center;
-}
-
-.consulting-qualifier h3 {
-  color: var(--text-dark);
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.consulting-qualifier ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.consulting-qualifier li {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-  color: var(--text-dark);
-  font-size: 1.05rem;
-}
-
-.consulting-qualifier li::before {
-  content: '✓';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  border-radius: 50%;
-  color: var(--white);
-  font-weight: bold;
-  font-size: 0.9rem;
-  flex-shrink: 0;
+  font-size: var(--text-small);
+  color: var(--text-primary);
+  line-height: var(--leading-tight);
 }
 
 .consulting-cta {
   text-align: center;
-  margin-top: 3rem;
+  margin-top: var(--space-8);
+}
+
+/* Legacy / removed — shim for any stale markup */
+.availability-progress,
+.progress-header, .progress-label, .progress-value,
+.progress-bar-container, .progress-bar-fill,
+.progress-note, .availability-status, .status-indicator,
+.popular-badge, .tier-features, .consulting-qualifier {
+  /* no-op — superseded by scarcity-bar and simplified tier styles */
+}
+.popular-badge, .consulting-qualifier { display: none; }
+
+@media (max-width: 900px) {
+  .consulting-section {
+    padding: var(--space-16) 0;
+  }
+  .consulting-tiers {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .engagement-terms {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+  }
 }
 
 /* Enhanced Mobile Styles */
