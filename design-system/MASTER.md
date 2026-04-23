@@ -85,7 +85,7 @@ Drop the Font Awesome CDN line. Inline SVG icons only (see §9 icons).
 
 ```
 /* Headings */
---text-display:     clamp(3rem, 6vw + 1rem, 6.5rem);    /* H1 — hero only. 48px → 104px */
+--text-display:     clamp(2.5rem, 5vw + 1rem, 5rem);    /* H1 — hero only. 40px → 80px */
 --text-h1:          clamp(2.25rem, 3.5vw + 1rem, 3.5rem);  /* 36px → 56px — section titles (H2) */
 --text-h2:          clamp(1.5rem, 1.5vw + 1rem, 2rem);    /* 24px → 32px — subsection (H3) */
 --text-h3:          clamp(1.125rem, 0.5vw + 1rem, 1.25rem); /* 18px → 20px — small heads, pillar labels */

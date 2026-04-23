@@ -51,11 +51,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
 
-  <!-- Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fonts: Inter (body + display) + Geist Mono (numbers) per design-system/MASTER.md §3 -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
 
-  <!-- Font Awesome -->
+  <!-- Font Awesome (temporary — being swapped for inline Heroicons SVG across phase 4 commits 2-5) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <!-- External Stylesheet -->
@@ -170,11 +170,6 @@
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
-  <!-- Sticky CTA Bar -->
-  <div class="sticky-cta-bar" role="banner" aria-label="Special offer notification">
-    <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Book your free intro call">Book your free intro call</a>
-  </div>
-
   <header role="banner">
     <div class="container nav">
       <a href="/" class="logo" role="img" aria-label="Resonance SEO Logo">
@@ -195,25 +190,40 @@
   </header>
 
   <main id="main-content" role="main">
-  <div class="container hero">
-    <div class="hero-text slide-in-left">
-      <h1>Get Enterprise SEO Leadership <span class="gradient-text">at 50% of Agency Cost</span></h1>
-      <p class="hero-subtitle">Partner with an SEO leader who's generated $700M+ in revenue over 15 years.</p>
+  <section class="hero">
+    <div class="hero__inner">
+      <h1 class="hero__headline">
+        Senior SEO + AI&nbsp;search leadership for enterprise e&#8209;commerce &mdash; <span class="hero__headline-accent">embedded directly in your team.</span>
+      </h1>
+      <p class="hero__subhead">
+        From organic plateau to compounding growth across SEO and AI search.
+        $700M+ delivered across 35+ brands including Adidas, Samsung, J.Crew, and Madewell.
+      </p>
 
-      <ul class="hero-checklist">
-        <li><i class="fas fa-check-circle"></i> Transparent Pricing</li>
-        <li><i class="fas fa-check-circle"></i> Proven Track Record</li>
-        <li><i class="fas fa-check-circle"></i> Expert SEO Leadership Only</li>
-      </ul>
+      <form class="newsletter" id="newsletterForm" novalidate>
+        <label for="newsletter-email" class="newsletter__label">
+          Organic growth patterns for enterprise e-commerce. Every other Tuesday.
+        </label>
+        <div class="newsletter__row">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            class="newsletter__input"
+            placeholder="Your work email"
+            autocomplete="email"
+            required
+            aria-describedby="newsletter-status">
+          <button type="submit" class="btn">Subscribe</button>
+        </div>
+        <p class="newsletter__status" id="newsletter-status" role="status" aria-live="polite"></p>
+      </form>
 
-      <div class="hero-buttons">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Book a free strategy call"><i class="fas fa-calendar-check" aria-hidden="true"></i> Book a Free Intro Call</a>
-      </div>
+      <p class="hero__secondary">
+        Or <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer">book a strategy call &rarr;</a>
+      </p>
     </div>
-    <div class="hero-img slide-in-right">
-      <img src="organic-traffic-growth-v4.png" alt="Dramatic organic traffic growth chart showing exponential SEO performance improvement for e-commerce brands">
-    </div>
-  </div>
+  </section>
   <section class="clients-section">
     <div class="container">
       <div class="clients-carousel">
@@ -552,11 +562,6 @@
     </div>
   </section>
 
-  <!-- Floating Contact Button (Mobile) -->
-  <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="floating-cta">
-    <i class="fas fa-phone-alt"></i>
-    <span>Book a Call</span>
-  </a>
   </main>
 
   <footer role="contentinfo">

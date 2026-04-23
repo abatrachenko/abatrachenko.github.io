@@ -1,44 +1,52 @@
 /*
- * Resonance SEO - Main JavaScript
- * Interactive features and animations for the consulting website
+ * Resonance SEO — main script
+ * Interactive behaviors for the phase-4 rebuild.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Track CTA clicks as a GA4 custom event. When paid ad conversions are wired,
-  // add a second gtag('event', 'conversion', {send_to: '<real-id>/<label>'}) call.
+
+  /* ----- GA4 custom events ---------------------------------------------- */
+
   function trackConversion(ctaLocation) {
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'book_call_click', {
-        'cta_location': ctaLocation
-      });
+      gtag('event', 'book_call_click', { cta_location: ctaLocation });
     }
   }
 
-  // Track all "Book a Call" CTA clicks
   document.querySelectorAll('a[href*="calendly.com"]').forEach((cta, index) => {
-    cta.addEventListener('click', (e) => {
-      let ctaLocation = 'unknown';
-
-      // Identify which CTA was clicked
-      if (cta.closest('.sticky-cta-bar')) {
-        ctaLocation = 'sticky_bar';
-      } else if (cta.closest('.hero')) {
-        ctaLocation = 'hero_section';
-      } else if (cta.classList.contains('floating-cta')) {
-        ctaLocation = 'floating_button';
-      } else if (cta.closest('.consulting-section')) {
-        ctaLocation = 'consulting_section';
-      } else if (cta.classList.contains('nav-cta')) {
-        ctaLocation = 'nav_menu';
-      } else {
-        ctaLocation = 'cta_' + index;
-      }
-
+    cta.addEventListener('click', () => {
+      let ctaLocation = 'cta_' + index;
+      if (cta.closest('.hero')) ctaLocation = 'hero_secondary';
+      else if (cta.closest('.consulting-section')) ctaLocation = 'consulting_section';
+      else if (cta.classList.contains('nav-cta')) ctaLocation = 'nav_menu';
       trackConversion(ctaLocation);
     });
   });
 
-  // Capture and store UTM parameters
+  /* ----- Newsletter stub (backend wired in a later commit) -------------- */
+
+  const newsletterForm = document.getElementById('newsletterForm');
+  if (newsletterForm) {
+    const status = document.getElementById('newsletter-status');
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('newsletter-email');
+      const email = (input.value || '').trim();
+      if (!email || !email.includes('@')) {
+        status.textContent = 'Please enter a valid email address.';
+        input.focus();
+        return;
+      }
+      status.textContent = 'Thanks — the newsletter launches soon. You’ll be first on the list.';
+      input.value = '';
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'newsletter_signup_attempt', { cta_location: 'hero' });
+      }
+    });
+  }
+
+  /* ----- UTM capture ---------------------------------------------------- */
+
   const urlParams = new URLSearchParams(window.location.search);
   const utmParams = {
     utm_source: urlParams.get('utm_source'),
@@ -47,222 +55,95 @@ document.addEventListener('DOMContentLoaded', () => {
     utm_term: urlParams.get('utm_term'),
     utm_content: urlParams.get('utm_content')
   };
-
-  // Store UTM parameters in sessionStorage if they exist
   if (utmParams.utm_source) {
     sessionStorage.setItem('utm_params', JSON.stringify(utmParams));
-
-    // Send UTM data to GA4
     if (typeof gtag !== 'undefined') {
       gtag('event', 'page_view', utmParams);
     }
   }
 
-  // Scroll Progress Indicator & Header Enhancement
-  const scrollProgress = document.querySelector('.scroll-progress');
+  /* ----- Header scroll state -------------------------------------------- */
+
   const header = document.querySelector('header');
+  const scrollProgress = document.querySelector('.scroll-progress');
 
   window.addEventListener('scroll', () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrollPercent = (scrollTop / docHeight) * 100;
-
+    if (header) {
+      header.classList.toggle('scrolled', scrollTop > 8);
+    }
     if (scrollProgress) {
-      scrollProgress.style.width = scrollPercent + '%';
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      scrollProgress.style.width = ((scrollTop / docHeight) * 100) + '%';
     }
+  }, { passive: true });
 
-    // Add scrolled class to header for glassmorphism effect
-    if (scrollTop > 100) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  });
+  /* ----- Scroll reveal (fade-rise only, MASTER.md §7) ------------------- */
 
-  // Image Lazy Loading with Animation
-  const images = document.querySelectorAll('img');
-  images.forEach(img => {
-    if (img.complete) {
-      img.classList.add('loaded');
-    } else {
-      img.addEventListener('load', () => {
-        img.classList.add('loaded');
-      });
-    }
-  });
-
-  // Parallax Scrolling Effect - Disabled to prevent overlap issues
-  // const hero = document.querySelector('.hero');
-  // if (hero) {
-  //   window.addEventListener('scroll', () => {
-  //     const scrolled = window.pageYOffset;
-  //     const parallaxSpeed = 0.5;
-  //     hero.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-  //   });
-  // }
-
-  // Intersection Observer for scroll animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-
-        // Trigger counter animation for stat numbers
-        if (entry.target.classList.contains('about-stat-number') && !entry.target.classList.contains('counted')) {
-          animateCounter(entry.target);
-          entry.target.classList.add('counted');
+  const reveals = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+  if (reveals.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
-      }
-    });
-  }, observerOptions);
-
-  // Observe all animated elements
-  document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Observe stat numbers for counter animation
-  document.querySelectorAll('.about-stat-number').forEach(el => {
-    observer.observe(el);
-  });
-
-  // Animated Counter Function - 2026 Modern
-  function animateCounter(element) {
-    const text = element.textContent;
-    const hasPlus = text.includes('+');
-    const hasDollar = text.includes('$');
-    const hasM = text.includes('M');
-
-    // Extract number
-    let number = parseInt(text.replace(/[^\d]/g, ''));
-    if (hasM) {
-      number = parseInt(text.match(/\d+/)[0]);
-    }
-
-    const duration = 2000; // 2 seconds
-    const steps = 60;
-    const stepValue = number / steps;
-    const stepTime = duration / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += stepValue;
-      if (current >= number) {
-        current = number;
-        clearInterval(timer);
-      }
-
-      let displayValue = Math.floor(current);
-      let displayText = displayValue.toString();
-
-      if (hasDollar) displayText = '$' + displayText;
-      if (hasM) displayText += 'M';
-      if (hasPlus) displayText += '+';
-
-      element.textContent = displayText;
-    }, stepTime);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    reveals.forEach((el) => observer.observe(el));
   }
 
+  /* ----- Mobile nav toggle ---------------------------------------------- */
 
-  // Mobile menu toggle
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const navMenu = document.querySelector('nav.nav-menu');
 
-  if (mobileMenuBtn) {
+  if (mobileMenuBtn && navMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-      const isExpanded = navMenu.classList.toggle('active');
-      mobileMenuBtn.setAttribute('aria-expanded', isExpanded);
+      const isOpen = navMenu.classList.toggle('active');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    });
+
+    document.addEventListener('click', (e) => {
+      if (navMenu.classList.contains('active') &&
+          !navMenu.contains(e.target) &&
+          !mobileMenuBtn.contains(e.target)) {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
-  // Close mobile menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (navMenu && navMenu.classList.contains('active') &&
-        !navMenu.contains(e.target) &&
-        !mobileMenuBtn.contains(e.target)) {
-      navMenu.classList.remove('active');
-    }
-  });
+  /* ----- Smooth scroll for same-page anchors ---------------------------- */
 
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (!targetElement) return;
+
       e.preventDefault();
-
       if (navMenu && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
       }
 
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        const headerOffset = 80;
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     });
   });
 
-  // Accordion functionality
-  document.querySelectorAll('.accordion-item').forEach(item => {
+  /* ----- Accordion nudge ------------------------------------------------ */
+
+  document.querySelectorAll('.accordion-item').forEach((item) => {
     item.addEventListener('toggle', () => {
       if (item.open) {
         setTimeout(() => {
-          item.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-          });
+          item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 100);
       }
     });
   });
-
-
-  // Sticky CTA bar visibility
-  const stickyCTABar = document.querySelector('.sticky-cta-bar');
-  let lastScrollTop = 0;
-
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    // Show sticky CTA after scrolling past hero
-    if (scrollTop > 800) {
-      stickyCTABar.classList.add('visible');
-    } else {
-      stickyCTABar.classList.remove('visible');
-    }
-
-    lastScrollTop = scrollTop;
-  });
-
-  // Floating CTA button visibility
-  const floatingCTA = document.querySelector('.floating-cta');
-
-  if (floatingCTA) {
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      // Show floating button when scrolling down and past hero section
-      if (scrollTop > 300 && scrollTop > lastScrollTop) {
-        floatingCTA.classList.add('visible');
-      }
-      // Hide when scrolling up
-      else if (scrollTop < lastScrollTop) {
-        floatingCTA.classList.remove('visible');
-      }
-
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
-  }
-
 });
