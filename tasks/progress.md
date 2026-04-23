@@ -1,10 +1,10 @@
 # Session progress
 
-Last updated: 2026-04-23 (end of session)
+Last updated: 2026-04-23 (continuing session)
 
 ## Current state
 
-Track A (tooling) complete. Track B phase 0 (audit) complete — full report at `tasks/audit-2026-04-23/AUDIT.md`.
+Track A (tooling) complete. Track B phase 0 (audit) complete. Track B P0 stabilization fixes shipped to production (PR #72 merged, live verified). Track B phase 1 (positioning brief) complete — see `conversion/positioning.md`.
 
 ### Audit headline findings
 - Mobile Lighthouse: Perf 60 / A11y 98 / Best Prac 54 / SEO 100 (targets all 95+)
@@ -28,11 +28,13 @@ Track A originals:
 - `design-system/MASTER.md` — skeleton, awaiting Track B phase 3
 - `conversion/positioning.md` — skeleton, awaiting Track B phase 1 (though the live site has more positioning than the skeleton implies — see audit)
 
-## Next up
+## Next up (Track B phase 2)
 
-1. User decides: positioning tier / brand structure / scope.
-2. On decision: either execute P0 fixes immediately (4–6 hrs) or start benchmark + positioning research first.
+**Benchmark analysis.** Run `researcher` agent on 6–8 sites from the candidate list in `benchmarks/README.md`, focusing on the solo-consultant and premium-agency tiers. Produce one `analysis.md` per site capturing hero format, proof structure, CTA ladder, design tokens, and what to steal vs. leave.
+
+**Blocker on phase 3 (design system) and phase 4 (copy rebuild):**
+GEO Readiness Framework production bandwidth — see open questions in `conversion/positioning.md §9`. The two-layer CTA strategy can't fully go live until the lead magnet exists.
 
 ## Where we left off
 
-End of 2026-04-23 session. Track A built, audit completed and written to `tasks/audit-2026-04-23/AUDIT.md`. Awaiting user direction on the three decisions in the audit's Section 9.
+Phase 1 positioning brief locked and written to `conversion/positioning.md`. Fourteen decisions recorded in `tasks/decisions.md`. Ready to start phase 2 (benchmark analysis) whenever user wants to continue.

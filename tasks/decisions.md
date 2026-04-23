@@ -65,6 +65,42 @@ Format per entry:
 **Tradeoffs:** Performance wins (mobile perf 60 → 95+) arrive weeks later than option B would have them. Accepted because the redesign is blocked on positioning + benchmarks anyway, so we'd pay those hours twice.
 **Revisit if:** Redesign slips past 4 weeks — then P1 becomes its own sprint to claim wins in the interim.
 
+## [2026-04-23] — Positioning brief locked (one session, brainstorm protocol)
+
+**Context:** Track B phase 1 — positioning brief. Ran through the brainstorm skill one question at a time over a single session. All strategic decisions now captured in `conversion/positioning.md`.
+
+**Decisions locked in sequence:**
+
+| # | Decision | Value |
+|---|---|---|
+| 1 | ICP anchor | Enterprise e-commerce specialist |
+| 2 | Buyer persona | VP/Director Marketing or E-commerce |
+| 3 | Primary trigger | Plateau / stalled growth (C capability-gap and E growth-acceleration woven below-fold) |
+| 4 | GEO integration | Anchor SEO, include GEO — not core identity |
+| 5 | Promise style | Position-first (names what the consultant *is*) |
+| 6 | Differentiators | Embedded senior + enterprise track record + GEO capability |
+| 7 | CopyEngine visibility | Private operational leverage (not publicly named) |
+| 8 | CTA strategy | Two-layer: lead magnet primary, strategy call secondary |
+| 9 | Lead magnet | GEO Readiness Framework (vendor-neutral) |
+| 10 | Voice | B+E blend (technical-plainspoken + research-led), no listicle-tease, no hook-kickers |
+| 11 | Anti-positioning | Not an agency · Not for <$50M brands · Not a generalist marketing consultant |
+| 12 | Brand | Solo-brand primary with Resonance as practice tagline |
+| 13 | GEO implementation | Integrated into engagements (not separate service pillar) |
+| 14 | Reach LLM framing | Credential in bio, not differentiator pillar — user wants it as a light recommendation, not core to identity |
+
+**Rationale summary:** The enterprise-scale logo cluster (Adidas, Samsung, J.Crew, Madewell) is the strongest single proof asset. Position the consultant to match. Downplay price-anchored positioning (the old "50% of agency cost") and agency-contrast framing — both anchor the buyer on the wrong comparison. Downplay product associations (Reach LLM) to keep the consulting brand clean. Lead the site with a value-giving first-touch CTA (GEO Readiness Framework) and reserve the high-commitment strategy call for call-ready prospects deeper in the page.
+
+**Tradeoffs accepted:**
+- Enterprise-only ICP → smaller pool; accepted for LTV and referability
+- Two-layer CTA → requires producing a real lead magnet; accepted as phase-2 blocker
+- No listicle-tease voice → harder to write "scroll-stopping" hooks; accepted because the ICP has immunity to them
+- GEO implementation integrated rather than productized → can't advertise a separate GEO line; accepted to protect the consulting brand
+
+**Revisit if:**
+- Enterprise inbound dries up and pipeline leans mid-market
+- The GEO conversation in the market matures past zeitgeist-novelty
+- Reach LLM becomes a material revenue driver that justifies its own positioning
+
 ## [2026-04-23] — Fresh .claude setup, don't inherit parent CopyEngine config
 
 **Context:** Parent `New Project/` has a `.claude/` with skills/agents/CLAUDE.md for a Python copy-generation pipeline. This repo is a static marketing site.
