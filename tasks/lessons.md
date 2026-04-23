@@ -22,6 +22,18 @@ Format per entry:
 
 **Why:** User explicitly said "lets ignore the copyengine claude.md entirely" — the two projects have completely different natures (Python data pipeline vs. static marketing site).
 
+## [2026-04-23] — Hardcoded ≠ fabricated; ask before removing capacity/availability signals
+
+**Context:** In the P0 stabilization pass I proposed removing the "Hours Available This Month: 64 of 160" progress bar, bundling it with the genuinely fabricated social-proof pop-ups (which were legitimately fake and deleted). User pushed back: the availability bar represents his real consulting bandwidth, which he updates manually. He's right — it's a differentiator agencies can't offer.
+
+**Rule:** Don't lump quantified capacity/availability indicators with fabricated urgency just because they're hardcoded. Ask before removing. Distinguish:
+- Genuine fabrication (fake testimonials, made-up users, rotating pop-ups) → delete without asking
+- Real-data-at-risk-of-going-stale (availability, pricing, status) → question, don't silently delete
+
+User also rejected an "Updated [date]" label I proposed as a trust signal; he prefers minimalist presentation. Offer such additions as optional, not default.
+
+**Why:** Pre-push course correction saved us from shipping a change he didn't want.
+
 ## [2026-04-23] — Research current best practices before writing foundational docs
 
 **Context:** User asked for a CLAUDE.md setup; I initially drafted one from memory.

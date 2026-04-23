@@ -929,7 +929,7 @@ header.scrolled {
   color: #28a745;
 }
 
-.callout-content h4 {
+.callout-content h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   color: var(--text-dark);
@@ -1070,7 +1070,7 @@ header.scrolled {
   text-align: center;
 }
 
-.case-study-header h4 {
+.case-study-header h3 {
   color: var(--white);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -2923,7 +2923,7 @@ img.loaded {
     font-size: 1.25rem;
   }
 
-  .callout-content h4 {
+  .callout-content h3 {
     font-size: 1.1rem;
   }
 
@@ -2968,7 +2968,7 @@ img.loaded {
     padding: 1.75rem;
   }
 
-  .case-study-header h4 {
+  .case-study-header h3 {
     font-size: 1.35rem;
   }
 
