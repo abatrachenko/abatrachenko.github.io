@@ -4,12 +4,21 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 
 ## Awaiting user decisions
 
-- [ ] **GEO Readiness Framework production bandwidth** — affects when the rebuild can ship. See `conversion/positioning.md §9`.
 - [ ] **Strategy call CTA wording** — "Book a strategy call" vs. "Book a working session" vs. "Request a strategy session."
 - [ ] **Dark mode** — ship light-only for v1 or design for both.
 - [ ] **Analytics stack** — GA4 continues, or add/swap Plausible/Fathom.
-- [ ] **Form/lead backend** — Netlify Forms vs. Formspree vs. Tally vs. custom.
+- [ ] **Form/lead backend** — Netlify Forms vs. Formspree vs. Tally vs. custom (needs picking before any rebuild phase with the newsletter CTA).
 - [ ] **Case-study depth** — keep 3 current length, or expand to linked deep-dives.
+- [ ] **Newsletter name + cadence** — interim primary CTA needs a name and commitment. Suggestion: *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."*
+
+## Parallel workstream — GEO Readiness Framework (target: 1–2 weeks)
+
+- [ ] Outline the framework (15-point self-assessment). Recommended sections: visibility audit (which AI engines cite you), content structure (answer-ready formatting), entity/authority signals, technical GEO (embeddings, structured data, knowledge graph), measurement.
+- [ ] Write the content — your expertise, vendor-neutral.
+- [ ] Design as PDF or interactive page (pick format).
+- [ ] Set up email capture + delivery mechanism (tied to Form backend decision).
+- [ ] Write initial nurture sequence (3–5 emails).
+- [ ] Swap primary CTA on the live site from newsletter → framework; deliver framework to existing list as first nurture email.
 
 ## P0 — Ship blockers (execute as soon as D3 is decided; any option includes these)
 

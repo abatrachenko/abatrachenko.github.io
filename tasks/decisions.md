@@ -65,6 +65,18 @@ Format per entry:
 **Tradeoffs:** Performance wins (mobile perf 60 → 95+) arrive weeks later than option B would have them. Accepted because the redesign is blocked on positioning + benchmarks anyway, so we'd pay those hours twice.
 **Revisit if:** Redesign slips past 4 weeks — then P1 becomes its own sprint to claim wins in the interim.
 
+## [2026-04-23] — Staged CTA launch: newsletter now, GEO framework in parallel
+
+**Context:** The two-layer CTA strategy (lead magnet primary, strategy call secondary) depends on a production asset — the GEO Readiness Framework — that doesn't exist yet. Shipping the rebuild waiting on it delays conversion wins. Shipping without any first-touch capture leaks prospects.
+**Options considered:**
+- A: Produce the framework in 1–2 weeks, ship the rebuild with it live on launch
+- B: Ship the rebuild with a "launching [date]" waitlist capture
+- C: Interim newsletter signup as first-touch CTA until the framework exists
+**Decision:** C now, work toward A in parallel. When the framework is ready, swap the primary CTA and deliver the framework to the existing newsletter list as the first nurture email.
+**Rationale:** Unblocks the rebuild on the critical path (phases 2–4 don't need to wait). Newsletter becomes a durable list-building asset regardless of the framework timeline. No prospects lost to "coming soon" friction. Framework production gets to be done well rather than rushed.
+**Tradeoffs:** Slightly less differentiated first-touch CTA at launch (every consultant has a newsletter). Mitigated because the *copy* around the newsletter and the list content itself can still be high-signal.
+**Revisit if:** Newsletter signup rate is very low (under 2% of hero views) — might indicate the interim CTA needs stronger hook, not just a newsletter.
+
 ## [2026-04-23] — Positioning brief locked (one session, brainstorm protocol)
 
 **Context:** Track B phase 1 — positioning brief. Ran through the brainstorm skill one question at a time over a single session. All strategic decisions now captured in `conversion/positioning.md`.

@@ -94,10 +94,16 @@ Fractional SEO + GEO leadership, embedded in the client's team. Ongoing monthly 
 ### Availability signal (preserved)
 The "Hours Available This Month: X of 160" progress bar is a real scarcity signal the consultant updates manually. Stays on the site.
 
-### CTA strategy — two-layer
-**Primary CTA (above the fold + first 2–3 sections):**
-Lead magnet download — **GEO Readiness Framework**.
-*"How visible is your brand in ChatGPT, Perplexity, and Google AI Overviews?"* Vendor-neutral. Captures email. Nurtures via list.
+### CTA strategy — two-layer, staged launch
+
+**Primary CTA (above the fold + first 2–3 sections):** Email capture at first-touch.
+
+The target state is a lead magnet — **GEO Readiness Framework** (vendor-neutral, "How visible is your brand in ChatGPT, Perplexity, and Google AI Overviews?"). Framework production is in flight as a parallel track (2026-04-23 decision).
+
+Launch in two stages:
+
+- **Stage 1 (rebuild ships first):** interim newsletter signup — *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."* Captures email, builds the list, no production blocker on the rebuild.
+- **Stage 2 (when framework is ready):** swap the primary CTA to the framework download. Newsletter remains as a secondary capture point in the footer. Everyone who signed up in Stage 1 gets the framework delivered to their inbox as the first nurture email.
 
 **Secondary CTA (after proof + case studies, mid-bottom of page):**
 *"Book a strategy call"* (or *"Book a working session"*) → Calendly. No "free" in the label.
@@ -162,7 +168,7 @@ Solo operator positioned honestly. The "Consulting Group" framing is dropped bec
 
 Things that still need a user decision before the hero rebuild can proceed:
 
-- [ ] **GEO Readiness Framework production** — when does the lead magnet exist? Blocks the two-layer CTA strategy from going live. Options: (a) produce it in 1–2 weeks before shipping the rebuild, (b) ship the rebuild with a "launching [date]" waitlist capture, (c) interim newsletter signup until the framework exists.
+- [x] ~~**GEO Readiness Framework production timing**~~ — Decided 2026-04-23: start with (c) interim newsletter capture so the rebuild can ship without blocking, work toward (a) in parallel. Framework swap happens as a point release when ready.
 - [ ] **Strategy call CTA wording** — "Book a strategy call" vs. "Book a working session" vs. "Request a strategy session." Pick one, use it everywhere.
 - [ ] **Dark mode** — ship light-only for v1 or design for both? (Carried from design-system decisions.)
 - [ ] **Analytics stack** — GA4 continues, or add Plausible/Fathom? Affects privacy posture (third-party cookies currently drag Best Practices score).
