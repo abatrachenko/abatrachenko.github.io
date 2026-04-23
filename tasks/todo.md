@@ -2,11 +2,23 @@
 
 _Update as work progresses. Close items when done, don't delete them — we reference completed work in `progress.md`._
 
-## Awaiting user decisions (blocks all downstream work)
+## Awaiting user decisions
 
-- [ ] **D1. Positioning tier** — enterprise (matches logos) vs. mid-market ($1M–$10M, matches FAQ). Recommended: enterprise.
-- [ ] **D2. Brand structure** — solo-brand (Aleksey Batrachenko) vs. firm-brand (Resonance Consulting Group). Recommended: solo-brand with Resonance as tagline.
-- [ ] **D3. Scope of next pass** — (a) stabilize only, (b) stabilize + P1, or (c) full redesign after stabilize. Recommended: (a) today, then (c).
+- [ ] **Strategy call CTA wording** — "Book a strategy call" vs. "Book a working session" vs. "Request a strategy session."
+- [ ] **Dark mode** — ship light-only for v1 or design for both.
+- [ ] **Analytics stack** — GA4 continues, or add/swap Plausible/Fathom.
+- [ ] **Form/lead backend** — Netlify Forms vs. Formspree vs. Tally vs. custom (needs picking before any rebuild phase with the newsletter CTA).
+- [ ] **Case-study depth** — keep 3 current length, or expand to linked deep-dives.
+- [ ] **Newsletter name + cadence** — interim primary CTA needs a name and commitment. Suggestion: *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."*
+
+## Parallel workstream — GEO Readiness Framework (target: 1–2 weeks)
+
+- [ ] Outline the framework (15-point self-assessment). Recommended sections: visibility audit (which AI engines cite you), content structure (answer-ready formatting), entity/authority signals, technical GEO (embeddings, structured data, knowledge graph), measurement.
+- [ ] Write the content — your expertise, vendor-neutral.
+- [ ] Design as PDF or interactive page (pick format).
+- [ ] Set up email capture + delivery mechanism (tied to Form backend decision).
+- [ ] Write initial nurture sequence (3–5 emails).
+- [ ] Swap primary CTA on the live site from newsletter → framework; deliver framework to existing list as first nurture email.
 
 ## P0 — Ship blockers (execute as soon as D3 is decided; any option includes these)
 
@@ -30,15 +42,15 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 - [ ] **A2/A3** Fix menu-button aria mismatch and star-rating accessibility
 - [ ] **A5** Add `prefers-reduced-motion` guards to scroll animations and counter
 
-## P2 — The real redesign (gated by positioning decision)
+## P2 — The real redesign (phases 2–4)
 
-- [ ] Positioning brief — fill `conversion/positioning.md` based on D1/D2 decisions
-- [ ] Benchmark analysis — 8–12 sites from `benchmarks/README.md` candidate list
-- [ ] Design-system audit — extract current tokens into `design-system/MASTER.md`, propose direction
-- [ ] Hero redesign — new copy + new visual (see audit P5)
-- [ ] CTA consolidation — from 8 CTAs to 2–3
-- [ ] Section reflow decision (Process placement)
-- [ ] Dark mode decision
+- [ ] **Phase 2: Benchmark analysis** — 6–8 sites from `benchmarks/README.md` candidate list via the `researcher` agent. Focus on solo-consultant + premium-agency tiers. One `benchmarks/<slug>/analysis.md` per site.
+- [ ] **Phase 3: Design-system audit** — extract current tokens from `styles.css` into `design-system/MASTER.md`, propose direction based on benchmark patterns + positioning brief.
+- [ ] **Phase 4a: Hero rebuild** — new H1 + sub-line + visual, per positioning brief §2.
+- [ ] **Phase 4b: CTA consolidation** — from 8 CTAs to 2–3 (lead magnet primary, strategy call secondary).
+- [ ] **Phase 4c: Section reflow** — proof / process / case-studies / FAQ in the order the positioning brief implies.
+- [ ] **Phase 4d: Voice pass** — rewrite every copy block to the locked voice. No listicle-tease or hook-kickers.
+- [ ] **Phase 4e: GEO Readiness Framework** — produce the lead magnet content + setup email capture + nurture sequence.
 
 ## P3 — Post-launch optimization
 
@@ -51,3 +63,5 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 
 - [x] Track A tooling setup (`.claude/`, skills, agents, tasks, benchmarks, design-system, conversion scaffolding) — 2026-04-23
 - [x] Track B phase 0 audit — `tasks/audit-2026-04-23/AUDIT.md` — 2026-04-23
+- [x] Track B P0 stabilization — shipped via PR #72 — 2026-04-23
+- [x] Track B phase 1 positioning brief — `conversion/positioning.md` — 2026-04-23
