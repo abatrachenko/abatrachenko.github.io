@@ -65,6 +65,26 @@ Format per entry:
 **Tradeoffs:** Performance wins (mobile perf 60 → 95+) arrive weeks later than option B would have them. Accepted because the redesign is blocked on positioning + benchmarks anyway, so we'd pay those hours twice.
 **Revisit if:** Redesign slips past 4 weeks — then P1 becomes its own sprint to claim wins in the interim.
 
+## [2026-04-23] — Design system direction locked (Track B phase 3)
+
+**Context:** Phase 3 codification of `design-system/MASTER.md`. Three decisions framed from `benchmarks/SYNTHESIS.md §5`.
+**Decisions:**
+- **Accent:** Deep navy `#1E3A5F` on warm off-white `#FAFAF9` surface, near-black `#0F172A` text. Single accent only — drop the current multi-color palette (`#FF3366` hot pink + `#4F46E5` indigo + `#10B981` green + `#F59E0B` amber all removed).
+- **Typography:** Inter (body + display) + Geist Mono (numbers band, pricing, scarcity bar, case-study metrics). Four weights total (400/500/700/900). Display H1 at `clamp(3rem, 6vw + 1rem, 6.5rem)` (48–104px).
+- **Editorial moment — compound:** large display H1 + numbers-as-design in stats band + instrument-grade scarcity bar. All three together create the "2026 signature" without any single element being extravagant.
+
+**Rationale:**
+- Navy is defensible at enterprise tier and works with all existing client logos. Terracotta was the close second but carries "trend color" risk. Near-monochrome was judged too austere given the CTA visibility requirement.
+- Inter is table stakes per every benchmark. Geist Mono for numerics is the cheap Stripe-pattern adoption — gives numbers design weight without touching the rest of the type system.
+- The editorial compound solves the Orainti critique (her site reads forgettable because there's no "2026 signal") without a single element being a high-risk bet. Each element reinforces a different credibility angle: display H1 = tier, numbers-as-design = outcome emphasis, instrument scarcity bar = honest precision.
+
+**Tradeoffs:**
+- Dropping multi-color = less visual "variety" per viewport; compensated by typography and whitespace doing the hierarchy work.
+- Pill-shaped CTAs → 8px radius loses the "soft / friendly" feel but gains the enterprise-tier signal.
+- Static number rendering (no count-up animation) forfeits a common engagement hook; trade accepted because SYNTHESIS flagged it as a kitschy tier-mismatch.
+
+**Revisit if:** Three benchmarks in our tier shift to a different visual direction in a way that makes ours feel stale, or A/B testing shows any single element dragging conversion materially.
+
 ## [2026-04-23] — Staged CTA launch: newsletter now, GEO framework in parallel
 
 **Context:** The two-layer CTA strategy (lead magnet primary, strategy call secondary) depends on a production asset — the GEO Readiness Framework — that doesn't exist yet. Shipping the rebuild waiting on it delays conversion wins. Shipping without any first-touch capture leaks prospects.

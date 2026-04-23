@@ -4,7 +4,7 @@ Last updated: 2026-04-23 (continuing session)
 
 ## Current state
 
-Track A (tooling) complete. Track B phase 0 (audit) complete. Track B P0 stabilization fixes shipped to production (PR #72 merged, live verified). Track B phase 1 (positioning brief) complete — see `conversion/positioning.md`. Track B phase 2 (benchmark analysis) complete — six analyses in `benchmarks/` with synthesis at `benchmarks/SYNTHESIS.md`. GEO Readiness Framework outline drafted at `conversion/geo-readiness-framework-outline.md` awaiting user review.
+Track A (tooling) complete. Track B phase 0 (audit) complete. Track B P0 stabilization fixes shipped to production (PR #72 merged, live verified). Track B phase 1 (positioning brief) complete — see `conversion/positioning.md`. Track B phase 2 (benchmark analysis) complete — six analyses in `benchmarks/` with synthesis at `benchmarks/SYNTHESIS.md`. Track B phase 3 (design system reset) complete — see `design-system/MASTER.md`. GEO Readiness Framework outline drafted at `conversion/geo-readiness-framework-outline.md` awaiting user review.
 
 ### Audit headline findings
 - Mobile Lighthouse: Perf 60 / A11y 98 / Best Prac 54 / SEO 100 (targets all 95+)
@@ -28,14 +28,14 @@ Track A originals:
 - `design-system/MASTER.md` — skeleton, awaiting Track B phase 3
 - `conversion/positioning.md` — skeleton, awaiting Track B phase 1 (though the live site has more positioning than the skeleton implies — see audit)
 
-## Next up (Track B phase 3)
+## Next up (Track B phase 4)
 
-**Design-system reset.** Use `benchmarks/SYNTHESIS.md §5` as the direction. Extract current tokens from `styles.css`, propose the restraint-based direction (Inter, neutral+one-accent palette, 96–128px section padding, fade-rise motion only), then codify in `design-system/MASTER.md`. Decision points during phase 3: (a) exact accent color, (b) Inter vs. Inter Tight vs. Geist, (c) the one editorial moment that separates us from yesterday's-SEO-consultant visual defaults.
+**Copy + hero rebuild.** Implement the IA proposed in `benchmarks/SYNTHESIS.md §4` against the token system in `design-system/MASTER.md`. Ten sections in order: hero → numbers band → case-study cards → why-Resonance (3-pillar) → testimonials → process → pricing + scarcity + secondary CTA → FAQ (trimmed to 3–4) → bio (placed LAST) → footer. Voice guardrails from `conversion/positioning.md §6` (B+E blend, no listicle-tease, no hook-kickers). Migration scope in `design-system/MASTER.md §12`.
 
-**Parallel (user-facing):** review the GEO Readiness Framework outline at `conversion/geo-readiness-framework-outline.md` and answer the 5 structural questions at the bottom. Framework production starts after review.
+**Parallel (user-facing):** review the GEO Readiness Framework outline at `conversion/geo-readiness-framework-outline.md` and answer the 5 structural questions at the bottom. Framework content writing unblocks after review.
 
 **Staged CTA reminder:** Stage 1 (newsletter capture) ships with the rebuild. Stage 2 (framework swap) ships when the framework is ready.
 
 ## Where we left off
 
-Phase 2 benchmarks done — six analyses + synthesis at `benchmarks/SYNTHESIS.md`. Information architecture proposed in SYNTHESIS §4 for phase 4. Ready to start phase 3 (design-system reset) whenever user wants to continue, or take a break here — everything staged is safe to merge regardless.
+Phase 3 design system done — `design-system/MASTER.md` fully specs tokens, components, migration plan. Ready to start phase 4 (copy + hero rebuild) whenever user wants to continue, or take a break here — everything staged is safe to merge regardless.

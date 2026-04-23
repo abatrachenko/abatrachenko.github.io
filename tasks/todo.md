@@ -66,4 +66,5 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 - [x] Track B P0 stabilization — shipped via PR #72 — 2026-04-23
 - [x] Track B phase 1 positioning brief — `conversion/positioning.md` — 2026-04-23
 - [x] Track B phase 2 benchmark analysis — six analyses + `benchmarks/SYNTHESIS.md` — 2026-04-23
+- [x] Track B phase 3 design-system reset — `design-system/MASTER.md` locked — 2026-04-23
 - [x] GEO Readiness Framework outline drafted — `conversion/geo-readiness-framework-outline.md` (awaits user review) — 2026-04-23
