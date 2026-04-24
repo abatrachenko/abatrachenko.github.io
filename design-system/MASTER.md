@@ -68,15 +68,21 @@ Not *minimalist* (implies austerity); not *modern* (meaningless); not *premium* 
 - **Numeric (stats band, pricing, scarcity bar readout):** Geist Mono — variable font, Google Fonts
 - **No serif pairing.** No italic-as-display. Weight + size does the work.
 
+### Typeface trinity (locked 2026-04-23 benchmark pass)
+
+- **Instrument Serif** — hero H1 display *only*. Signature editorial flourish via the italic accent span. One weight (400) + italic. Google Fonts.
+- **Inter** — everything else: body, section H2/H3, nav, buttons, labels. Weights 400/500/700/900.
+- **Geist Mono** — numerics (stats band, pricing, scarcity bar, case-study metrics) + section eyebrows + caps labels. Weights 400/500.
+
 ### Font loading (`<head>` directives for `index.html`)
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
 <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
 ```
 
 Drop the Font Awesome CDN line. Inline SVG icons only (see §9 icons).
@@ -112,14 +118,18 @@ Drop the Font Awesome CDN line. Inline SVG icons only (see §9 icons).
 
 ### Weight usage
 
-| Weight | Used for |
-|---|---|
-| 400 (regular) | Body, sub-heads, caption |
-| 500 (medium) | Nav, button labels, stat labels |
-| 700 (bold) | H2, H3, pull-quote bold |
-| 900 (black) | **Only H1 display.** Nowhere else. |
+| Weight | Family | Used for |
+|---|---|---|
+| 400 roman | Instrument Serif | **Hero H1 only.** Display-serif tier signal. |
+| 400 italic | Instrument Serif | Accent span inside hero H1 — editorial flourish on the final clause. Nowhere else. |
+| 400 regular | Inter | Body, sub-heads, caption |
+| 500 medium | Inter | Nav, button labels, stat labels |
+| 700 bold | Inter | H2, H3, pull-quote bold |
+| 900 black | Inter | Reserved; not currently used (replaced on H1 by Instrument Serif). |
+| 400 / 500 | Geist Mono | Numerics, eyebrows, caps labels |
 
-Four weights total. Any fifth weight requires a decision record.
+Five active weights across three families. Adding a sixth weight or
+a fourth family requires a decision record.
 
 ### Numeric treatment
 

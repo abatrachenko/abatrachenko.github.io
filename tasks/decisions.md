@@ -143,3 +143,31 @@ Format per entry:
 **Rationale:** Two very different projects; sharing config would mix domains and dilute the rules for each. CLAUDE.md precedence is merging, not replacement, so sharing would actively inject wrong-context instructions.
 **Tradeoffs:** Some duplication of skills (brainstorm, verify, ship, debug) across both projects. Acceptable — the skills are small and diverge over time as each project's needs evolve.
 **Revisit if:** Skill content starts drifting materially between the two repos in ways that indicate a shared utility worth extracting.
+
+## [2026-04-23] — Modify the typography lock: add Instrument Serif for hero H1
+
+**Context:** Benchmark gap analysis (`tasks/designs/2026-04-23-benchmark-gap-analysis.md`) identified that the April 2026 bar-setters for premium-consultant sites (Orainti, Tom Critchlow, Amanda Natividad, Anthropic) all use an editorial serif display for the H1. Inter-only reads as 2022-era SaaS. Research agent pass confirmed Instrument Serif / Fraunces / GT Super as the current winning trio.
+
+**Options considered:**
+- A: Keep Inter-only — preserve the prior design-system lock; accept "2022 SaaS" visual read
+- B: Add Fraunces — more magazine personality, variable-font with optical size axis
+- C: Add Instrument Serif — cleanest, most restrained, free Google Font, one weight + italic
+- D: Add GT Super — commercial-grade but paid license
+
+**Decision:** C — add Instrument Serif, apply to `.hero__headline` only. Accent span inside the H1 uses the italic variant as the signature editorial flourish. Section eyebrows stay in Geist Mono (unchanged).
+
+**Rationale:**
+- Instrument Serif's restraint matches the locked brand personality ("editorial, technical, restrained") better than Fraunces's magazine-forward character — Fraunces carries more personality than the enterprise buyer tier wants.
+- One weight + italic keeps the total font-face download small and aligns with the locked "four-weight discipline" principle (now five, across three families).
+- Italic accent span on "embedded directly in your team." (the final clause of the H1) is the one editorial move that earns the serif's presence — it's doing a job, not decoration.
+- Keeping eyebrows in Geist Mono preserves the instrument/technical register that distinguishes us from pure editorial-magazine sites (Orainti lookalikes). The mix of display-serif + mono-eyebrow + sans-body is deliberate.
+
+**Tradeoffs:**
+- One additional Google Fonts family = ~40KB additional CSS + font-file payload. Acceptable; served via Google Fonts' own CDN with long cache.
+- Brief FOUT on first load (font-display: swap). LCP still fires on fallback Georgia, so Core Web Vitals unchanged.
+- Two font families now on the critical typographic path (plus mono for numerics). Small increase in visual complexity; offset by the tier-appropriate editorial signal.
+
+**Revisit if:**
+- Three bar-setter sites shift away from serif-display in the next 6 months.
+- A/B testing shows H1 comprehension dropping (unlikely — Instrument Serif is highly legible at display sizes).
+- The italic accent span reads gimmicky on the live site (watch during the design-review pass).
