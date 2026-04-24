@@ -28,6 +28,33 @@ Track A originals:
 - `design-system/MASTER.md` — skeleton, awaiting Track B phase 3
 - `conversion/positioning.md` — skeleton, awaiting Track B phase 1 (though the live site has more positioning than the skeleton implies — see audit)
 
+## 2026-04-23 — Benchmark gap analysis + hygiene + 2026 upgrades push
+
+**Session trigger:** user asked "are we done? is this the best it can be?" after phase 4 polish shipped.
+
+**Work done:** fresh Playwright audit at 3 breakpoints + Lighthouse mobile/desktop + research-agent pass against April 2026 bar-setters (Orainti, iPullRank, Linear, Attio, Stripe, Anthropic, Vercel, PostHog, etc.). Gap analysis at `tasks/designs/2026-04-23-benchmark-gap-analysis.md`.
+
+**Shipped to staging (7 commits):**
+1. `fix: rewrite stale head metadata to solo-brand + positioning-aligned` — title, meta, OG, Twitter, JSON-LD all pre-rebuild stale
+2. `fix: tighten mobile H1 clamp — no 6-line wrap at 375px` — clamp floor 2.5rem → 2rem
+3. `a11y: underline inline links within paragraphs (WCAG 1.4.1)` — global `p a` rule
+4. `perf: right-size + WebP all client logos (−339 KiB wasted)` — new `scripts/optimize_images.py` + `<picture>` elements
+5. `perf: right-size + WebP consultant portrait (236→7 KB)` — 97% reduction
+6. `feat: Instrument Serif display on hero H1 — editorial 2026 tier signal` — typography lock updated in `design-system/MASTER.md` + decision record
+7. `feat: View Transitions + scroll-driven reveals (native craft signals)` — `animation-timeline: view()` + `@view-transition` + removed dead IntersectionObserver JS
+
+**Lighthouse delta:**
+- Mobile Perf 66 → 82 (+16), LCP 8.1s → 3.2s (−4.9s)
+- Desktop Perf 94 → 80 (−14), LCP 0.9s → 2.0s (+1.1s) — Instrument Serif adds to LCP; fix in next push via font-file preload
+- A11y both 96 → 100
+- BP both 58 → 58 (unchanged; LinkedIn Insight Tag in GTM is the blocker — user to pause in GTM web UI)
+
+**Follow-ups for next push:**
+- Critical CSS inlining (P0-6) — big remaining perf lever
+- Preload Instrument Serif woff2 directly to recover desktop LCP
+- Testimonial tightening with named-person + number (user sourcing)
+- LinkedIn Insight Tag paused in GTM UI (user task)
+
 ## Next up (Track B phase 4)
 
 **Copy + hero rebuild.** Implement the IA proposed in `benchmarks/SYNTHESIS.md §4` against the token system in `design-system/MASTER.md`. Ten sections in order: hero → numbers band → case-study cards → why-Resonance (3-pillar) → testimonials → process → pricing + scarcity + secondary CTA → FAQ (trimmed to 3–4) → bio (placed LAST) → footer. Voice guardrails from `conversion/positioning.md §6` (B+E blend, no listicle-tease, no hook-kickers). Migration scope in `design-system/MASTER.md §12`.
