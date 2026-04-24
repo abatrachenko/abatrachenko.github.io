@@ -27,8 +27,9 @@
   /* Type */
   --font-body:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono:          'Geist Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+  --font-display:       'Instrument Serif', Georgia, 'Times New Roman', serif;
 
-  --text-display:       clamp(2.5rem, 4vw + 1rem, 4.5rem);      /* 40 → 72 — hero H1 */
+  --text-display:       clamp(2rem, 5vw + 0.5rem, 4.5rem);      /* 32 → 72 — hero H1 (mobile floor 32 prevents 6-line wrap at 375) */
   --text-h1:            clamp(2rem, 2.5vw + 1.25rem, 3rem);     /* 32 → 48 — section H2 */
   --text-h2:            clamp(1.5rem, 1.5vw + 1rem, 2rem);      /* 24 → 32 — pillar/card H3 */
   --text-h3:            clamp(1.125rem, 0.5vw + 1rem, 1.25rem); /* 18 → 20 */
@@ -143,6 +144,14 @@ a {
 
 a:hover { opacity: 0.8; }
 
+/* Inline links within body paragraphs must be distinguishable without
+   relying on color alone (WCAG 1.4.1). */
+p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 /* Focus States for Accessibility */
 a:focus-visible,
 button:focus-visible,
@@ -216,11 +225,11 @@ p {
   font-weight: 900;
 }
 
-/* Reveal classes are no-ops now — content renders immediately on load.
-   Earlier implementations used opacity:0 + IntersectionObserver, which left
-   content invisible below the fold on page load. This is why polish pass 1
-   dropped the hidden initial state entirely. Keep class selectors for
-   backward-compat with existing markup; they just render visible. */
+/* Reveal baseline — always visible. The @supports block below layers a
+   scroll-driven animation on top for browsers that ship animation-timeline:
+   view(). Unsupporting browsers (older Firefox, edge cases) fall back to
+   this rule and render content immediately — no repeat of the 2022 pattern
+   where content stayed invisible below the fold. */
 .fade-in,
 .slide-in-left,
 .slide-in-right,
@@ -228,6 +237,28 @@ p {
   opacity: 1;
   transform: none;
 }
+
+/* Scroll-driven reveal — pure CSS, no JS. Native in Chrome/Edge 115+,
+   Safari 17.4+, Firefox 144+. Animation completes by the time the element
+   is 20% into the viewport so users only ever see the finished state. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
+    @keyframes reveal-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+}
+
+/* View Transitions API — smooth cross-page fades between index / privacy /
+   terms. Native in Chrome/Edge 111+, Safari 18+, Firefox 144+. Degrades
+   cleanly: unsupporting browsers just navigate normally. */
+@view-transition { navigation: auto; }
 
 /* Buttons — MASTER.md §9.1 */
 .btn {
@@ -414,18 +445,20 @@ header.scrolled {
 }
 
 .hero__headline {
+  font-family: var(--font-display);
   font-size: var(--text-display);
-  font-weight: 900;
-  line-height: var(--leading-display);
-  letter-spacing: var(--tracking-display);
+  font-weight: 400;          /* Instrument Serif ships in one weight (400) */
+  line-height: 1.02;          /* serif display wants slightly tighter than the Inter setting */
+  letter-spacing: -0.02em;    /* serif display needs less optical tightening than Inter black */
   color: var(--text-primary);
   margin: 0 0 var(--space-8);
   text-wrap: balance;
-  max-width: 28ch;
+  max-width: 22ch;            /* serif has wider glyphs than Inter black — pull the column in */
 }
 
 .hero__headline-accent {
   color: var(--accent);
+  font-style: italic;         /* Instrument Serif italic is its signature flourish */
 }
 
 .hero__subhead {
