@@ -225,11 +225,11 @@ p {
   font-weight: 900;
 }
 
-/* Reveal classes are no-ops now — content renders immediately on load.
-   Earlier implementations used opacity:0 + IntersectionObserver, which left
-   content invisible below the fold on page load. This is why polish pass 1
-   dropped the hidden initial state entirely. Keep class selectors for
-   backward-compat with existing markup; they just render visible. */
+/* Reveal baseline — always visible. The @supports block below layers a
+   scroll-driven animation on top for browsers that ship animation-timeline:
+   view(). Unsupporting browsers (older Firefox, edge cases) fall back to
+   this rule and render content immediately — no repeat of the 2022 pattern
+   where content stayed invisible below the fold. */
 .fade-in,
 .slide-in-left,
 .slide-in-right,
@@ -237,6 +237,28 @@ p {
   opacity: 1;
   transform: none;
 }
+
+/* Scroll-driven reveal — pure CSS, no JS. Native in Chrome/Edge 115+,
+   Safari 17.4+, Firefox 144+. Animation completes by the time the element
+   is 20% into the viewport so users only ever see the finished state. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fade-in {
+      animation: reveal-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
+    @keyframes reveal-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+  }
+}
+
+/* View Transitions API — smooth cross-page fades between index / privacy /
+   terms. Native in Chrome/Edge 111+, Safari 18+, Firefox 144+. Degrades
+   cleanly: unsupporting browsers just navigate normally. */
+@view-transition { navigation: auto; }
 
 /* Buttons — MASTER.md §9.1 */
 .btn {

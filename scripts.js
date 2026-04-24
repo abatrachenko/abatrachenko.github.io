@@ -78,20 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  /* ----- Scroll reveal (fade-rise only, MASTER.md §7) ------------------- */
-
-  const reveals = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
-  if (reveals.length > 0 && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    reveals.forEach((el) => observer.observe(el));
-  }
+  /* Scroll reveals are now pure CSS via animation-timeline: view() —
+     see styles.css. No JS observer needed. */
 
   /* ----- Mobile nav toggle ---------------------------------------------- */
 
