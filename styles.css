@@ -143,6 +143,14 @@ a {
 
 a:hover { opacity: 0.8; }
 
+/* Inline links within body paragraphs must be distinguishable without
+   relying on color alone (WCAG 1.4.1). */
+p a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
 /* Focus States for Accessibility */
 a:focus-visible,
 button:focus-visible,
