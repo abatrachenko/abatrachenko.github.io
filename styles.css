@@ -487,7 +487,24 @@ header.scrolled {
   line-height: var(--leading-body);
   color: var(--text-secondary);
   max-width: 48ch;
-  margin: 0 0 var(--space-12);
+  margin: 0 0 var(--space-6);
+}
+
+/* Anti-positioning — short operator-voiced negation per
+   conversion/positioning.md §7. Confidence via concrete denial,
+   not via styling. */
+.hero__anti-positioning {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-10);
+  max-width: 48ch;
+}
+
+.hero__anti-positioning::before {
+  content: '— ';
+  color: var(--accent);
+  margin-right: var(--space-1);
 }
 
 /* Newsletter capture — MASTER.md §9.5 */
