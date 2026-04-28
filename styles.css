@@ -490,38 +490,6 @@ header.scrolled {
   margin: 0 0 var(--space-6);
 }
 
-/* Hero pull-quote — single named-testimonial-with-stat above the
-   logo strip per design-tier-assessment Move 1. Excerpt is a direct
-   line from the approved J.Crew testimonial. Inter italic (NOT
-   Instrument Serif — that's reserved for H1 per design-system lock). */
-.hero-pullquote {
-  padding: var(--space-16) 0;
-  text-align: center;
-  border-top: 1px solid var(--border-default);
-}
-
-.hero-pullquote__quote {
-  margin: 0 auto var(--space-6);
-  max-width: 720px;
-  font-family: var(--font-body);
-  font-size: clamp(1.5rem, 2vw + 0.75rem, 2.25rem);
-  font-weight: 400;
-  font-style: italic;
-  line-height: 1.3;
-  letter-spacing: -0.015em;
-  color: var(--text-primary);
-}
-
-.hero-pullquote__attribution {
-  font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-style: normal;
-}
-
 /* Anti-positioning — short operator-voiced negation per
    conversion/positioning.md §7. Confidence via concrete denial,
    not via styling. */
