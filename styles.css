@@ -819,66 +819,184 @@ header.scrolled {
   }
 }
 
-/* Stats band — MASTER.md §9.6. Numbers-as-design. */
-.stats-band {
+/* Track record — "statement of results" ledger (Tier 2 §9.6 rev).
+   $700M+ is a career-scale credential standing alone above a Brand · Engagement ·
+   Organic-outcome schedule. The schedule reports the visibility layer SEO controls;
+   it never sums to the aggregate. Ledger AESTHETIC (mono, tabular, hairlines),
+   not a financial-statement CLAIM. */
+.track-record {
   padding: var(--space-24) 0;
   background-color: var(--surface-secondary);
   border-top: 1px solid var(--border-default);
   border-bottom: 1px solid var(--border-default);
 }
 
-.stats-band__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-12);
-  align-items: baseline;
+.track-record h2 {
+  text-align: center;
+  margin-bottom: var(--space-12);
 }
 
-.stats-band__item {
+.ledger {
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+/* aggregate "credential" line — the largest number on the page at every width */
+.ledger__aggregate {
+  border-top: 1px solid var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
+  padding: var(--space-6) 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: var(--space-6);
+}
+
+.ledger__aggregate .ledger__label {
+  padding-bottom: var(--space-1);
+}
+
+.ledger__label {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-1);
 }
 
-.stats-band__value {
-  font-family: var(--font-mono);
-  font-size: clamp(3rem, 5vw + 1rem, 5.5rem);  /* 48 → 88 — numbers-as-design scale */
+.ledger__label b {
   font-weight: 500;
-  line-height: 0.95;
+  font-size: var(--text-h3);
   color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.03em;
 }
 
-.stats-band__plus {
-  font-size: 0.65em;
-  font-weight: 500;
-}
-
-.stats-band__label {
-  font-family: var(--font-body);
+.ledger__label span {
+  font-family: var(--font-mono);
   font-size: var(--text-micro);
-  font-weight: 500;
-  color: var(--text-secondary);
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.ledger__value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--text-primary);
+  text-align: right;
+  font-size: clamp(2.75rem, 6vw + 1rem, 4rem);
+}
+
+.ledger__value .u {
+  font-size: 0.5em;
+  color: var(--text-secondary);
+}
+
+/* supporting schedule — consistent columns; mixed units honest because each
+   row labels its own unit */
+.schedule {
+  margin-top: var(--space-6);
+}
+
+.schedule__head,
+.schedule__row {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr auto;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-4) 0;
+}
+
+.schedule__head {
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: var(--space-2);
+}
+
+.schedule__head span {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
   letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.schedule__head span:last-child {
+  text-align: right;
+}
+
+.schedule__row {
+  border-bottom: 1px solid var(--border-default);
+}
+
+.schedule__brand {
+  font-weight: 500;
+  font-size: var(--text-body);
+  color: var(--text-primary);
+}
+
+.schedule__eng {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+
+.schedule__result {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: flex-end;
+}
+
+.schedule__result b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  font-size: var(--text-h2);
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.schedule__result span {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.ledger__foot {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--text-tertiary);
+  padding-top: var(--space-4);
+  letter-spacing: 0.04em;
 }
 
 @media (max-width: 900px) {
-  .stats-band {
+  .track-record {
     padding: var(--space-16) 0;
-  }
-  .stats-band__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-10);
   }
 }
 
-@media (max-width: 480px) {
-  .stats-band__grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-8);
+@media (max-width: 600px) {
+  /* schedule: brand + result on one line, engagement beneath */
+  .schedule__head { display: none; }
+  .schedule__row {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-2) var(--space-4);
+    padding: var(--space-4) 0;
   }
+  .schedule__brand { align-self: center; }
+  .schedule__eng {
+    grid-column: 1 / -1;
+    order: 3;
+    font-size: var(--text-micro);
+  }
+  .schedule__result b { font-size: var(--text-h3); }
+  .ledger__foot { flex-direction: column; gap: var(--space-1); }
 }
 
 /* Case studies — MASTER.md §9.7. Metric-forward cards. */
@@ -889,12 +1007,6 @@ header.scrolled {
 .case-studies h2 {
   text-align: center;
   margin-bottom: var(--space-16);
-}
-
-.case-studies__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
 }
 
 .case-study-card {
@@ -981,9 +1093,6 @@ header.scrolled {
 }
 
 @media (max-width: 900px) {
-  .case-studies__grid {
-    grid-template-columns: 1fr;
-  }
   .case-studies h2 {
     margin-bottom: var(--space-12);
   }
@@ -1390,83 +1499,121 @@ footer a:hover {
   margin-bottom: var(--space-12);
 }
 
-/* Instrument-grade scarcity bar (MASTER.md §9.8).
-   Fill uses --text-primary (data color), NOT --accent (interaction color). */
-.scarcity-bar {
+/* Capacity gauge (Tier 2 §9.8 rev) — utilization framing, not countdown.
+   Discrete calibrated segments (10 × 16h = 160h); committed filled navy, open
+   empty. Reads as an instrument gauge; the IP-density note reframes the
+   one-of-one constraint as value, not urgency. No glow/animation/alert color. */
+.capacity {
   max-width: 640px;
   margin: 0 auto var(--space-16);
   display: grid;
   gap: var(--space-3);
 }
 
-.scarcity-bar__header {
+.capacity__head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   gap: var(--space-4);
-}
-
-.scarcity-bar__label {
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
   color: var(--text-secondary);
 }
 
-.scarcity-bar__value {
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
+.capacity__label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.capacity__value {
+  color: var(--text-primary);
+  font-weight: 500;
   font-variant-numeric: tabular-nums;
-  color: var(--text-primary);
 }
 
-.scarcity-bar__track {
-  height: 6px;
-  background-color: var(--border-default);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.scarcity-bar__fill {
-  height: 100%;
-  background-color: var(--text-primary);
-  border-radius: 3px;
-  /* No transition — renders static per MASTER.md §9.8 */
-}
-
-/* Pricing tiers (MASTER.md §9.10) */
-.consulting-tiers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  max-width: var(--container-max);
-  margin: 0 auto;
-}
-
-.tier-card {
-  background-color: var(--surface-primary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  padding: var(--space-8);
+.capacity__gauge {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  position: relative;
+  gap: 3px;
+  height: 10px;
 }
 
-.tier-card.featured {
-  border: 2px solid var(--accent);
-  padding: calc(var(--space-8) - 1px);    /* compensate for 1px → 2px border */
+.capacity__seg {
+  flex: 1;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-strong);
 }
 
-.tier-card h3 {
-  margin: 0;
-  font-size: var(--text-h2);
-  font-weight: 700;
+.capacity__seg.is-open {
+  background-color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.capacity__scale {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-tertiary);
+  font-variant-numeric: tabular-nums;
+}
+
+.capacity__note {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  line-height: var(--leading-body);
+  max-width: 60ch;
+  margin: var(--space-1) 0 0;
+}
+
+@media (max-width: 600px) {
+  .capacity__head {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+}
+
+/* Pricing as a rate card (Tier 2 rev) — hours, scope, price rows in the same
+   ledger language as Track Record and Results. Heavy top rule, hairline
+   dividers, mono tabular figures. Featured row: flat tint + left accent rule. */
+.consulting-tiers {
+  max-width: 880px;
+  margin: 0 auto;
+  border-top: 1px solid var(--text-primary);
+}
+
+.tier-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.tier-row.featured {
+  background-color: rgba(30, 58, 95, 0.04);
+  box-shadow: inset 2px 0 0 var(--accent);
+  margin-inline: calc(var(--space-4) * -1);
+  padding-inline: var(--space-4);
+}
+
+.tier-row__hrs {
+  font-family: var(--font-mono);
+  font-size: var(--text-h3);
+  font-weight: 500;
   color: var(--text-primary);
-  line-height: var(--leading-heading);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15em;
+  min-width: 4ch;
+}
+
+.tier-row__hrs-unit {
+  font-size: 0.6em;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .tier-description {
@@ -1478,26 +1625,34 @@ footer a:hover {
 
 .tier-price {
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);
+  font-size: clamp(1.5rem, 1.5vw + 0.75rem, 1.875rem);
   font-weight: 500;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   line-height: 1;
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1);
-  padding-top: var(--space-4);
-  margin-top: auto;
-  border-top: 1px solid var(--border-default);
+  text-align: right;
+  white-space: nowrap;
 }
 
 .tier-price span {
   font-family: var(--font-body);
-  font-size: var(--text-small);
+  font-size: var(--text-micro);
   font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .tier-row {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+  }
+  .tier-description {
+    grid-column: 1 / -1;
+    order: 3;
+  }
 }
 
 /* Pricing note — plain small text centered below tiers */
@@ -1709,16 +1864,6 @@ footer a:hover {
     transform: translateX(0);
   }
 
-  /* Consulting Section */
-  .consulting-tiers {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .tier-card {
-    padding: 2rem;
-  }
-
   /* FAQ */
   .accordion-item summary {
     padding: 1.25rem;
@@ -1807,19 +1952,6 @@ footer a:hover {
 
   .process-card::before {
     font-size: 2.5rem;
-  }
-
-  /* Consulting Section */
-  .consulting-tiers {
-    gap: 1.5rem;
-  }
-
-  .tier-card {
-    padding: 1.75rem;
-  }
-
-  .tier-card h3 {
-    font-size: 1.5rem;
   }
 
   .tier-price {

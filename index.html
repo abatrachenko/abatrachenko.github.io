@@ -51,9 +51,11 @@
   <!-- Favicon: navy monogram -->
   <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-  <!-- Fonts: Instrument Serif (display H1) + Inter (body) + Geist Mono (numbers) per design-system/MASTER.md §3 -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap">
+  <!-- Fonts: Instrument Serif (display H1) + Inter (body) + Geist Mono (numbers) per design-system/MASTER.md §3.
+       Loaded async (preload + onload swap) so the font CSS is non-render-blocking; display=swap
+       already governs FOUT behavior. <noscript> fallback keeps fonts for JS-off clients. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap"></noscript>
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -241,25 +243,39 @@
     </div>
   </section>
 
-  <section class="stats-band" aria-label="Outcomes generated">
+  <section class="track-record" aria-label="Track record">
     <div class="container">
-      <div class="stats-band__grid">
-        <div class="stats-band__item">
-          <span class="stats-band__value">$700M<span class="stats-band__plus">+</span></span>
-          <span class="stats-band__label">Organic revenue</span>
+      <h2 class="fade-in">What the work moves</h2>
+      <div class="ledger fade-in">
+
+        <div class="ledger__aggregate">
+          <span class="ledger__label">
+            <b>Organic revenue influenced</b>
+            <span>Career aggregate · 15 years · 35+ brands</span>
+          </span>
+          <span class="ledger__value">$700<span class="u">M+</span></span>
         </div>
-        <div class="stats-band__item">
-          <span class="stats-band__value">+240K</span>
-          <span class="stats-band__label">Adidas · daily clicks</span>
+
+        <div class="schedule">
+          <div class="schedule__head"><span>Brand</span><span>Engagement</span><span>Organic outcome</span></div>
+          <div class="schedule__row">
+            <span class="schedule__brand">Adidas</span>
+            <span class="schedule__eng">Blog built from scratch · 12 mo</span>
+            <span class="schedule__result"><b>+240K</b><span>Daily unique clicks</span></span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__brand">J.Crew</span>
+            <span class="schedule__eng">Long-tail category pages · 9 mo</span>
+            <span class="schedule__result"><b>+95%</b><span>Organic clicks</span></span>
+          </div>
+          <div class="schedule__row">
+            <span class="schedule__brand">Alchemy</span>
+            <span class="schedule__eng">Faceted nav indexed · 24 mo</span>
+            <span class="schedule__result"><b>+315%</b><span>Organic clicks</span></span>
+          </div>
+          <div class="ledger__foot"><span>Resonance SEO</span><span>Selected outcomes</span></div>
         </div>
-        <div class="stats-band__item">
-          <span class="stats-band__value">+95<span class="stats-band__plus">%</span></span>
-          <span class="stats-band__label">J.Crew · organic lift</span>
-        </div>
-        <div class="stats-band__item">
-          <span class="stats-band__value">+315<span class="stats-band__plus">%</span></span>
-          <span class="stats-band__label">Alchemy · organic lift</span>
-        </div>
+
       </div>
     </div>
   </section>
@@ -296,50 +312,54 @@
     <div class="container">
       <span class="section-eyebrow">&mdash; 02 &middot; Named outcomes</span>
       <h2 class="fade-in">Results</h2>
-      <div class="case-studies__grid">
+      <div class="results-ledger">
+        <div class="results-ledger__head">
+          <span>Brand</span><span>Engagement</span><span>Result</span>
+        </div>
 
-        <article class="case-study-card fade-in">
-          <div class="case-study-card__header">
-            <h3 class="case-study-card__name">Adidas</h3>
-            <p class="case-study-card__category">Enterprise sports retailer &middot; 12-month engagement</p>
+        <article class="results-row fade-in">
+          <div class="results-row__brand">
+            <h3 class="results-row__name">Adidas</h3>
+            <p class="results-row__category">Enterprise sports retailer &middot; 12 mo</p>
           </div>
-          <div class="case-study-card__metric">
-            <span class="case-study-card__metric-value">+240K</span>
-            <span class="case-study-card__metric-label">Daily unique clicks</span>
-          </div>
-          <p class="case-study-card__description">
+          <p class="results-row__description">
             Built the Adidas blog from scratch &mdash; pitched the concept to senior leadership, secured funding and dev resources, led GTM. Now generates approximately 6 million impressions and 240,000 unique clicks per day.
           </p>
+          <div class="results-row__metric">
+            <span class="results-row__metric-value">+240K</span>
+            <span class="results-row__metric-label">Daily unique clicks</span>
+          </div>
         </article>
 
-        <article class="case-study-card fade-in">
-          <div class="case-study-card__header">
-            <h3 class="case-study-card__name">J.Crew</h3>
-            <p class="case-study-card__category">Heritage fashion retailer &middot; 9-month engagement</p>
+        <article class="results-row fade-in">
+          <div class="results-row__brand">
+            <h3 class="results-row__name">J.Crew</h3>
+            <p class="results-row__category">Heritage fashion retailer &middot; 9 mo</p>
           </div>
-          <div class="case-study-card__metric">
-            <span class="case-study-card__metric-value">+95%</span>
-            <span class="case-study-card__metric-label">Organic clicks</span>
-          </div>
-          <p class="case-study-card__description">
+          <p class="results-row__description">
             Created and indexed medium and long-tail category landing pages to capture high-intent search queries previously unreachable from brand terms alone. Unlocked a new revenue channel from untapped demand.
           </p>
+          <div class="results-row__metric">
+            <span class="results-row__metric-value">+95%</span>
+            <span class="results-row__metric-label">Organic clicks</span>
+          </div>
         </article>
 
-        <article class="case-study-card fade-in">
-          <div class="case-study-card__header">
-            <h3 class="case-study-card__name">Alchemy</h3>
-            <p class="case-study-card__category">Web3 infrastructure platform &middot; 24-month engagement</p>
+        <article class="results-row fade-in">
+          <div class="results-row__brand">
+            <h3 class="results-row__name">Alchemy</h3>
+            <p class="results-row__category">Web3 infrastructure platform &middot; 24 mo</p>
           </div>
-          <div class="case-study-card__metric">
-            <span class="case-study-card__metric-value">+315%</span>
-            <span class="case-study-card__metric-label">Organic clicks</span>
-          </div>
-          <p class="case-study-card__description">
+          <p class="results-row__description">
             Reworked faceted navigation, got facets indexed, and optimized them to capture previously untapped search demand. Unlocked a material growth channel over 24 months.
           </p>
+          <div class="results-row__metric">
+            <span class="results-row__metric-value">+315%</span>
+            <span class="results-row__metric-label">Organic clicks</span>
+          </div>
         </article>
 
+        <div class="ledger__foot"><span>Resonance SEO</span><span>Selected engagements</span></div>
       </div>
 
       <p class="case-studies__footer-cta fade-in">
@@ -395,33 +415,44 @@
       <span class="section-eyebrow">&mdash; 04 &middot; Engagement</span>
       <h2 class="fade-in">Current availability</h2>
 
-      <div class="scarcity-bar fade-in">
-        <div class="scarcity-bar__header">
-          <span class="scarcity-bar__label">Hours open this month</span>
-          <span class="scarcity-bar__value">64 / 160</span>
+      <div class="capacity fade-in">
+        <div class="capacity__head">
+          <span class="capacity__label">Open capacity · this month</span>
+          <span class="capacity__value">64 / 160 hrs</span>
         </div>
-        <div class="scarcity-bar__track">
-          <div class="scarcity-bar__fill" style="width: 40%"></div>
+        <div class="capacity__gauge" role="img" aria-label="64 of 160 hours open this month">
+          <span class="capacity__seg is-open"></span>
+          <span class="capacity__seg is-open"></span>
+          <span class="capacity__seg is-open"></span>
+          <span class="capacity__seg is-open"></span>
+          <span class="capacity__seg"></span>
+          <span class="capacity__seg"></span>
+          <span class="capacity__seg"></span>
+          <span class="capacity__seg"></span>
+          <span class="capacity__seg"></span>
+          <span class="capacity__seg"></span>
         </div>
+        <div class="capacity__scale"><span>0</span><span>160 hrs</span></div>
+        <p class="capacity__note">One operator, one calendar — 16 hours a week, roughly 64 a month. Each open hour carries the playbooks, business cases, and packaged optimizations built over 15 years of enterprise work.</p>
       </div>
 
       <div class="consulting-tiers fade-in">
-        <div class="tier-card">
-          <h3>32 Hours/Month</h3>
-          <div class="tier-price">$6,400<span>/month</span></div>
+        <div class="tier-row">
+          <span class="tier-row__hrs">32<span class="tier-row__hrs-unit">h/mo</span></span>
           <p class="tier-description">Strategic guidance and oversight</p>
+          <span class="tier-price">$6,400<span>/mo</span></span>
         </div>
 
-        <div class="tier-card featured">
-          <h3>48 Hours/Month</h3>
-          <div class="tier-price">$9,600<span>/month</span></div>
+        <div class="tier-row featured">
+          <span class="tier-row__hrs">48<span class="tier-row__hrs-unit">h/mo</span></span>
           <p class="tier-description">Full strategic integration</p>
+          <span class="tier-price">$9,600<span>/mo</span></span>
         </div>
 
-        <div class="tier-card">
-          <h3>64 Hours/Month</h3>
-          <div class="tier-price">$12,800<span>/month</span></div>
+        <div class="tier-row">
+          <span class="tier-row__hrs">64<span class="tier-row__hrs-unit">h/mo</span></span>
           <p class="tier-description">Dedicated fractional leadership</p>
+          <span class="tier-price">$12,800<span>/mo</span></span>
         </div>
       </div>
 
