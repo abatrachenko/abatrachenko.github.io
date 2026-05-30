@@ -1009,12 +1009,6 @@ header.scrolled {
   margin-bottom: var(--space-16);
 }
 
-.case-studies__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-}
-
 .case-study-card {
   background-color: var(--surface-primary);
   border: 1px solid var(--border-default);
@@ -1099,9 +1093,6 @@ header.scrolled {
 }
 
 @media (max-width: 900px) {
-  .case-studies__grid {
-    grid-template-columns: 1fr;
-  }
   .case-studies h2 {
     margin-bottom: var(--space-12);
   }
