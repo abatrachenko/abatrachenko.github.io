@@ -1572,37 +1572,48 @@ footer a:hover {
   }
 }
 
-/* Pricing tiers (MASTER.md §9.10) */
+/* Pricing as a rate card (Tier 2 rev) — hours, scope, price rows in the same
+   ledger language as Track Record and Results. Heavy top rule, hairline
+   dividers, mono tabular figures. Featured row: flat tint + left accent rule. */
 .consulting-tiers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  max-width: var(--container-max);
+  max-width: 880px;
   margin: 0 auto;
+  border-top: 1px solid var(--text-primary);
 }
 
-.tier-card {
-  background-color: var(--surface-primary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  position: relative;
+.tier-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: var(--space-6);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--border-default);
 }
 
-.tier-card.featured {
-  border: 2px solid var(--accent);
-  padding: calc(var(--space-8) - 1px);    /* compensate for 1px → 2px border */
+.tier-row.featured {
+  background-color: rgba(30, 58, 95, 0.04);
+  box-shadow: inset 2px 0 0 var(--accent);
+  margin-inline: calc(var(--space-4) * -1);
+  padding-inline: var(--space-4);
 }
 
-.tier-card h3 {
-  margin: 0;
-  font-size: var(--text-h2);
-  font-weight: 700;
+.tier-row__hrs {
+  font-family: var(--font-mono);
+  font-size: var(--text-h3);
+  font-weight: 500;
   color: var(--text-primary);
-  line-height: var(--leading-heading);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15em;
+  min-width: 4ch;
+}
+
+.tier-row__hrs-unit {
+  font-size: 0.6em;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .tier-description {
@@ -1614,26 +1625,34 @@ footer a:hover {
 
 .tier-price {
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);
+  font-size: clamp(1.5rem, 1.5vw + 0.75rem, 1.875rem);
   font-weight: 500;
   color: var(--text-primary);
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
   line-height: 1;
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-1);
-  padding-top: var(--space-4);
-  margin-top: auto;
-  border-top: 1px solid var(--border-default);
+  text-align: right;
+  white-space: nowrap;
 }
 
 .tier-price span {
   font-family: var(--font-body);
-  font-size: var(--text-small);
+  font-size: var(--text-micro);
   font-weight: 400;
-  color: var(--text-secondary);
-  letter-spacing: 0;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .tier-row {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: var(--space-2) var(--space-4);
+  }
+  .tier-description {
+    grid-column: 1 / -1;
+    order: 3;
+  }
 }
 
 /* Pricing note — plain small text centered below tiers */
