@@ -1954,19 +1954,6 @@ footer a:hover {
     font-size: 2.5rem;
   }
 
-  /* Consulting Section */
-  .consulting-tiers {
-    gap: 1.5rem;
-  }
-
-  .tier-card {
-    padding: 1.75rem;
-  }
-
-  .tier-card h3 {
-    font-size: 1.5rem;
-  }
-
   .tier-price {
     font-size: 2.25rem;
   }
