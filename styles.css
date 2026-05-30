@@ -1864,16 +1864,6 @@ footer a:hover {
     transform: translateX(0);
   }
 
-  /* Consulting Section */
-  .consulting-tiers {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
-  .tier-card {
-    padding: 2rem;
-  }
-
   /* FAQ */
   .accordion-item summary {
     padding: 1.25rem;
