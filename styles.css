@@ -174,7 +174,7 @@ textarea:focus-visible {
   z-index: 9999;
   text-decoration: none;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(30, 58, 95, 0.4);
 }
 
 .container {
@@ -876,7 +876,7 @@ header.scrolled {
 
 @media (max-width: 480px) {
   .stats-band__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-8);
   }
 }
@@ -1103,23 +1103,11 @@ header.scrolled {
   position: relative;
 }
 
+/* (Gradient underline removed — inconsistent across sections and a decorative
+   gradient; eyebrow + centered H2 already carry hierarchy. Per-section h2 rules
+   own their margins.) */
 .section h2 {
-  position: relative;
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
   text-align: center;
-}
-
-.section h2:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  border-radius: 2px;
 }
 
 /* FAQ Section */
@@ -1592,7 +1580,6 @@ footer a:hover {
 }
 
 @media (max-width: 992px) {
-  html { font-size: 15px; }
   .section { padding: 3rem 0; }
 
   .engagement-terms {
@@ -1602,19 +1589,6 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
-  html { font-size: 14px; }
-
-  /* Typography adjustments */
-  h1 { font-size: 2.25rem; line-height: 1.2; }
-  h2 { font-size: 2rem; }
-  h3 { font-size: 1.35rem; }
-
-  /* Container and spacing */
-  .container {
-    width: 92%;
-    padding: 0 12px;
-  }
-
   .section { padding: 2.5rem 0; }
 
   /* Hero Section */
@@ -1674,25 +1648,17 @@ footer a:hover {
   .nav-menu a:hover,
   .nav-menu a:active {
     background: var(--light-gray);
-    padding-left: 24px;
   }
 
   .nav-menu a:last-child {
     border-bottom: none;
   }
 
-  /* Mobile CTA Button in Navigation */
+  /* Mobile CTA Button in Navigation — inherits the locked 8px radius + 1px
+     accent border from the base .nav-cta rule (no pill). */
   .nav-menu a.nav-cta {
     margin: 0.5rem 1rem;
     text-align: center;
-    border-radius: 50px;
-    border: none;
-  }
-
-  .nav-menu a.nav-cta:hover,
-  .nav-menu a.nav-cta:active {
-    padding-left: 1.5rem;
-    transform: translateY(0);
   }
 
   /* Footer */
@@ -1760,7 +1726,7 @@ footer a:hover {
   }
 
   .accordion-item div {
-    padding: 0 1.25rem 1.25rem 3rem;
+    padding: 0 0 1.25rem;
     font-size: 0.95rem;
   }
 
@@ -1778,30 +1744,8 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-  html { font-size: 13.5px; }
-
-  /* Container and spacing */
-  .container {
-    width: 95%;
-    padding: 0 12px;
-  }
-
   .section {
     padding: 2rem 0;
-  }
-
-  /* Typography */
-  h1 {
-    font-size: 2rem;
-    line-height: 1.15;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
   }
 
   /* Hero Section */
@@ -1912,7 +1856,7 @@ footer a:hover {
   }
 
   .accordion-item div {
-    padding: 0 1rem 1rem 2.75rem;
+    padding: 0 0 1rem;
     font-size: 0.9rem;
   }
 
