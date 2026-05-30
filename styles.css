@@ -1398,42 +1398,15 @@ footer {
 }
 
 .footer-content {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: var(--space-8);
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-}
-
-.footer-content__copy {
-  justify-self: start;
-}
-
-.footer-content__newsletter {
-  justify-self: center;
-  max-width: 420px;
-  width: 100%;
-}
-
-.footer-content__newsletter .newsletter__label {
-  font-size: var(--text-micro);
-  margin-bottom: var(--space-2);
-}
-
-.footer-content__newsletter .newsletter__row .btn {
-  height: 40px;
-  padding: 0 var(--space-4);
-  font-size: var(--text-micro);
-}
-
-.footer-content__newsletter .newsletter__input {
-  height: 40px;
-  font-size: var(--text-small);
+  gap: var(--space-8);
 }
 
 .footer-links {
   display: flex;
   gap: var(--space-5);
-  justify-self: end;
   align-items: center;
 }
 
@@ -1450,14 +1423,9 @@ footer a:hover {
 
 @media (max-width: 900px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--space-6);
     text-align: center;
-  }
-  .footer-content__copy,
-  .footer-content__newsletter,
-  .footer-links {
-    justify-self: center;
   }
 }
 
