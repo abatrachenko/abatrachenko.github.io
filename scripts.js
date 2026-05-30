@@ -74,7 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (scrollProgress) {
       const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      scrollProgress.style.width = ((scrollTop / docHeight) * 100) + '%';
+      const ratio = docHeight > 0 ? scrollTop / docHeight : 0;
+      scrollProgress.style.transform = 'scaleX(' + ratio + ')';
     }
   }, { passive: true });
 
