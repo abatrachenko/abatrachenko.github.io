@@ -507,68 +507,10 @@ header.scrolled {
   margin-right: var(--space-1);
 }
 
-/* Newsletter capture — MASTER.md §9.5 */
-.newsletter {
-  max-width: 560px;
-  margin: 0 0 var(--space-6);
-}
-
-.newsletter__label {
-  display: block;
-  font-size: var(--text-micro);
-  font-weight: 500;
-  color: var(--text-secondary);
-  margin-bottom: var(--space-3);
-  letter-spacing: 0.02em;
-}
-
-.newsletter__row {
-  display: flex;
-  gap: var(--space-2);
-  align-items: stretch;
-}
-
-.newsletter__input {
-  flex: 1;
-  min-width: 0;
-  height: 48px;
-  padding: 0 var(--space-4);
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  color: var(--text-primary);
-  background-color: var(--surface-primary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  transition: border-color var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.newsletter__input::placeholder { color: var(--text-tertiary); }
-
-.newsletter__input:focus-visible {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-subtle);
-}
-
-.newsletter__row .btn {
-  height: 48px;
-  white-space: nowrap;
-  padding: 0 var(--space-6);
-}
-
-.newsletter__status {
-  font-size: var(--text-micro);
-  color: var(--text-secondary);
-  margin: var(--space-3) 0 0;
-  min-height: 1.2em;
-}
-
-/* Secondary CTA — ghost button, co-equal visual weight with the
-   primary newsletter Subscribe per Stripe's CTA pair model. Per
-   design-tier-assessment Move 4. */
-.hero__cta-secondary {
-  margin-top: var(--space-6);
+/* Primary (and only) hero CTA — newsletter removed; "Book a strategy call"
+   promoted from co-equal ghost to the single filled primary button. */
+.hero__cta {
+  margin-top: var(--space-8);
 }
 
 @media (max-width: 900px) {
@@ -584,12 +526,6 @@ header.scrolled {
 @media (max-width: 520px) {
   .hero {
     padding: var(--space-16) 0 var(--space-12);
-  }
-  .newsletter__row {
-    flex-direction: column;
-  }
-  .newsletter__row .btn {
-    width: 100%;
   }
   .clients-track {
     grid-template-columns: repeat(2, 1fr);
