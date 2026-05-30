@@ -23,28 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ----- Newsletter stub (handles every .newsletter form; backend wired later) ----- */
-
-  document.querySelectorAll('form.newsletter').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('.newsletter__input');
-      const status = form.querySelector('.newsletter__status');
-      const email = (input.value || '').trim();
-      if (!email || !email.includes('@')) {
-        if (status) status.textContent = 'Please enter a valid email address.';
-        input.focus();
-        return;
-      }
-      if (status) status.textContent = 'Thanks — the newsletter launches soon. You’ll be first on the list.';
-      input.value = '';
-      if (typeof gtag !== 'undefined') {
-        const location = form.closest('footer') ? 'footer' : 'hero';
-        gtag('event', 'newsletter_signup_attempt', { cta_location: location });
-      }
-    });
-  });
-
   /* ----- UTM capture ---------------------------------------------------- */
 
   const urlParams = new URLSearchParams(window.location.search);
