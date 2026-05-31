@@ -202,6 +202,17 @@ h2 {
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-heading);
 }
+
+/* Section titles — Instrument Serif to match the hero, so headings share one
+   elegant voice instead of clashing chunky Inter. All section H2s carry
+   .fade-in; the bio name (.bio__name) does not, so it stays Inter. */
+h2.fade-in {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.875rem, 1.5vw + 1.25rem, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
 h3 {
   font-size: var(--text-h2);
   font-weight: 700;
@@ -952,7 +963,7 @@ header.scrolled {
 
 /* Featured testimonial — promoted quote above the grid */
 .testimonial-card--feature {
-  max-width: 920px;
+  max-width: 880px;
   margin: 0 auto var(--space-10);
   padding: var(--space-10) var(--space-12);
   background-color: var(--surface-primary);
@@ -988,7 +999,7 @@ header.scrolled {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
-  max-width: 920px;
+  max-width: 880px;
   margin: 0 auto;
 }
 
@@ -1310,7 +1321,7 @@ footer a:hover {
    empty. Reads as an instrument gauge; the IP-density note reframes the
    one-of-one constraint as value, not urgency. No glow/animation/alert color. */
 .capacity {
-  max-width: 640px;
+  max-width: 880px;
   margin: 0 auto var(--space-16);
   display: grid;
   gap: var(--space-3);
@@ -1463,7 +1474,7 @@ footer a:hover {
 
 /* Pricing note — plain small text centered below tiers */
 .pricing-note {
-  max-width: 640px;
+  max-width: 880px;
   margin: var(--space-10) auto 0;
   text-align: center;
 }
@@ -1480,7 +1491,7 @@ footer a:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--space-8);
-  max-width: 640px;
+  max-width: 880px;
   margin: var(--space-8) auto var(--space-12);
   padding: var(--space-6) var(--space-8);
   border: 1px solid var(--border-default);
