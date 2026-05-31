@@ -203,16 +203,6 @@ h2 {
   letter-spacing: var(--tracking-heading);
 }
 
-/* Section titles — Instrument Serif to match the hero, so headings share one
-   elegant voice instead of clashing chunky Inter. All section H2s carry
-   .fade-in; the bio name (.bio__name) does not, so it stays Inter. */
-h2.fade-in {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(1.875rem, 1.5vw + 1.25rem, 2.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
 h3 {
   font-size: var(--text-h2);
   font-weight: 700;
