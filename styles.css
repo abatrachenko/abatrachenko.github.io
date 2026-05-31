@@ -65,6 +65,11 @@
   --container-max:      1200px;
   --container-pad:      clamp(1.5rem, 4vw, 3rem);
 
+  /* Section rhythm — ported from the FRESH OD build; more generous vertical
+     cadence than the flat --space-32, scales 96 → 152px (mobile floor keeps
+     sections from cramping; clamp handles responsiveness). */
+  --section-gap:        clamp(96px, 11vw, 152px);
+
   /* Radii */
   --radius-sm:    0.25rem;
   --radius-md:    0.5rem;
@@ -440,7 +445,7 @@ header.scrolled {
 
 /* Hero — MASTER.md §9.3. Text-first, no image, display H1. */
 .hero {
-  padding: var(--space-24) 0 var(--space-16);
+  padding: var(--space-32) 0 var(--space-20);
 }
 
 .hero__inner {
@@ -594,7 +599,7 @@ header.scrolled {
 
 /* Process — matches Why Resonance pillar pattern. */
 .process-section {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
   background-color: var(--surface-secondary);
   border-top: 1px solid var(--border-default);
   border-bottom: 1px solid var(--border-default);
@@ -687,7 +692,7 @@ header.scrolled {
 
 /* Why Resonance — differentiator triangle */
 .why-resonance {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
 }
 
 .why-resonance h2 {
@@ -755,7 +760,7 @@ header.scrolled {
    it never sums to the aggregate. Ledger AESTHETIC (mono, tabular, hairlines),
    not a financial-statement CLAIM. */
 .track-record {
-  padding: var(--space-24) 0;
+  padding: var(--section-gap) 0;
   background-color: var(--surface-secondary);
   border-top: 1px solid var(--border-default);
   border-bottom: 1px solid var(--border-default);
@@ -835,6 +840,18 @@ header.scrolled {
   align-items: baseline;
   gap: var(--space-6);
   padding: var(--space-4) 0;
+}
+
+/* "Fig. 01" exhibit caption — ported from the FRESH build; frames the
+   schedule as an audited exhibit (the instrument aesthetic). */
+.schedule__fig {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin: 0 0 var(--space-3);
 }
 
 .schedule__head {
@@ -938,7 +955,7 @@ header.scrolled {
    no photos. Relational quote + attribution only. */
 
 .testimonials {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
   background-color: var(--surface-secondary);
   border-top: 1px solid var(--border-default);
   border-bottom: 1px solid var(--border-default);
@@ -1055,7 +1072,7 @@ header.scrolled {
 /* FAQ — MASTER.md §9.11. Native <details>/<summary>, monospace +/× glyph toggle,
    no decorative icons inside summary. */
 .faq-section {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
   border-top: 1px solid var(--border-default);
 }
 
@@ -1130,7 +1147,7 @@ header.scrolled {
 
 /* Bio — MASTER.md §9.12. Placed LAST per Julian Shapiro. */
 .bio {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
   background-color: var(--surface-secondary);
   border-top: 1px solid var(--border-default);
 }
@@ -1290,7 +1307,7 @@ footer a:hover {
 /* Availability & pricing — MASTER.md §9.8 instrument-grade scarcity bar + §9.10 pricing tiers */
 
 .consulting-section {
-  padding: var(--space-32) 0;
+  padding: var(--section-gap) 0;
   background-color: var(--surface-primary);
 }
 
