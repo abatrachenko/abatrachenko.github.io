@@ -171,3 +171,18 @@ Format per entry:
 - Three bar-setter sites shift away from serif-display in the next 6 months.
 - A/B testing shows H1 comprehension dropping (unlikely — Instrument Serif is highly legible at display sizes).
 - The italic accent span reads gimmicky on the live site (watch during the design-review pass).
+
+---
+
+## [2026-05-31] — Logo mark + masthead wordmark = "Resonance" (tuning fork)
+
+**Context:** Logo/brand track. Chose mark "Concept D · Calibration" (a minimalist tuning fork) from the OD concept sheet, then asked what the site masthead should read.
+**Options considered:**
+- A: Fork + "Resonance" (one word; drop name + "SEO" from masthead)
+- B: Fork + "Resonance" primary / "Aleksey Batrachenko" secondary line
+- C: Fork + "Resonance SEO" primary / "Aleksey Batrachenko" secondary (the prior "tribunal" hybrid)
+- D: Only swap favicon, defer masthead
+**Decision:** A — fork mark + "Resonance" (Instrument Serif), name and "SEO" removed from the masthead.
+**Rationale:** Cleanest, most premium, matches the brand system built around the fork. Solo/SEO story lives in copy + bio, not the masthead.
+**Tradeoffs:** Overrides the earlier hybrid decision (STATUS-2026-05-31 §5). The personal name no longer appears in the nav; "Resonance SEO" full firm name still lives in <title> + JSON-LD, so keyword/identity signal is retained.
+**Revisit if:** We adopt the FRESH rebuild and reconsider masthead identity, or want the founder name present at the top for trust.
