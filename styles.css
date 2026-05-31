@@ -835,160 +835,70 @@ header.scrolled {
   border-bottom: 1px solid var(--border-default);
 }
 
-.track-record h2 {
-  text-align: center;
-  margin-bottom: var(--space-12);
-}
-
 .ledger {
   max-width: 880px;
   margin-inline: auto;
 }
 
-/* aggregate "credential" line — the largest number on the page at every width */
-.ledger__aggregate {
-  border-top: 1px solid var(--text-primary);
-  border-bottom: 1px solid var(--text-primary);
-  padding: var(--space-6) 0;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: end;
-  gap: var(--space-6);
-}
-
-.ledger__aggregate .ledger__label {
-  padding-bottom: var(--space-1);
-}
-
-.ledger__label {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.ledger__label b {
-  font-weight: 500;
-  font-size: var(--text-h3);
-  color: var(--text-primary);
-}
-
-.ledger__label span {
-  font-family: var(--font-mono);
-  font-size: var(--text-micro);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-
-.ledger__value {
+/* "Credential" — the largest number on the page (FRESH track-record treatment) */
+.credential {
   font-family: var(--font-mono);
   font-weight: 500;
   font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1;
-  color: var(--text-primary);
-  text-align: right;
-  font-size: clamp(2.75rem, 6vw + 1rem, 4rem);
+  color: var(--accent);
+  font-size: clamp(3.25rem, 8vw, 5.25rem);
+  margin-bottom: var(--space-2);
 }
 
-.ledger__value .u {
-  font-size: 0.5em;
-  color: var(--text-secondary);
-}
-
-/* supporting schedule — consistent columns; mixed units honest because each
-   row labels its own unit */
-.schedule {
-  margin-top: var(--space-6);
-}
-
-.schedule__head,
-.schedule__row {
-  display: grid;
-  grid-template-columns: 1.1fr 1.4fr auto;
-  align-items: baseline;
-  gap: var(--space-6);
-  padding: var(--space-4) 0;
-}
-
-/* "Fig. 01" exhibit caption — ported from the FRESH build; frames the
-   schedule as an audited exhibit (the instrument aesthetic). */
-.schedule__fig {
+.credential-label {
   font-family: var(--font-mono);
   font-size: var(--text-micro);
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--text-tertiary);
-  margin: 0 0 var(--space-3);
+  margin: 0 0 clamp(2.5rem, 6vw, 4rem);
 }
 
-.schedule__head {
-  border-bottom: 1px solid var(--border-strong);
-  padding-bottom: var(--space-2);
-}
-
-.schedule__head span {
+/* Inline ledger table */
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
   font-family: var(--font-mono);
   font-size: var(--text-micro);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: var(--space-5);
+}
+
+.ledger-table th {
+  font-weight: 500;
+  text-align: left;
+  padding: var(--space-3) 0;
+  border-bottom: 2px solid var(--border-strong);
+  color: var(--text-tertiary);
+  font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-tertiary);
 }
 
-.schedule__head span:last-child {
-  text-align: right;
-}
-
-.schedule__row {
+.ledger-table td {
+  padding: var(--space-4) 0;
   border-bottom: 1px solid var(--border-default);
-}
-
-.schedule__brand {
-  font-weight: 500;
-  font-size: var(--text-body);
+  vertical-align: top;
+  line-height: 1.45;
   color: var(--text-primary);
 }
 
-.schedule__eng {
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-}
+.ledger-table th:not(:last-child),
+.ledger-table td:not(:last-child) { padding-right: var(--space-5); }
 
-.schedule__result {
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  align-items: flex-end;
-}
+.ledger-table .num { text-align: right; font-weight: 500; white-space: nowrap; }
+.ledger-table th.num { text-align: right; }
 
-.schedule__result b {
-  font-family: var(--font-mono);
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-  font-size: var(--text-h2);
-  line-height: 1;
-  color: var(--text-primary);
-}
-
-.schedule__result span {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
-
-.ledger__foot {
-  display: flex;
-  justify-content: space-between;
+.ledger-caption {
   font-family: var(--font-mono);
   font-size: var(--text-micro);
   color: var(--text-tertiary);
-  padding-top: var(--space-4);
-  letter-spacing: 0.04em;
+  line-height: 1.5;
 }
 
 @media (max-width: 900px) {
@@ -997,22 +907,22 @@ header.scrolled {
   }
 }
 
-@media (max-width: 600px) {
-  /* schedule: brand + result on one line, engagement beneath */
-  .schedule__head { display: none; }
-  .schedule__row {
-    grid-template-columns: 1fr auto;
-    gap: var(--space-2) var(--space-4);
-    padding: var(--space-4) 0;
+@media (max-width: 560px) {
+  .credential { font-size: clamp(2.75rem, 13vw, 3.5rem); }
+  /* stack table rows on narrow screens */
+  .ledger-table thead { display: none; }
+  .ledger-table tr {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--border-default);
   }
-  .schedule__brand { align-self: center; }
-  .schedule__eng {
-    grid-column: 1 / -1;
-    order: 3;
-    font-size: var(--text-micro);
+  .ledger-table td {
+    border: none;
+    padding: 2px 0;
   }
-  .schedule__result b { font-size: var(--text-h3); }
-  .ledger__foot { flex-direction: column; gap: var(--space-1); }
+  .ledger-table td:first-child { font-weight: 500; font-size: var(--text-small); }
+  .ledger-table .num { text-align: left; color: var(--accent); }
 }
 
 /* (Results case-study section removed — merged into the Track Record ledger so
