@@ -703,25 +703,25 @@ header.scrolled {
 .why-resonance__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-12);            /* FRESH — more breathing room between pillars */
 }
 
 .pillar {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  padding-top: var(--space-6);
+  padding-top: var(--space-8);
   border-top: 1px solid var(--border-strong);
 }
 
 .pillar__number {
   font-family: var(--font-mono);
-  font-size: var(--text-small);
+  font-size: var(--text-large);    /* FRESH — larger index numeral */
   font-weight: 500;
   color: var(--accent);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   font-variant-numeric: tabular-nums;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .pillar__title {
