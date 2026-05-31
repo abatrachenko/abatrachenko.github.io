@@ -935,104 +935,9 @@ header.scrolled {
   .ledger__foot { flex-direction: column; gap: var(--space-1); }
 }
 
-/* Case studies — MASTER.md §9.7. Metric-forward cards. */
-.case-studies {
-  padding: var(--space-32) 0;
-}
-
-.case-studies h2 {
-  text-align: center;
-  margin-bottom: var(--space-16);
-}
-
-.case-study-card {
-  background-color: var(--surface-primary);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  transition: border-color var(--duration-fast) var(--ease-out),
-              box-shadow var(--duration-fast) var(--ease-out);
-}
-
-.case-study-card:hover {
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-sm);
-}
-
-.case-study-card__header {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.case-study-card__name {
-  margin: 0;
-  font-size: var(--text-h2);
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: var(--leading-heading);
-}
-
-.case-study-card__category {
-  margin: 0;
-  font-size: var(--text-micro);
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.case-study-card__metric {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  padding: var(--space-6) 0;
-  border-top: 1px solid var(--border-default);
-  border-bottom: 1px solid var(--border-default);
-}
-
-.case-study-card__metric-value {
-  font-family: var(--font-mono);
-  font-size: clamp(2rem, 2.5vw + 0.75rem, 2.5rem);  /* 32 → 40 */
-  font-weight: 500;
-  line-height: 1;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-}
-
-.case-study-card__metric-label {
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-}
-
-.case-study-card__description {
-  margin: 0;
-  font-size: var(--text-small);
-  line-height: var(--leading-body);
-  color: var(--text-secondary);
-  max-width: 40ch;
-}
-
-.case-studies__footer-cta {
-  text-align: center;
-  margin-top: var(--space-16);
-  font-size: var(--text-body);
-  color: var(--text-secondary);
-}
-
-.case-studies__footer-cta .btn {
-  margin-top: var(--space-4);
-}
-
-@media (max-width: 900px) {
-  .case-studies h2 {
-    margin-bottom: var(--space-12);
-  }
-}
+/* (Results case-study section removed — merged into the Track Record ledger so
+   the proof appears once as numbers there and once as quotes in testimonials,
+   not three times. Dead .case-studies / .case-study-card rules deleted.) */
 
 /* Testimonial Section */
 /* Testimonials — MASTER.md §9.9. Plain cards, no decorative quote marks, no stars,
@@ -1081,8 +986,10 @@ header.scrolled {
 
 .testimonials__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--space-6);
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .testimonial-card {
@@ -1123,11 +1030,6 @@ header.scrolled {
 
 .testimonial-card__company {
   color: var(--text-secondary);
-}
-
-.testimonials__cta {
-  text-align: center;
-  margin-top: var(--space-16);
 }
 
 @media (max-width: 900px) {
