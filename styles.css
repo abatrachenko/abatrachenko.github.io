@@ -691,6 +691,75 @@ header.scrolled {
 }
 
 /* Why Resonance — differentiator triangle */
+/* ── Selected engagements (FRESH narrative proof) ── */
+.outcomes-section {
+  padding: var(--section-gap) 0;
+  border-top: 1px solid var(--border-default);
+}
+
+.outcomes-section h2 {
+  text-align: center;
+  margin-bottom: var(--space-12);
+}
+
+.outcome-featured {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: clamp(1.75rem, 5vw, 3rem);
+  margin: 0 auto var(--space-6);
+  max-width: 880px;
+}
+
+.outcome-brand {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: var(--space-4);
+}
+
+.outcome-featured p {
+  margin: 0;
+  font-size: var(--text-large);
+  line-height: 1.55;
+  color: var(--text-primary);
+}
+
+.outcome-stat {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 880px;
+  margin-inline: auto;
+}
+
+.outcome-card {
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-8);
+}
+
+.outcome-card p {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-small);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .outcome-grid { grid-template-columns: 1fr 1fr; }
+}
+
 .why-resonance {
   padding: var(--section-gap) 0;
 }
