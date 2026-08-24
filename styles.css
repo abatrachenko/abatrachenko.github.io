@@ -235,21 +235,12 @@ p {
   font-weight: 400;
 }
 
-/* Text Emphasis */
-.gradient-text {
-  color: var(--accent);
-  font-weight: 900;
-}
-
 /* Reveal baseline — always visible. The @supports block below layers a
    scroll-driven animation on top for browsers that ship animation-timeline:
    view(). Unsupporting browsers (older Firefox, edge cases) fall back to
    this rule and render content immediately — no repeat of the 2022 pattern
    where content stayed invisible below the fold. */
-.fade-in,
-.slide-in-left,
-.slide-in-right,
-.scale-in {
+.fade-in {
   opacity: 1;
   transform: none;
 }
@@ -314,20 +305,6 @@ p {
 .btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
-}
-
-.btn-ghost,
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
-
-.btn-ghost:hover,
-.btn-outline:hover {
-  background-color: var(--accent-subtle);
-  border-color: var(--accent-hover);
-  color: var(--accent-hover);
 }
 
 /* Header — clean, no glassmorphism */
@@ -1368,236 +1345,14 @@ footer a:hover {
   margin-bottom: var(--space-12);
 }
 
-/* Capacity gauge (Tier 2 §9.8 rev) — utilization framing, not countdown.
-   Discrete calibrated segments (10 × 16h = 160h); committed filled navy, open
-   empty. Reads as an instrument gauge; the IP-density note reframes the
-   one-of-one constraint as value, not urgency. No glow/animation/alert color. */
-.capacity {
-  max-width: 880px;
-  margin: 0 auto var(--space-16);
-  display: grid;
-  gap: var(--space-3);
-}
-
-.capacity__head {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-4);
-  font-family: var(--font-mono);
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-}
-
-.capacity__label {
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.capacity__value {
-  color: var(--text-primary);
-  font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-
-.capacity__gauge {
-  display: flex;
-  gap: 3px;
-  height: 10px;
-}
-
-.capacity__seg {
-  flex: 1;
-  background-color: var(--surface-primary);
-  border: 1px solid var(--border-strong);
-}
-
-.capacity__seg.is-open {
-  background-color: var(--text-primary);
-  border-color: var(--text-primary);
-}
-
-.capacity__scale {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--text-tertiary);
-  font-variant-numeric: tabular-nums;
-}
-
-.capacity__note {
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-  line-height: var(--leading-body);
-  max-width: 60ch;
-  margin: var(--space-1) 0 0;
-}
-
-@media (max-width: 600px) {
-  .capacity__head {
-    flex-direction: column;
-    gap: var(--space-1);
-  }
-}
-
-/* Pricing as a rate card (Tier 2 rev) — hours, scope, price rows in the same
-   ledger language as Track Record and Results. Heavy top rule, hairline
-   dividers, mono tabular figures. Featured row: flat tint + left accent rule. */
-.consulting-tiers {
-  max-width: 880px;
-  margin: 0 auto;
-  border-top: 1px solid var(--text-primary);
-}
-
-.tier-row {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: baseline;
-  gap: var(--space-6);
-  padding: var(--space-5) 0;
-  border-bottom: 1px solid var(--border-default);
-}
-
-.tier-row.featured {
-  background-color: rgba(30, 58, 95, 0.04);
-  box-shadow: inset 2px 0 0 var(--accent);
-  margin-inline: calc(var(--space-4) * -1);
-  padding-inline: var(--space-4);
-}
-
-.tier-row__hrs {
-  font-family: var(--font-mono);
-  font-size: var(--text-h3);
-  font-weight: 500;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  display: flex;
-  align-items: baseline;
-  gap: 0.15em;
-  min-width: 4ch;
-}
-
-.tier-row__hrs-unit {
-  font-size: 0.6em;
-  color: var(--text-tertiary);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.tier-description {
-  margin: 0;
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-  line-height: var(--leading-body);
-}
-
-.tier-price {
-  font-family: var(--font-mono);
-  font-size: clamp(1.5rem, 1.5vw + 0.75rem, 1.875rem);
-  font-weight: 500;
-  color: var(--text-primary);
-  font-variant-numeric: tabular-nums;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  text-align: right;
-  white-space: nowrap;
-}
-
-.tier-price span {
-  font-family: var(--font-body);
-  font-size: var(--text-micro);
-  font-weight: 400;
-  color: var(--text-tertiary);
-  letter-spacing: 0.02em;
-}
-
-@media (max-width: 600px) {
-  .tier-row {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    gap: var(--space-2) var(--space-4);
-  }
-  .tier-description {
-    grid-column: 1 / -1;
-    order: 3;
-  }
-}
-
-/* Pricing note — plain small text centered below tiers */
-.pricing-note {
-  max-width: 880px;
-  margin: var(--space-10) auto 0;
-  text-align: center;
-}
-
-.pricing-note p {
-  margin: 0;
-  font-size: var(--text-small);
-  color: var(--text-secondary);
-  line-height: var(--leading-body);
-}
-
-/* Engagement terms — small typographic data block */
-.engagement-terms {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-8);
-  max-width: 880px;
-  margin: var(--space-8) auto var(--space-12);
-  padding: var(--space-6) var(--space-8);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-md);
-  background-color: var(--surface-primary);
-}
-
-.term-item {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.term-item strong {
-  font-size: var(--text-micro);
-  font-weight: 500;
-  color: var(--text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.term-item p {
-  margin: 0;
-  font-size: var(--text-small);
-  color: var(--text-primary);
-  line-height: var(--leading-tight);
-}
-
-.consulting-cta {
-  text-align: center;
-  margin-top: var(--space-8);
-}
-
 @media (max-width: 900px) {
   .consulting-section {
     padding: var(--space-16) 0;
-  }
-  .consulting-tiers {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-  }
-  .engagement-terms {
-    grid-template-columns: 1fr;
-    gap: var(--space-4);
-    padding: var(--space-4) var(--space-6);
   }
 }
 
 /* Enhanced Mobile Styles */
 @media (max-width: 1100px) {
-  .consulting-tiers {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .process-grid {
     grid-template-columns: 1fr;
   }
@@ -1605,11 +1360,6 @@ footer a:hover {
 
 @media (max-width: 992px) {
   .section { padding: 3rem 0; }
-
-  .engagement-terms {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 }
 
 @media (max-width: 768px) {
