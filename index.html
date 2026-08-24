@@ -64,9 +64,12 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
+    "@graph": [
+    {
     "@type": "ProfessionalService",
+    "@id": "https://resonanceseo.com/#organization",
     "name": "Resonance SEO",
-    "alternateName": "Resonance Consulting Group",
+    "alternateName": "Resonance",
     "url": "https://resonanceseo.com",
     "logo": "https://resonanceseo.com/logo.svg",
     "description": "Senior SEO and AI search consulting for enterprise e-commerce. Embedded senior operator — not an agency.",
@@ -78,23 +81,16 @@
     "sameAs": [
       "https://www.linkedin.com/in/alekseybatrachenko/"
     ],
-    "founder": {
-      "@type": "Person",
-      "name": "Aleksey Batrachenko",
-      "jobTitle": "SEO Consultant",
-      "url": "https://resonanceseo.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/alekseybatrachenko/"
-      ],
-      "description": "SEO expert with 15+ years experience, generated $700M+ in revenue for brands including Adidas, J.Crew, Samsung, and Alchemy."
-    },
+    "founder": { "@id": "https://resonanceseo.com/#person" },
     "knowsAbout": [
       "SEO",
       "Search Engine Optimization",
       "E-commerce SEO",
       "Technical SEO",
       "Content Strategy",
-      "Organic Growth"
+      "Organic Growth",
+      "Generative Engine Optimization",
+      "AI Search Optimization"
     ],
     "areaServed": {
       "@type": "Country",
@@ -154,6 +150,80 @@
         }
       ]
     }
+    },
+    {
+    "@type": "Person",
+    "@id": "https://resonanceseo.com/#person",
+    "name": "Aleksey Batrachenko",
+    "jobTitle": "SEO Consultant",
+    "url": "https://resonanceseo.com",
+    "worksFor": { "@id": "https://resonanceseo.com/#organization" },
+    "sameAs": [
+      "https://www.linkedin.com/in/alekseybatrachenko/"
+    ],
+    "knowsAbout": [
+      "Enterprise SEO",
+      "E-commerce SEO",
+      "Generative Engine Optimization",
+      "AI Search Optimization"
+    ],
+    "description": "SEO expert with 15+ years experience, generated $700M+ in revenue for brands including Adidas, J.Crew, Samsung, and Alchemy."
+    },
+    {
+    "@type": "FAQPage",
+    "@id": "https://resonanceseo.com/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why a solo practice instead of an agency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Enterprise SEO engagements at agencies typically pass through account managers to junior execution teams. Here, the senior strategist who scopes the work is the same person executing it. No handoffs, no learning curve on your account, no dilution of strategic judgment through layers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does \"embedded\" mean in practice?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "I work directly within your team's tools, channels, and cadences — attending relevant standups, with access to your analytics and CMS, operating as a senior member of your marketing team. Not an outside vendor submitting tickets through a portal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you approach GEO and AI search?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generative Engine Optimization is woven into every engagement — content structure, entity authority, citation positioning. It's a natural extension of senior-level SEO strategy, not a separate productized service with its own price tag."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum engagement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three months at 32, 48, or 64 hours per month. Organic growth compounds over time — shorter engagements don't give the work room to deliver meaningful, measurable results."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does it cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "$200 per hour. Engagements start at 32 hours/month ($6,400) with a 3-month minimum. Most run 6–12 months. Exact scope gets set during discovery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When do results typically land?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Measurable traffic movement usually shows in 90–120 days. Compounding organic growth — the durable kind — typically takes 6 months to pattern. I give a specific forecast for your situation during discovery, tied to what we're actually working with."
+        }
+      }
+    ]
+    }
+    ]
   }
   </script>
 </head>
@@ -365,7 +435,7 @@
         <div class="gauge-section">
           <div class="gauge-title">64 of 160 h</div>
           <p class="gauge-subtitle">monthly hours available</p>
-          <div class="gauge" role="img" aria-label="Capacity this month: 96 of 160 hours retained, 64 hours available">
+          <div class="gauge" role="img" aria-label="Capacity this month: 64 of 160 hours available, 96 hours retained">
             <span class="gauge-seg filled"></span>
             <span class="gauge-seg filled"></span>
             <span class="gauge-seg filled"></span>
