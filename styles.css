@@ -478,6 +478,7 @@ header.scrolled {
 .hero-img {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -501,6 +502,13 @@ header.scrolled {
               0 0 0 1px rgba(255, 51, 102, 0.2);
   border-color: rgba(255, 51, 102, 0.4);
   transform: translateY(-5px);
+}
+
+.hero-img-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
 }
 
 .hero-buttons {
@@ -1164,6 +1172,19 @@ header.scrolled {
 .testimonial-stars {
   color: #ffc107;
   font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-metric {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 51, 102, 0.08);
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
   margin-bottom: 1rem;
 }
 
