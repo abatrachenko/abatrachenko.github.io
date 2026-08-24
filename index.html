@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Performance Optimizations -->
-  <meta name="theme-color" content="#FF3366">
+  <meta name="theme-color" content="#1E3A5F">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <!-- Security Headers -->
@@ -29,35 +29,33 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
   <!-- SEO Meta Tags -->
-  <title>Fractional SEO Consulting for E-Commerce Brands | Resonance Consulting Group</title>
-  <meta name="description" content="Welcome to Resonance Consulting Group. I'm here to untangle your SEO and get you to stable organic growth without agency overhead.">
-  <meta name="keywords" content="SEO consultant, e-commerce SEO, fractional SEO, growth consulting, SEO agency">
-  <meta name="author" content="Resonance Consulting Group">
+  <title>Aleksey Batrachenko · Senior SEO for Enterprise E-commerce</title>
+  <meta name="description" content="Senior SEO and AI search consulting for enterprise e-commerce. $700M+ delivered across 35+ brands including Adidas, Samsung, J.Crew, and Madewell.">
+  <meta name="author" content="Aleksey Batrachenko">
   <link rel="canonical" href="https://resonanceseo.com/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://resonanceseo.com/">
-  <meta property="og:title" content="Proven Fractional SEO Leadership for E-Commerce Brands">
-  <meta property="og:description" content="Welcome to Resonance Consulting Group. I'm here to untangle your SEO and get you to stable organic growth without agency overhead.">
-  <meta property="og:image" content="https://resonanceseo.com/adidas-blog-performance-3.png">
+  <meta property="og:title" content="Senior SEO & AI Search Consulting for Enterprise E-commerce">
+  <meta property="og:description" content="Senior SEO and AI search consulting for enterprise e-commerce. $700M+ delivered across 35+ brands including Adidas, Samsung, J.Crew, and Madewell.">
+  <meta property="og:image" content="https://resonanceseo.com/aleksey-batrachenko-seo-consultant.jpg">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://resonanceseo.com/">
-  <meta property="twitter:title" content="Proven Fractional SEO Leadership for E-Commerce Brands">
-  <meta property="twitter:description" content="Welcome to Resonance Consulting Group. I'm here to untangle your SEO and get you to stable organic growth without agency overhead.">
-  <meta property="twitter:image" content="https://resonanceseo.com/adidas-blog-performance-3.png">
+  <meta property="twitter:title" content="Senior SEO & AI Search Consulting for Enterprise E-commerce">
+  <meta property="twitter:description" content="Senior SEO and AI search consulting for enterprise e-commerce. $700M+ delivered across 35+ brands including Adidas, Samsung, J.Crew, and Madewell.">
+  <meta property="twitter:image" content="https://resonanceseo.com/aleksey-batrachenko-seo-consultant.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+  <!-- Favicon: navy monogram -->
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
 
-  <!-- Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Fonts: Instrument Serif (display H1) + Inter (body) + Geist Mono (numbers) per design-system/MASTER.md §3.
+       Loaded async (preload + onload swap) so the font CSS is non-render-blocking; display=swap
+       already governs FOUT behavior. <noscript> fallback keeps fonts for JS-off clients. -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;700;900&family=Geist+Mono:wght@400;500&display=swap"></noscript>
 
   <!-- External Stylesheet -->
   <link rel="stylesheet" href="styles.css">
@@ -67,10 +65,11 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    "name": "Resonance Consulting Group",
-    "alternateName": "Resonance SEO",
+    "name": "Resonance SEO",
+    "alternateName": "Resonance Consulting Group",
     "url": "https://resonanceseo.com",
-    "description": "Fractional SEO consulting for e-commerce brands. Expert SEO leadership without agency overhead.",
+    "logo": "https://resonanceseo.com/logo.svg",
+    "description": "Senior SEO and AI search consulting for enterprise e-commerce. Embedded senior operator — not an agency.",
     "priceRange": "$6,400-$12,800",
     "address": {
       "@type": "PostalAddress",
@@ -170,371 +169,270 @@
   <!-- Scroll Progress Indicator -->
   <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress"></div>
 
-  <!-- Sticky CTA Bar -->
-  <div class="sticky-cta-bar" role="banner" aria-label="Special offer notification">
-    <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Book your free intro call">Book Your Free Intro Call</a>
-  </div>
-
   <header role="banner">
     <div class="container nav">
-      <a href="/" class="logo" role="img" aria-label="Resonance SEO Logo">
-        <i class="fas fa-chart-line" aria-hidden="true"></i>
-        Resonance SEO
+      <a href="/" class="logo" aria-label="Resonance, home">
+        <span class="logo__mark" aria-hidden="true">
+          <svg width="16" height="29" viewBox="0 0 100 100" fill="none">
+            <line x1="38" y1="12" x2="38" y2="50" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+            <line x1="62" y1="12" x2="62" y2="50" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+            <path d="M38,50 Q38,62 50,62 Q62,62 62,50" stroke="currentColor" stroke-width="7" fill="none"/>
+            <line x1="50" y1="62" x2="50" y2="88" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo__word">Resonance</span>
       </a>
-      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">Menu</button>
       <nav class="nav-menu" role="navigation" aria-label="Main navigation">
-        <a href="#testimonials">Testimonials</a>
-        <a href="#case-studies">Results</a>
-        <a href="#about">About</a>
-        <a href="#consulting">Availability</a>
-        <a href="#process">Process</a>
+        <a href="#case-studies">Case studies</a>
+        <a href="#consulting">Pricing</a>
         <a href="#faq">FAQ</a>
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a Call</a>
+        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="nav-cta">Book a call</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" role="main">
-  <div class="container hero">
-    <div class="hero-text slide-in-left">
-      <h1>Get Enterprise SEO Execution <span class="gradient-text">at 50% of Agency Cost</span></h1>
-      <p class="hero-subtitle">Stop overpaying agencies. Direct access to senior SEO strategy that's generated $700M+ for Adidas, J.Crew, and Alchemy &mdash; engagements from $6,400/month.</p>
+  <section class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Fractional SEO + AI search leadership</p>
+      <h1 class="hero__headline">
+        Senior SEO and AI&nbsp;search leadership for enterprise e&#8209;commerce, <span class="hero__headline-accent">embedded directly in your team.</span>
+      </h1>
+      <p class="hero__subhead">
+        $700M+ in organic revenue across 35+ enterprise brands &mdash; Adidas, Samsung, J.Crew, Madewell. Embedded on the team, not selling from outside it.
+      </p>
 
-      <ul class="hero-checklist">
-        <li><i class="fas fa-check-circle"></i> Transparent Pricing</li>
-        <li><i class="fas fa-check-circle"></i> Proven Track Record</li>
-        <li><i class="fas fa-check-circle"></i> Expert SEO Leadership Only</li>
-      </ul>
+      <p class="hero__anti-positioning">Not an agency. No account managers, no junior handoffs.</p>
 
-      <div class="hero-buttons">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn" aria-label="Book a free strategy call"><i class="fas fa-calendar-check" aria-hidden="true"></i> Book Your Free Intro Call</a>
-      </div>
+      <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn hero__cta">Book a strategy call &rarr;</a>
     </div>
-    <div class="hero-img slide-in-right">
-      <img src="organic-traffic-growth-v4.png" alt="Dramatic organic traffic growth chart showing exponential SEO performance improvement for e-commerce brands">
-      <!-- EDIT ME: adjust caption if you want it tied to a specific client result -->
-      <p class="hero-img-caption">The compounding organic growth curve every engagement is built to produce</p>
-    </div>
-  </div>
-  <section class="clients-section">
+  </section>
+
+  <section class="clients-section" aria-label="Past clients">
     <div class="container">
       <div class="clients-carousel">
         <div class="clients-track">
-          <!-- Logo Items - First Set -->
-          <div class="client-logo">
-            <img src="logo-adidas.png" alt="Adidas logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-samsung.png" alt="Samsung logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-ethereum-2.png" alt="Ethereum Foundation logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-alchemy-2.png" alt="Alchemy logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-jcrew.png" alt="J.Crew logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-madewell.png" alt="Madewell logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-hbs-3.png" alt="Harvard Business School logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-dirk.png" alt="Dirk logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-dekamarkt.png" alt="Dekamarkt logo">
-          </div>
-          <div class="client-logo">
-            <img src="logo-kpn.png" alt="KPN logo">
-          </div>
+          <div class="client-logo"><picture><source srcset="logo-adidas.webp" type="image/webp"><img src="logo-adidas.png" alt="Adidas" width="256" height="172" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-samsung.webp" type="image/webp"><img src="logo-samsung.png" alt="Samsung" width="240" height="64" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-ethereum-2.webp" type="image/webp"><img src="logo-ethereum-2.png" alt="Ethereum Foundation" width="240" height="74" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-alchemy-2.webp" type="image/webp"><img src="logo-alchemy-2.png" alt="Alchemy" width="240" height="51" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-jcrew.webp" type="image/webp"><img src="logo-jcrew.png" alt="J.Crew" width="240" height="67" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-madewell.webp" type="image/webp"><img src="logo-madewell.png" alt="Madewell" width="240" height="135" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-hbs-3.webp" type="image/webp"><img src="logo-hbs-3.png" alt="Harvard Business School" width="240" height="135" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><picture><source srcset="logo-dirk.webp" type="image/webp"><img src="logo-dirk.png" alt="Dirk" width="256" height="175" loading="lazy" decoding="async"></picture></div>
+          <div class="client-logo"><img src="logo-dekamarkt.png" alt="Dekamarkt" width="256" height="112" loading="lazy" decoding="async"></div>
+          <div class="client-logo"><img src="logo-kpn.png" alt="KPN" width="256" height="98" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="track-record" id="case-studies" aria-label="Track record">
+    <div class="container">
+      <span class="section-eyebrow">&mdash; 01 &middot; Track record</span>
+      <div class="ledger fade-in">
+        <div class="credential">$700M+</div>
+        <p class="credential-label">career-aggregate organic revenue influenced</p>
+
+        <table class="ledger-table">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Engagement</th>
+              <th class="num">Organic outcome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Adidas</td>
+              <td>Blog built from scratch, 12&nbsp;mo</td>
+              <td class="num">+240K daily unique clicks</td>
+            </tr>
+            <tr>
+              <td>J.Crew</td>
+              <td>Long-tail category pages, 9&nbsp;mo</td>
+              <td class="num">+95% organic clicks</td>
+            </tr>
+            <tr>
+              <td>Alchemy</td>
+              <td>Faceted nav indexed, 24&nbsp;mo</td>
+              <td class="num">+315% organic clicks</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="ledger-caption">Outcomes reflect organic visibility gains in each engagement&rsquo;s own unit. Revenue figure is career-aggregate, not per-engagement.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="outcomes-section" id="work" aria-label="Selected engagements">
+    <div class="container">
+      <span class="section-eyebrow">&mdash; 02 &middot; Selected engagements</span>
+      <h2 class="fade-in">The work behind the numbers</h2>
+      <div class="outcome-featured fade-in">
+        <span class="outcome-brand">Adidas &mdash; Global blog program</span>
+        <p>Built the blog from zero &mdash; no existing content infrastructure, no organic footprint. Twelve months of technical architecture, content strategy, and hands-on execution. Result: <span class="outcome-stat">240,000 daily unique clicks</span> from organic search.</p>
+      </div>
+      <div class="outcome-grid">
+        <div class="outcome-card fade-in">
+          <span class="outcome-brand">J.Crew &mdash; Category strategy</span>
+          <p>Long-tail category page architecture designed for organic discovery. Nine months to <span class="outcome-stat">+95% organic clicks</span>.</p>
+        </div>
+        <div class="outcome-card fade-in">
+          <span class="outcome-brand">Alchemy &mdash; Technical SEO</span>
+          <p>Faceted navigation restructured for indexation. Over 24 months, organic clicks grew <span class="outcome-stat">+315%</span>.</p>
         </div>
       </div>
     </div>
   </section>
 
 
-  <section id="testimonials" class="testimonial-section section">
+  <section id="about" class="why-resonance">
     <div class="container">
-      <h2 class="fade-in">Testimonials</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial fade-in">
-          <div class="testimonial-stars" role="img" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-          <div class="testimonial-metric"><i class="fas fa-chart-line"></i> 240K daily organic clicks</div>
-          <p>"Aleksey manifested the adidas Blog from scratch. He engineered the pitch, sold in the concept to senior leadership, secured funding and dev resources, created the requirements and led GTM. Now the blog is getting ~6 million impressions and 240k unique clicks a day. The long term value Aleksey created for adidas is extraordinary"</p>
-          <div class="author">
-            <i class="fas fa-user-circle"></i>
-            <span>SVP Digital, <strong>adidas Group</strong></span>
-          </div>
-        </div>
+      <span class="section-eyebrow">&mdash; 03 &middot; Why Resonance</span>
+      <h2 class="fade-in why-resonance__title">A different model for enterprise SEO</h2>
 
-        <div class="testimonial fade-in">
-          <div class="testimonial-stars" role="img" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-          <div class="testimonial-metric"><i class="fas fa-chart-line"></i> +95% organic clicks</div>
-          <p>"Aleksey's work on J.Crew's long-tail SEO strategy was transformative. His approach to product landing pages unlocked traffic we didn't even know existed. The 95% growth in organic clicks speaks for itself."</p>
-          <div class="author">
-            <i class="fas fa-user-circle"></i>
-            <span>VP Marketing, <strong>J.Crew</strong></span>
-          </div>
-        </div>
+      <div class="why-resonance__grid">
+        <article class="pillar fade-in">
+          <span class="pillar__number">01</span>
+          <h3 class="pillar__title">Embedded senior operator</h3>
+          <p class="pillar__body">Direct access to the strategist who does the work. No account managers, no delegation, no juniors learning on your account.</p>
+        </article>
 
-        <div class="testimonial fade-in">
-          <div class="testimonial-stars" role="img" aria-label="Rated 5 out of 5 stars">★★★★★</div>
-          <div class="testimonial-metric"><i class="fas fa-chart-line"></i> +315% organic clicks</div>
-          <p>"Aleksey completely transformed our search strategy at Alchemy. Our faceted navigation was underperforming and leaving significant opportunity on the table. He reworked the entire system, got it properly indexed, and optimized it to capture demand we didn't even know existed. The 315% increase in organic clicks over 24 months speaks for itself—his work unlocked a major growth channel for us."</p>
-          <div class="author">
-            <i class="fas fa-user-circle"></i>
-            <span>Head of Search, <strong>Alchemy</strong></span>
-          </div>
-        </div>
-      </div>
+        <article class="pillar fade-in">
+          <span class="pillar__number">02</span>
+          <h3 class="pillar__title">GEO + SEO at senior level</h3>
+          <p class="pillar__body">AI&#8209;search readiness woven into every engagement &mdash; content structure, entity authority, citation positioning. Not a bolt-on service.</p>
+        </article>
 
-      <div class="consulting-cta fade-in">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-calendar-check"></i> Book Your Free Intro Call</a>
+        <article class="pillar fade-in">
+          <span class="pillar__number">03</span>
+          <h3 class="pillar__title">Enterprise-scale track record</h3>
+          <p class="pillar__body">Fifteen years across 35+ enterprise brands. The pattern recognition that comes from operating at scale, repeatedly &mdash; inside 10,000+ URL inventories and the interlock of engineering, content, and marketing enterprise SEO requires.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="case-studies" class="case-studies-section section">
+  <section id="testimonials" class="testimonials">
     <div class="container">
-      <h2 class="fade-in">Results</h2>
-      <div class="case-studies-grid">
-        <div class="case-study-card fade-in">
-          <div class="case-study-header">
-            <h4>Adidas</h4>
-            <p>Enterprise Sports Retailer</p>
-          </div>
-          <div class="case-study-body">
-            <div class="case-study-metrics">
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">+240K</span>
-                <span class="case-study-metric-label">Daily Unique Clicks</span>
-              </div>
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">12 mo</span>
-                <span class="case-study-metric-label">Timeline</span>
-              </div>
-            </div>
-            <p><strong>Challenge:</strong> Fully reliant on short-tail traffic to lower funnel pages with limited visibility in informational searches.</p>
-            <p><strong>Solution:</strong> Launched and populated the Adidas blog to target long-tail keywords and establish authority in fitness and lifestyle content.</p>
-            <p><strong>Result:</strong> Generated an additional 6 million impressions and 240K unique clicks per day.</p>
-          </div>
-        </div>
+      <span class="section-eyebrow">&mdash; 04 &middot; References</span>
+      <h2 class="fade-in">What clients say</h2>
 
-        <div class="case-study-card fade-in">
-          <div class="case-study-header">
-            <h4>J.Crew</h4>
-            <p>Heritage Fashion Retailer</p>
-          </div>
-          <div class="case-study-body">
-            <div class="case-study-metrics">
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">+95%</span>
-                <span class="case-study-metric-label">Organic Clicks</span>
-              </div>
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">9 mo</span>
-                <span class="case-study-metric-label">Timeline</span>
-              </div>
-            </div>
-            <p><strong>Challenge:</strong> Zero long tail commercial keyword visibility—traffic was limited to brand terms and short-tail queries.</p>
-            <p><strong>Solution:</strong> Created and indexed medium and long tail product landing pages to capture granular, high-intent search queries.</p>
-            <p><strong>Result:</strong> 95% increase in organic clicks over 9 months, unlocking a new revenue channel from previously untapped demand.</p>
-          </div>
-        </div>
+      <article class="testimonial-card testimonial-card--feature fade-in">
+        <blockquote class="testimonial-card__quote">
+          &ldquo;Aleksey manifested the adidas Blog from scratch. He engineered the pitch, sold the concept to senior leadership, secured funding and dev resources, created the requirements, and led GTM. Now the blog generates ~6 million impressions and 240K unique clicks a day. The long-term value Aleksey created for adidas is extraordinary.&rdquo;
+        </blockquote>
+        <cite class="testimonial-card__attribution">
+          <span class="testimonial-card__role">SVP Digital</span>
+          <span class="testimonial-card__company">adidas Group</span>
+        </cite>
+      </article>
 
-        <div class="case-study-card fade-in">
-          <div class="case-study-header">
-            <h4>Alchemy</h4>
-            <p>Web3 Infrastructure Platform</p>
-          </div>
-          <div class="case-study-body">
-            <div class="case-study-metrics">
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">+315%</span>
-                <span class="case-study-metric-label">Organic Clicks</span>
-              </div>
-              <div class="case-study-metric">
-                <span class="case-study-metric-value">24 mo</span>
-                <span class="case-study-metric-label">Timeline</span>
-              </div>
-            </div>
-            <p><strong>Challenge:</strong> Their faceted navigation strategy was underperforming and leaving a lot of value on the table.</p>
-            <p><strong>Solution:</strong> Reworked facets, got them indexed and optimized to capture previously untapped search demand.</p>
-            <p><strong>Result:</strong> 315% increase in organic clicks in 24 months, unlocking significant growth from improved faceted navigation.</p>
-          </div>
-        </div>
-      </div>
+      <div class="testimonials__grid">
 
-      <div class="consulting-cta fade-in">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-calendar-check"></i> Book Your Free Intro Call</a>
-      </div>
-    </div>
-  </section>
+        <article class="testimonial-card fade-in">
+          <blockquote class="testimonial-card__quote">
+            &ldquo;Aleksey&rsquo;s work on J.Crew&rsquo;s long-tail SEO strategy was transformative. His approach to category landing pages unlocked traffic we didn&rsquo;t even know existed. The 95% growth in organic clicks speaks for itself.&rdquo;
+          </blockquote>
+          <cite class="testimonial-card__attribution">
+            <span class="testimonial-card__role">VP Marketing</span>
+            <span class="testimonial-card__company">J.Crew</span>
+          </cite>
+        </article>
 
-  <section id="about" class="about-section section">
-    <div class="container">
-      <h2 class="fade-in">Why Resonance?</h2>
+        <article class="testimonial-card fade-in">
+          <blockquote class="testimonial-card__quote">
+            &ldquo;Our faceted navigation was underperforming and leaving significant opportunity on the table. Aleksey got it properly indexed and optimized it to capture demand we didn&rsquo;t know we were missing. His work unlocked a major growth channel &mdash; a 315% increase in organic visits over the last two years.&rdquo;
+          </blockquote>
+          <cite class="testimonial-card__attribution">
+            <span class="testimonial-card__role">Head of Search</span>
+            <span class="testimonial-card__company">Alchemy</span>
+          </cite>
+        </article>
 
-      <div class="about-content">
-        <div class="about-text fade-in">
-          <h3>Fractional SEO Leadership That Actually Delivers</h3>
-          <p>I'm Aleksey, and I've spent 15+ years helping brands grow organic traffic. Not with cookie-cutter strategies, but with data-driven, custom growth systems that actually move the needle.</p>
-          <div class="about-callout problem">
-            <div class="callout-icon"><i class="fas fa-times-circle"></i></div>
-            <div class="callout-content">
-              <h4>The Agency Problem</h4>
-              <p>Junior teams run playbooks without understanding your business. Senior strategists stay behind paywalls or spread too thin to make impact.</p>
-            </div>
-          </div>
-
-          <div class="about-callout solution">
-            <div class="callout-icon"><i class="fas fa-lightbulb"></i></div>
-            <div class="callout-content">
-              <h4>The Resonance Solution</h4>
-              <p>Strategic direction without the agency markup. I define where you're going and how to get there. Your team handles the build—with clarity, confidence, and no wasted cycles.</p>
-            </div>
-          </div>
-
-          <div class="about-value-prop">
-            <p><strong>You're getting direct access to senior SEO & GEO leadership 32-64 hours per month integrating directly into the team you already have. No middlemen. No bait-and-switch.</strong></p>
-          </div>
-        </div>
-
-        <div class="about-img fade-in">
-          <img src="aleksey-batrachenko-seo-consultant.jpg" alt="Aleksey Batrachenko - SEO Expert">
-        </div>
-      </div>
-
-      <div class="about-stats">
-        <div class="about-stat scale-in">
-          <span class="about-stat-number">15+</span>
-          <span class="about-stat-label">Years Experience</span>
-        </div>
-        <div class="about-stat scale-in">
-          <span class="about-stat-number">35+</span>
-          <span class="about-stat-label">Brands Scaled</span>
-        </div>
-        <div class="about-stat scale-in">
-          <span class="about-stat-number">$700M+</span>
-          <span class="about-stat-label">Revenue Generated</span>
-        </div>
-      </div>
-
-      <div class="consulting-cta fade-in">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-calendar-check"></i> Book Your Free Intro Call</a>
       </div>
     </div>
   </section>
 
   <section id="consulting" class="consulting-section section">
     <div class="container">
-      <h2 class="fade-in">Current Availability</h2>
+      <span class="section-eyebrow">&mdash; 05 &middot; Current availability</span>
 
-      <!-- EDIT ME: confirm current client capacity before merging -->
-      <div class="pricing-note fade-in">
-        <i class="fas fa-user-check"></i>
-        <p>I take on a maximum of 4 clients at a time so every engagement gets senior attention. Currently accepting new engagements.</p>
-      </div>
-
-      <div class="consulting-tiers fade-in">
-        <div class="tier-card">
-          <h3>32 Hours/Month</h3>
-          <div class="tier-price">$6,400<span>/month</span></div>
-          <p class="tier-description">Strategic guidance and oversight</p>
-          <ul class="tier-features">
-            <li><i class="fas fa-check"></i> Weekly strategy call</li>
-            <li><i class="fas fa-check"></i> Prioritized SEO roadmap</li>
-            <li><i class="fas fa-check"></i> Monthly performance reporting</li>
-            <li><i class="fas fa-check"></i> Async support for your team</li>
-          </ul>
-        </div>
-
-        <div class="tier-card featured">
-          <span class="popular-badge">Most Popular</span>
-          <h3>48 Hours/Month</h3>
-          <div class="tier-price">$9,600<span>/month</span></div>
-          <p class="tier-description">Full strategic integration</p>
-          <ul class="tier-features">
-            <li><i class="fas fa-check"></i> Everything in 32 hours</li>
-            <li><i class="fas fa-check"></i> Twice-weekly working sessions</li>
-            <li><i class="fas fa-check"></i> Real-time Slack access</li>
-            <li><i class="fas fa-check"></i> Content &amp; technical SEO reviews</li>
-          </ul>
-        </div>
-
-        <div class="tier-card">
-          <h3>64 Hours/Month</h3>
-          <div class="tier-price">$12,800<span>/month</span></div>
-          <p class="tier-description">Dedicated fractional leadership</p>
-          <ul class="tier-features">
-            <li><i class="fas fa-check"></i> Everything in 48 hours</li>
-            <li><i class="fas fa-check"></i> Implementation oversight &amp; QA</li>
-            <li><i class="fas fa-check"></i> Team enablement &amp; hiring input</li>
-            <li><i class="fas fa-check"></i> Embedded in your sprints &amp; standups</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pricing-note fade-in">
-        <i class="fas fa-info-circle"></i>
-        <p>All engagements are customized to your specific needs. Book a call to discuss your situation.</p>
-      </div>
-
-      <div class="engagement-terms fade-in">
-        <div class="term-item">
-          <i class="fas fa-calendar-alt"></i>
-          <div>
-            <strong>Minimum Engagement</strong>
-            <p>3 months</p>
+      <div class="ledger fade-in">
+        <div class="gauge-section">
+          <div class="gauge-title">64 of 160 h</div>
+          <p class="gauge-subtitle">monthly hours available</p>
+          <div class="gauge" role="img" aria-label="Capacity this month: 96 of 160 hours retained, 64 hours available">
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg filled"></span>
+            <span class="gauge-seg"></span>
+            <span class="gauge-seg"></span>
+            <span class="gauge-seg"></span>
+            <span class="gauge-seg"></span>
           </div>
+          <div class="gauge-labels"><span>96 h retained</span><span>64 h available</span></div>
         </div>
-        <div class="term-item">
-          <i class="fas fa-file-invoice-dollar"></i>
-          <div>
-            <strong>Payment Terms</strong>
-            <p>Invoiced monthly, due 15th of following month</p>
-          </div>
-        </div>
-      </div>
 
-      <!-- EDIT ME: confirm guarantee terms and reconcile with terms.html before merging -->
-      <div class="pricing-note fade-in">
-        <i class="fas fa-shield-alt"></i>
-        <p><strong>30-day confidence guarantee:</strong> if you don't see clear strategic value in our first 30 days together, I'll refund that month's fee.</p>
-      </div>
+        <p class="rate-heading">Monthly engagement rates</p>
+        <table class="ledger-table rate-table">
+          <thead>
+            <tr>
+              <th>Hours/mo</th>
+              <th>Scope</th>
+              <th class="num">Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>32&nbsp;h</td>
+              <td>Strategic advisory</td>
+              <td class="num">$6,400/mo</td>
+            </tr>
+            <tr class="featured">
+              <td>48&nbsp;h</td>
+              <td>Strategy + execution <span class="featured-tag">recommended</span></td>
+              <td class="num">$9,600/mo</td>
+            </tr>
+            <tr>
+              <td>64&nbsp;h</td>
+              <td>Full embedded</td>
+              <td class="num">$12,800/mo</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="ledger-caption">3-month minimum &middot; Invoiced monthly</p>
 
-      <div class="consulting-cta fade-in">
-        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn"><i class="fas fa-calendar-check"></i> Book Your Free Intro Call</a>
+        <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="btn rate-cta">Book a strategy call</a>
       </div>
     </div>
   </section>
 
-
   <section id="process" class="process-section section">
     <div class="container">
+      <span class="section-eyebrow">&mdash; 06 &middot; How we work</span>
       <h2 class="fade-in">Process</h2>
       <div class="process-grid">
         <div class="process-card fade-in" data-number="01">
-          <i class="fas fa-search"></i>
-          <h3>Vetting & Discovery</h3>
+          <h3>Vetting &amp; Discovery</h3>
           <p>Not every engagement is the right fit. We only accept projects where we can confidently deliver measurable impact.</p>
           <p>During discovery, we assess your business model, technical foundation, competitive landscape, and team dynamics to identify high-value opportunities. If we can't clearly see where to move the needle, we'll tell you upfront.</p>
           <p><strong>You get:</strong> Honest assessment and a clear go/no-go decision based on real revenue potential.</p>
         </div>
         <div class="process-card fade-in" data-number="02">
-          <i class="fas fa-sitemap"></i>
-          <h3>Integration & Planning</h3>
+          <h3>Integration &amp; Planning</h3>
           <p>We don't operate in a silo. We integrate directly into your existing teams—engineering, content, marketing—and build our SEO roadmap around your workflows and priorities.</p>
           <p>Our planning adapts to how you work, whether that's JIRA sprints, Slack channels, or weekly standups. The roadmap is phased, prioritized by impact, and designed to work with the resources you already have.</p>
           <p><strong>You get:</strong> A custom SEO roadmap that fits your team, not a one-size-fits-all playbook.</p>
         </div>
         <div class="process-card fade-in" data-number="03">
-          <i class="fas fa-rocket"></i>
-          <h3>Implementation & Maintenance</h3>
+          <h3>Implementation &amp; Maintenance</h3>
           <p>We oversee execution of the SEO roadmap from start to finish. That means writing tickets, QA-ing work, monitoring performance, and removing friction wherever it appears.</p>
           <p>This isn't set-it-and-forget-it. We stay embedded in your operations, course-correcting in real time and optimizing what's working while phasing out what's not.</p>
           <p><strong>You get:</strong> Continuous strategic oversight with accountability baked in at every step.</p>
@@ -543,58 +441,81 @@
     </div>
   </section>
 
-
-  <section id="faq" class="faq-section section">
+  <section id="faq" class="faq-section">
     <div class="container">
-      <h2 class="fade-in">Frequently Asked Questions</h2>
+      <span class="section-eyebrow">&mdash; 07 &middot; Common questions</span>
+      <h2 class="fade-in">Frequently asked questions</h2>
       <div class="accordion">
+
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-dollar-sign"></i> How much does this cost?</summary>
-          <div>$200 per hour with a minimum 32 hours per month and a 3 month minimum commitment.</div>
+          <summary>Why a solo practice instead of an agency?</summary>
+          <div>Enterprise SEO engagements at agencies typically pass through account managers to junior execution teams. Here, the senior strategist who scopes the work is the same person executing it. No handoffs, no learning curve on your account, no dilution of strategic judgment through layers.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-clock"></i> How long until I see results?</summary>
-          <div>Most clients see measurable improvements in 90-120 days, with full impact typically in 6 months. I focus on sustainable growth, not quick hacks that disappear next month.</div>
+          <summary>What does &ldquo;embedded&rdquo; mean in practice?</summary>
+          <div>I work directly within your team's tools, channels, and cadences &mdash; attending relevant standups, with access to your analytics and CMS, operating as a senior member of your marketing team. Not an outside vendor submitting tickets through a portal.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-rocket"></i> Do you work with startups?</summary>
-          <div>Yes—if you've got product-market fit and ambitions to scale. My sweet spot is brands doing $1M-$10M/year that need systems to scale to $10M+.</div>
+          <summary>How do you approach GEO and AI search?</summary>
+          <div>Generative Engine Optimization is woven into every engagement &mdash; content structure, entity authority, citation positioning. It's a natural extension of senior-level SEO strategy, not a separate productized service with its own price tag.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-store"></i> What industries do you work with?</summary>
-          <div>E-commerce brands across fashion, home goods, beauty, and specialty retail. If you sell physical products online, we can likely help. I also have deep experience helping Web 3 achieve organic growth</div>
+          <summary>What is the minimum engagement?</summary>
+          <div>Three months at 32, 48, or 64 hours per month. Organic growth compounds over time &mdash; shorter engagements don't give the work room to deliver meaningful, measurable results.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-handshake"></i> What's included in your service?</summary>
-          <div>Full-spectrum SEO including technical audits, content strategy, on-page optimization, link building, conversion optimization, and ongoing strategic guidance. You get direct access to me for weekly check-ins and strategic decisions.</div>
+          <summary>What does it cost?</summary>
+          <div>$200 per hour. Engagements start at 32 hours/month ($6,400) with a 3-month minimum. Most run 6&ndash;12 months. Exact scope gets set during discovery.</div>
         </details>
 
         <details class="accordion-item fade-in">
-          <summary><i class="fas fa-chart-line"></i> How do you measure success?</summary>
-          <div>Revenue. Period. We track organic traffic, rankings, and conversions, but ultimately it's about the bottom line. Every strategy is tied to your revenue goals.</div>
+          <summary>When do results typically land?</summary>
+          <div>Measurable traffic movement usually shows in 90&ndash;120 days. Compounding organic growth &mdash; the durable kind &mdash; typically takes 6 months to pattern. I give a specific forecast for your situation during discovery, tied to what we're actually working with.</div>
         </details>
+
       </div>
     </div>
   </section>
 
-  <!-- Floating Contact Button (Mobile) -->
-  <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="floating-cta">
-    <i class="fas fa-phone-alt"></i>
-    <span>Book a Call</span>
-  </a>
+  <section class="bio" id="bio">
+    <div class="container">
+      <div class="bio__inner">
+        <div class="bio__portrait">
+          <picture>
+            <source srcset="aleksey-batrachenko-seo-consultant.webp" type="image/webp">
+            <img src="aleksey-batrachenko-seo-consultant.jpg" alt="Portrait of Aleksey Batrachenko" width="400" height="400" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div>
+          <h2 class="bio__name">Aleksey Batrachenko</h2>
+          <p class="bio__role">Senior SEO + AI search leadership for enterprise e-commerce.</p>
+          <p class="bio__body">
+            Fifteen years in SEO. $700M+ in organic revenue generated across 35+ brands &mdash; Adidas, Samsung, J.Crew, Madewell, Ethereum Foundation, Harvard Business School, KPN, and Alchemy among them. Most of that work happened embedded in the teams running the business, not delivered from an agency wall. The pattern I keep seeing: organic growth plateaus when nobody senior is watching the system, and in-house teams take the blame for gaps that start one org layer up. I'm the senior set of eyes that closes that gap.
+          </p>
+          <p class="bio__credentials">
+            15+ years &middot; 35+ brands &middot; Advisor, Reach LLM &middot;
+            <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </p>
+          <a href="https://calendly.com/alekseybatrachenko/intro-call" target="_blank" rel="noopener noreferrer" class="bio__cta">Book a strategy call &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   </main>
 
   <footer role="contentinfo">
     <div class="container footer-content">
-      <div>© 2025 Resonance SEO</div>
+      <div class="footer-content__copy">&copy; 2026 Aleksey Batrachenko &middot; Resonance SEO</div>
+
       <div class="footer-links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
-        <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="https://www.linkedin.com/in/alekseybatrachenko/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </div>
     </div>
   </footer>

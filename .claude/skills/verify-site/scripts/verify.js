@@ -22,9 +22,9 @@ const OUT_DIR = path.join(__dirname, '..', 'out');
 const PAGES = ['index.html', 'privacy.html', 'terms.html'];
 
 // Update these constants in the same commit as any intentional change.
-const EXPECTED_SECTION_ORDER = ['testimonials', 'case-studies', 'about', 'consulting', 'process', 'faq'];
-const LONG_CTA_TEXT = 'Book Your Free Intro Call';
-const SHORT_CTA_TEXT = 'Book a Call'; // nav + floating mobile button only
+const EXPECTED_SECTION_ORDER = ['case-studies', 'work', 'about', 'testimonials', 'consulting', 'process', 'faq', 'bio'];
+// Standard CTA texts (the arrow is the rendered &rarr; entity).
+const ALLOWED_CTA_TEXTS = ['Book a call', 'Book a strategy call', 'Book a strategy call →'];
 
 // External hosts are blocked in the sandbox; resource failures for them are expected noise.
 const IGNORABLE_CONSOLE = /Failed to load resource|net::ERR_/;
@@ -70,13 +70,16 @@ async function checkPage(browser, pageName, viewport, screenshotName) {
 
     const ctas = await page.$$eval('a[href*="calendly"]', els =>
       els.map(e => e.textContent.trim().replace(/\s+/g, ' ')));
-    const bad = ctas.filter(t => t !== LONG_CTA_TEXT && t !== SHORT_CTA_TEXT);
+    const bad = ctas.filter(t => !ALLOWED_CTA_TEXTS.includes(t));
     if (bad.length) failures.push(`non-standard CTA text: ${JSON.stringify(bad)}`);
     else info.push(`CTAs OK (${ctas.length} found, all standardized)`);
 
-    for (const id of EXPECTED_SECTION_ORDER) {
+    // Exercise every same-page anchor in the nav menu.
+    const navAnchors = await page.$$eval('nav.nav-menu a[href^="#"]', els =>
+      els.map(e => e.getAttribute('href').slice(1)));
+    for (const id of navAnchors) {
       // DOM-dispatched click: still runs the smooth-scroll handler, but avoids
-      // Playwright actionability flakiness on the backdrop-filter sticky header.
+      // Playwright actionability flakiness on the sticky header.
       await page.$eval(`nav.nav-menu a[href="#${id}"]`, el => el.click());
       await page.waitForTimeout(600);
       const visible = await page.$eval('#' + id, el => {
@@ -85,7 +88,7 @@ async function checkPage(browser, pageName, viewport, screenshotName) {
       });
       if (!visible) failures.push(`anchor #${id} did not scroll into view`);
     }
-    info.push('nav anchors OK');
+    info.push(`nav anchors OK (${navAnchors.length} checked)`);
   }
 
   if (screenshotName) {
