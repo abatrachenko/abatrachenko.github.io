@@ -63,6 +63,22 @@ Track A originals:
 
 **Staged CTA reminder:** Stage 1 (newsletter capture) ships with the rebuild. Stage 2 (framework swap) ships when the framework is ready.
 
+## 2026-08-24 — Stale-branch reconciliation + PR #98 (remote session)
+
+**Session trigger:** user asked to fix the hero image / remove gradients, audit the site, apply Claude-config best practices, then resolve PR #98's conflicts.
+
+**What happened:** the session branch was based on pre-redesign main (d79792c). Five commits were built there: JS crash fix + fabricated-widget removal (exit popup / fake social proof), proof-before-price section reorder, pricing tier bullets + guarantee + honest capacity note, CTA standardization, and a root Claude config. Meanwhile PRs #92–#97 (FRESH redesign, navy brand system, rewritten HTML/CSS/JS, image optimization, the `.claude/` setup) superseded ALL of that content on main.
+
+**Resolution:** merged origin/main into the branch, main winning every redesigned file; PR #98 squash-merged to main (8d7c467). Net delta was 5 files / +181 lines:
+- `_config.yml`: exclude `test-page/` — it had been publishing live at resonanceseo.com/test-page/
+- `.claude/skills/verify-site/` — runnable no-MCP Playwright harness (section order, CTA texts, page-error gate, desktop+mobile screenshots); complements `verify`/`design-review` in remote sessions without Playwright MCP
+- `.gitignore` union, real `README.md`
+- the branch's stale root CLAUDE.md was dropped (described the pre-redesign site)
+
+Verified pre-merge: zero JS errors on all 3 pages at 1440/390px, section order `case-studies > work > about > testimonials > consulting > process > faq > bio`, CTAs standardized.
+
 ## Where we left off
 
-Phase 3 design system done — `design-system/MASTER.md` fully specs tokens, components, migration plan. Ready to start phase 4 (copy + hero rebuild) whenever user wants to continue, or take a break here — everything staged is safe to merge regardless.
+PR #98 is merged. **Open:** (1) after the Pages rebuild, confirm resonanceseo.com/test-page/ returns 404; (2) decide whether to rebuild the discarded conversion ideas (guarantee/risk-reversal, tier-differentiation bullets) on the NEW design; (3) verify the GTM container (GTM-W5Z6KJ8D) has a GA4 tag defining `gtag`, else `book_call_click` events never fire — matters before PPC spend; (4) consider deleting `test-page/` outright (~830KB stale duplicates, now unpublished).
+
+(Earlier note, pre-phase-4: design system done at `design-system/MASTER.md`; phase 4 copy + hero rebuild has since shipped via PRs #92–#97.)
