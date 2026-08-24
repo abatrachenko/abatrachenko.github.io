@@ -15,3 +15,4 @@ exclude:
   - PPC_STRATEGY.md
   - node_modules/
   - .playwright-mcp/
+  - test-page/

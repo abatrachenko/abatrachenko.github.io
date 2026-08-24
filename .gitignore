@@ -34,6 +34,10 @@ build/
 *.tmp
 *.log
 
+# Claude Code local state
+.claude/settings.local.json
+.claude/skills/verify-site/out/
+
 # Lighthouse / tooling scratch
 tmp-lh-*.json
 lighthouse-report*.html
