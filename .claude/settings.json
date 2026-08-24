@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Glob",
+      "Grep",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(python3 -m http.server:*)",
+      "Bash(node:*)",
+      "Bash(npx prettier:*)"
+    ]
+  }
+}

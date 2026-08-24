@@ -6,3 +6,5 @@ exclude:
   - PPC_STRATEGY.md
   - SECURITY.md
   - README.md
+  - CLAUDE.md
+  - .claude/

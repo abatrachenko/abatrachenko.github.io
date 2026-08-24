@@ -33,3 +33,7 @@ build/
 # Temporary files
 *.tmp
 *.log
+
+# Claude Code local state
+.claude/settings.local.json
+.claude/skills/verify-site/out/
