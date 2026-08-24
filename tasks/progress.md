@@ -77,6 +77,16 @@ Track A originals:
 
 Verified pre-merge: zero JS errors on all 3 pages at 1440/390px, section order `case-studies > work > about > testimonials > consulting > process > faq > bio`, CTAs standardized.
 
+## 2026-08-24 — Strategic plan + P0 housekeeping (local session)
+
+**Session trigger:** owner asked for a strategic agentic plan to make the site the best it can be for its purpose, purpose defined from sources.
+
+**Plan:** `tasks/designs/2026-08-24-strategic-plan.md`. Evidence: Lighthouse mobile 98/100/58/100, desktop 100/100/58/100 (BP 58 = LinkedIn Insight cookies via GTM); Ahrefs DR 0 / 0 organic keywords / 0 traffic / 404 junk refdomains; GSC MCP dead (timeouts — data gap); live site had dropped the capture-primary CTA model (4 call CTAs, zero email capture). Researcher pass (cited): multi-page beats one-page for conversion + AI retrieval; enterprise exemplars run call-primary; third-party corroboration is the dominant GEO lever; llms.txt is dead.
+
+**Owner decisions (all recs accepted):** call-primary CTA canon (positioning.md amended), full multi-page expansion approved, pause LinkedIn Insight in GTM (owner task), produce GEO framework. Recorded in `tasks/decisions.md` [2026-08-24].
+
+**P0 shipped (branch staging-p0-housekeeping):** dead CSS purge (~300 lines: capacity/tier/pricing-note/engagement-terms blocks, gradient-text, slide-in/scale-in, btn-ghost/outline; styles.css 1,874 → ~1,570); JSON-LD restructured to @graph with stable Person/Organization @ids + FAQPage schema (6 Q&As, verbatim from visible FAQ); gauge aria-label aligned with visible framing; verify-site playwright resolver made machine-portable; test-page/ deleted (~830KB). Verified: console clean, no horizontal scroll 375/desktop, all live components intact, Lighthouse mobile 99/100/58/100 (perf +1). WebP finding: dekamarkt/KPN PNGs are already smaller than WebP re-encodes — correctly left as PNG.
+
 ## Where we left off
 
 PR #98 is merged. **Open:** (1) after the Pages rebuild, confirm resonanceseo.com/test-page/ returns 404; (2) decide whether to rebuild the discarded conversion ideas (guarantee/risk-reversal, tier-differentiation bullets) on the NEW design; (3) verify the GTM container (GTM-W5Z6KJ8D) has a GA4 tag defining `gtag`, else `book_call_click` events never fire — matters before PPC spend; (4) consider deleting `test-page/` outright (~830KB stale duplicates, now unpublished).
