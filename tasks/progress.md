@@ -66,3 +66,21 @@ Track A originals:
 ## Where we left off
 
 Phase 3 design system done — `design-system/MASTER.md` fully specs tokens, components, migration plan. Ready to start phase 4 (copy + hero rebuild) whenever user wants to continue, or take a break here — everything staged is safe to merge regardless.
+
+## 2026-08-24 — Stale-branch reconciliation + PR #98 (remote session)
+
+**Session trigger:** user asked to fix the hero image / remove gradients, audit the site, apply Claude-config best practices, then resolve PR #98's conflicts.
+
+**What happened:** this session's branch (`claude/setup-consulting-website-01M5femRkY4QRromBeZTXUes`) was based on pre-redesign main (d79792c). Five commits were built there: JS crash fix + fabricated-widget removal (exit popup / fake social proof), proof-before-price section reorder, pricing tier bullets + guarantee + honest capacity note, CTA standardization, and a root Claude config. Meanwhile PRs #92–#97 (FRESH redesign, navy brand system, rewritten HTML/CSS/JS, image optimization, the `.claude/` setup) superseded ALL of that content on main.
+
+**Resolution (merge commit 60f2b8e):** merged origin/main into the branch, main winning every redesigned file. Net PR delta vs main is 5 files / +181 lines:
+- `_config.yml`: exclude `test-page/` — it was still publishing live at resonanceseo.com/test-page/
+- `.claude/skills/verify-site/` — runnable no-MCP Playwright harness (section order, CTA texts, page-error gate, desktop+mobile screenshots); complements `verify`/`design-review` in remote sessions without Playwright MCP
+- `.gitignore` union, real `README.md`
+- dropped the branch's root CLAUDE.md (described the pre-redesign site)
+
+Verified on the merged tree: zero JS errors on all 3 pages at 1440/390px, section order `case-studies > work > about > testimonials > consulting > process > faq > bio`, CTAs standardized.
+
+## Where we left off
+
+**Open:** (1) merge PR #98 (was mergeable, checks running); (2) after Pages rebuild, confirm resonanceseo.com/test-page/ 404s; (3) decide whether to rebuild the discarded conversion ideas (guarantee/risk-reversal, tier-differentiation bullets) on the NEW design; (4) verify the GTM container (GTM-W5Z6KJ8D) has a GA4 tag defining `gtag`, else `book_call_click` events never fire — matters before PPC spend; (5) delete the branch after merge; consider deleting `test-page/` outright (~830KB stale duplicates).

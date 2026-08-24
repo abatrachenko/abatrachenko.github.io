@@ -186,3 +186,16 @@ Format per entry:
 **Rationale:** Cleanest, most premium, matches the brand system built around the fork. Solo/SEO story lives in copy + bio, not the masthead.
 **Tradeoffs:** Overrides the earlier hybrid decision (STATUS-2026-05-31 §5). The personal name no longer appears in the nav; "Resonance SEO" full firm name still lives in <title> + JSON-LD, so keyword/identity signal is retained.
 **Revisit if:** We adopt the FRESH rebuild and reconsider masthead identity, or want the founder name present at the top for trust.
+
+## [2026-08-24] — Resolve PR #98 by merging main and discarding superseded branch work
+
+**Context:** PR #98's branch was based on pre-redesign main; PRs #92–#97 rewrote the site and independently fixed everything the branch fixed (JS crash, fabricated widgets, schema violations, CTA chaos). GitHub showed 8 conflicted files.
+**Options considered:**
+- A: Merge origin/main into the branch, main wins all redesigned files, keep only still-missing items
+- B: Rebase the 5 commits onto main (every commit conflicts; content targets files that no longer exist)
+- C: Resolve conflicts in the branch's favor (would revert the entire redesign)
+- D: Close PR #98 as superseded (loses the test-page publish fix)
+**Decision:** A — merge, keep only `test-page/` exclusion, the runnable `verify-site` harness, gitignore/README.
+**Rationale:** Main's versions were strictly newer implementations of the same fixes plus a full redesign; the branch's only unique value was the test-page publish leak and a zero-MCP verification harness. Merge preserves history without force-push and shrinks the PR to a reviewable +181 lines.
+**Tradeoffs:** The branch's conversion content (30-day guarantee, tier feature bullets, capacity note, testimonial metric chips) was discarded rather than ported — rebuilding those on the new design is a deliberate, separate decision.
+**Revisit if:** The owner wants risk-reversal/tier-differentiation on the new pricing section — treat as new work against the FRESH design, not a revival of the old markup.
