@@ -1,6 +1,6 @@
-# GEO Readiness Framework — outline draft
+# GEO Readiness Framework — outline
 
-**Status:** draft for user review. Edit freely; when the outline is approved, we write the full content + design the deliverable format.
+**Status:** APPROVED 2026-08-25 (owner, with one amendment: check 4.3 replaced — see below). Production started per the plan at the bottom. Format locked: PDF-only v1, self-scored, minimal report-style design, delivery via Buttondown welcome email, 4-email nurture.
 
 **Target reader:** VP / Director of Marketing or E-commerce at an enterprise e-commerce brand. They've heard about GEO, their CEO or board has asked them about it, and they're not sure where their brand stands. They're analytical, short on time, and immune to listicle-tease content.
 
@@ -65,8 +65,8 @@ Why it matters: Many sites inadvertently block the crawlers that feed AI answer 
 **4.2 — Is your structured data current, validated, and covering the entity types that AI engines consume (Organization, Person, Service, Product, FAQPage, Article)?**
 Why it matters: Structured data that was fine for Google's 2020 rich results may be insufficient for 2026 AI answer engines. They consume a wider surface.
 
-**4.3 — Have you published `llms.txt` or equivalent signals indicating which parts of your site you want AI systems to reference?**
-Why it matters: `llms.txt` is the emerging standard for intentional AI content curation. Being early here signals sophistication and gives you control over how your brand is represented.
+**4.3 — Is each key topic retrievable as its own focused URL — one intent per page — rather than buried in long multi-topic pages?**
+Why it matters: AI retrieval works at the passage level. Separate, focused pages create more independently retrievable units, cleaner intent matches, and more external-link targets than long multi-topic pages. This is the structural lever the 2026 evidence actually supports — unlike `llms.txt`, which no major platform confirms consuming. *(Replaced the original llms.txt check on 2026-08-25 — owner-approved amendment.)*
 
 ### Category 5 — Measurement: Can we prove or track progress?
 
@@ -148,3 +148,15 @@ Before I start writing the full content, confirm:
 3. Any categories to cut or reweight?
 4. Does the "Invisible / Emerging / Present / Compound-ready" tier language work, or do you have preferred framing?
 5. PDF-only or include interactive web version in v1?
+
+---
+
+## 2026-08-25 review prep (added post-strategic-plan; answers recommended so approval can be one pass)
+
+The April outline aged well with one exception. Recommendations against the cited August 2026 research (see `tasks/designs/2026-08-24-strategic-plan.md` §3):
+
+1. **Structure (Q1-3): approve with ONE amendment — replace check 4.3 (llms.txt).** The research verdict is that llms.txt is effectively dead: no platform (Google, OpenAI, Perplexity) confirms consuming it, and Google's 2026 guidance explicitly says no AI-specific files are needed. Recommending it in a GEO framework would date the asset on arrival. **Proposed replacement 4.3:** *"Is each key topic retrievable as its own focused URL — one intent per page — rather than buried in long multi-topic pages?"* (AI retrieval is passage/chunk-level; focused pages are the structural lever the research actually supports.) Everything else in the 15 checks matches current evidence — 5.1 (AI-referral attribution) is now literally implemented on this site.
+2. **Tier language (Q4): keep** — Invisible/Emerging/Present/Compound-ready reads operator-grade, no change needed.
+3. **Format (Q5 + production questions): PDF-only v1, minimal report-style design, self-scored** — fastest path, matches the April recommendation. Comparative examples: include, but only patterns or publicly documented brands (no invented client examples). Delivery: email → PDF link via Buttondown welcome email (the capture infrastructure shipped 2026-08-25 makes this the zero-new-tooling path). Nurture: the suggested 4-email sequence.
+
+**On approval, the production plan's Week-1 content writing starts** — owner expertise, drafting assistance per the plan above.
