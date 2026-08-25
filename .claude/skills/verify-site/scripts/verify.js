@@ -34,7 +34,11 @@ let chromium;
 
 const BASE_URL = process.env.VERIFY_BASE_URL || 'http://localhost:8080';
 const OUT_DIR = path.join(__dirname, '..', 'out');
-const PAGES = ['index.html', 'privacy.html', 'terms.html'];
+const PAGES = [
+  'index.html', 'privacy.html', 'terms.html',
+  'case-studies/', 'case-studies/adidas/', 'case-studies/jcrew/', 'case-studies/alchemy/',
+  'services/enterprise-seo/', 'services/geo/', 'about/', 'contact/',
+];
 
 // Update these constants in the same commit as any intentional change.
 const EXPECTED_SECTION_ORDER = ['case-studies', 'work', 'about', 'testimonials', 'consulting', 'process', 'faq', 'bio'];
