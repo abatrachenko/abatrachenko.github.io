@@ -427,6 +427,27 @@
     </div>
   </section>
 
+  <!-- Capture band — unnumbered aside (no id: keeps verify-site section order
+       + eyebrow numbering intact). Secondary CTA per the call-primary model
+       (positioning.md, amended 2026-08-24). -->
+  <section class="capture-band" aria-label="Newsletter signup">
+    <div class="container">
+      <div class="capture-inner fade-in">
+        <div class="capture-copy">
+          <h2 class="capture-heading">Organic growth patterns for enterprise e&#8209;commerce</h2>
+          <p class="capture-sub">What&rsquo;s actually moving organic and AI search &mdash; written from inside the engagements. Every other Tuesday.</p>
+        </div>
+        <!-- TODO(owner): replace BUTTONDOWN_USERNAME after creating the Buttondown account -->
+        <form class="capture-form js-newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" data-location="midpage">
+          <label class="sr-only" for="capture-email-mid">Email address</label>
+          <input type="email" id="capture-email-mid" name="email" autocomplete="email" required placeholder="you@company.com">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <p class="capture-note">Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="consulting" class="consulting-section section">
     <div class="container">
       <span class="section-eyebrow">&mdash; 05 &middot; Current availability</span>
@@ -467,7 +488,8 @@
             </tr>
             <tr class="featured">
               <td>48&nbsp;h</td>
-              <td>Strategy + execution <span class="featured-tag">recommended</span></td>
+              <td>Strategy + execution <span class="featured-tag">recommended</span>
+                <span class="tier-note">Where most enterprise teams land &mdash; enough hours to own the roadmap, not just advise on it.</span></td>
               <td class="num">$9,600/mo</td>
             </tr>
             <tr>
@@ -579,6 +601,17 @@
   </main>
 
   <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-capture">
+        <p class="footer-capture__copy">Organic growth patterns for enterprise e&#8209;commerce. Every other Tuesday.</p>
+        <!-- TODO(owner): replace BUTTONDOWN_USERNAME after creating the Buttondown account -->
+        <form class="capture-form capture-form--compact js-newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/BUTTONDOWN_USERNAME" method="post" data-location="footer">
+          <label class="sr-only" for="capture-email-footer">Email address</label>
+          <input type="email" id="capture-email-footer" name="email" autocomplete="email" required placeholder="you@company.com">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+      </div>
+    </div>
     <div class="container footer-content">
       <div class="footer-content__copy">&copy; 2026 Aleksey Batrachenko &middot; Resonance SEO</div>
 

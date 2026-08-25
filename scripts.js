@@ -23,6 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  document.querySelectorAll('.js-newsletter-form').forEach((form) => {
+    form.addEventListener('submit', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'newsletter_signup', { form_location: form.dataset.location || 'unknown' });
+      }
+    });
+  });
+
   /* ----- UTM capture ---------------------------------------------------- */
 
   const urlParams = new URLSearchParams(window.location.search);
