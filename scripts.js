@@ -31,6 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ----- AI-assistant referral tracking ---------------------------------- */
+
+  const AI_REFERRERS = /chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai|you\.com|phind\.com/;
+  if (document.referrer && AI_REFERRERS.test(document.referrer)) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'ai_referral', {
+        ai_source: (document.referrer.match(AI_REFERRERS) || ['unknown'])[0],
+        landing_page: window.location.pathname
+      });
+    }
+  }
+
   /* ----- UTM capture ---------------------------------------------------- */
 
   const urlParams = new URLSearchParams(window.location.search);
