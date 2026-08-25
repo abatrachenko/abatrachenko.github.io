@@ -14,6 +14,12 @@ Format per entry:
 
 ---
 
+## [2026-08-25] — Never pipe repo files through PowerShell Get-Content/Set-Content
+
+**Context:** Stripping resolved TODO comments from index.html via `(Get-Content) | Where-Object | Set-Content -Encoding utf8` mojibaked every non-ASCII character (`·` → `Â·`, `—` → `â€”`) — PS 5.1 decodes UTF-8-without-BOM as ANSI on read, so the utf8 re-encode wrote garbage. Caught before commit; reverted and redone with the Edit tool.
+**Rule:** Text edits to repo files go through the Edit/Write tools only. PowerShell text pipelines are for transient/scratch output, never for files that ship.
+**Why:** The site is UTF-8 without BOM throughout; one silent re-encode corrupts the title, em-dashes, and every entity-adjacent character sitewide.
+
 ## [2026-04-23] — Don't inherit the parent CopyEngine CLAUDE.md
 
 **Context:** When setting up tooling for this repo, I offered to port the parent `New Project/.claude/CLAUDE.md` (CopyEngine, Python pipeline) into this project.

@@ -87,6 +87,10 @@ Verified pre-merge: zero JS errors on all 3 pages at 1440/390px, section order `
 
 **P0 shipped (branch staging-p0-housekeeping):** dead CSS purge (~300 lines: capacity/tier/pricing-note/engagement-terms blocks, gradient-text, slide-in/scale-in, btn-ghost/outline; styles.css 1,874 → ~1,570); JSON-LD restructured to @graph with stable Person/Organization @ids + FAQPage schema (6 Q&As, verbatim from visible FAQ); gauge aria-label aligned with visible framing; verify-site playwright resolver made machine-portable; test-page/ deleted (~830KB). Verified: console clean, no horizontal scroll 375/desktop, all live components intact, Lighthouse mobile 99/100/58/100 (perf +1). WebP finding: dekamarkt/KPN PNGs are already smaller than WebP re-encodes — correctly left as PNG.
 
+## 2026-08-25 — P0 merged + P1 built (local session)
+
+P0 merged as PR #100 (squash faa59b2); live-verified: FAQPage JSON-LD serving on resonanceseo.com, /test-page/ 404s (closes the April follow-up). P1 built on staging-p1-capture → draft PR #101: mid-page capture band (unnumbered, between References and Availability) + footer capture, Buttondown plain-form embed with BUTTONDOWN_USERNAME placeholder, featured-tier rationale line, newsletter_signup GA4 event, sr-only utility, mobile flex-basis fix. Verified: Lighthouse mobile 99/100/58/100, no horizontal scroll 375/768/1440, console clean. Draft until owner creates the Buttondown account (username swap) and approves the new copy. privacy.html already covers newsletter processing — checked, no change.
+
 ## Where we left off
 
 PR #98 is merged. **Open:** (1) after the Pages rebuild, confirm resonanceseo.com/test-page/ returns 404; (2) decide whether to rebuild the discarded conversion ideas (guarantee/risk-reversal, tier-differentiation bullets) on the NEW design; (3) verify the GTM container (GTM-W5Z6KJ8D) has a GA4 tag defining `gtag`, else `book_call_click` events never fire — matters before PPC spend; (4) consider deleting `test-page/` outright (~830KB stale duplicates, now unpublished).
