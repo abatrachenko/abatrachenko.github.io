@@ -1356,6 +1356,175 @@ header.scrolled {
   max-width: 44ch;
 }
 
+/* Subpages — P2 architecture (case studies, services, about, contact).
+   Reuses the ledger language; only layout primitives are new. */
+.breadcrumbs {
+  padding-top: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--text-tertiary);
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.breadcrumbs li + li::before {
+  content: "/";
+  margin-right: var(--space-2);
+  color: var(--text-tertiary);
+}
+
+.breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--text-primary);
+}
+
+.page-hero {
+  padding: var(--space-12) 0 var(--space-10);
+}
+
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-4);
+  max-width: 22ch;
+}
+
+.page-hero__lede {
+  font-size: var(--text-large);
+  color: var(--text-secondary);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.article-section {
+  padding: var(--space-10) 0;
+}
+
+.article-body {
+  max-width: 70ch;
+}
+
+.article-body h2 {
+  font-size: var(--text-h2);
+  margin: var(--space-10) 0 var(--space-4);
+}
+
+.article-body h2:first-child {
+  margin-top: 0;
+}
+
+.article-body ul {
+  padding-left: 1.2em;
+  line-height: var(--leading-body);
+  margin: 0 0 var(--space-4);
+}
+
+.article-body li {
+  margin-bottom: var(--space-2);
+}
+
+.case-facts {
+  max-width: 70ch;
+  margin: var(--space-8) 0;
+  /* Wide outcome cells scroll inside the wrapper — body clips overflow-x,
+     which would otherwise silently cut the table off at narrow widths. */
+  overflow-x: auto;
+}
+
+.testimonial-card--article {
+  max-width: 70ch;
+  margin: var(--space-10) 0;
+}
+
+.page-cta {
+  border-top: 1px solid var(--border-default);
+  padding: var(--space-12) 0;
+  text-align: center;
+}
+
+.page-cta p {
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin: 0 auto var(--space-6);
+}
+
+.page-listing {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-10) 0 var(--space-16);
+  max-width: 880px;
+}
+
+.listing-card {
+  border-top: 1px solid var(--border-strong);
+  padding-top: var(--space-5);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.listing-card:hover .listing-card__title {
+  color: var(--accent);
+}
+
+.listing-card:hover {
+  opacity: 1;
+}
+
+.listing-card__brand {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.listing-card__title {
+  display: block;
+  font-size: var(--text-h3);
+  font-weight: 700;
+  margin: var(--space-2) 0;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.listing-card__stat {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+.outcome-card__link,
+.outcome-featured__link {
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: var(--space-3);
+}
+
+.footer-pages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
+  font-size: var(--text-micro);
+}
+
 /* Footer — MASTER.md §9.13. Minimal, with secondary newsletter capture. */
 footer {
   background-color: var(--surface-secondary);
