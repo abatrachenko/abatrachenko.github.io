@@ -1,6 +1,6 @@
-# GEO Readiness Framework — outline draft
+# GEO Readiness Framework — outline
 
-**Status:** draft for user review. Edit freely; when the outline is approved, we write the full content + design the deliverable format.
+**Status:** APPROVED 2026-08-25 (owner, with one amendment: check 4.3 replaced — see below). Production started per the plan at the bottom. Format locked: PDF-only v1, self-scored, minimal report-style design, delivery via Buttondown welcome email, 4-email nurture.
 
 **Target reader:** VP / Director of Marketing or E-commerce at an enterprise e-commerce brand. They've heard about GEO, their CEO or board has asked them about it, and they're not sure where their brand stands. They're analytical, short on time, and immune to listicle-tease content.
 
@@ -65,8 +65,8 @@ Why it matters: Many sites inadvertently block the crawlers that feed AI answer 
 **4.2 — Is your structured data current, validated, and covering the entity types that AI engines consume (Organization, Person, Service, Product, FAQPage, Article)?**
 Why it matters: Structured data that was fine for Google's 2020 rich results may be insufficient for 2026 AI answer engines. They consume a wider surface.
 
-**4.3 — Have you published `llms.txt` or equivalent signals indicating which parts of your site you want AI systems to reference?**
-Why it matters: `llms.txt` is the emerging standard for intentional AI content curation. Being early here signals sophistication and gives you control over how your brand is represented.
+**4.3 — Is each key topic retrievable as its own focused URL — one intent per page — rather than buried in long multi-topic pages?**
+Why it matters: AI retrieval works at the passage level. Separate, focused pages create more independently retrievable units, cleaner intent matches, and more external-link targets than long multi-topic pages. This is the structural lever the 2026 evidence actually supports — unlike `llms.txt`, which no major platform confirms consuming. *(Replaced the original llms.txt check on 2026-08-25 — owner-approved amendment.)*
 
 ### Category 5 — Measurement: Can we prove or track progress?
 
