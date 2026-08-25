@@ -21,7 +21,7 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 ## Strategic plan roadmap (2026-08-24 — see tasks/designs/2026-08-24-strategic-plan.md)
 
 - [x] **P0 housekeeping** — dead CSS purge (~300 lines), JSON-LD entity graph + FAQPage schema, gauge aria fix, verify-site resolver fix, test-page/ deleted, WebP check (dekamarkt/KPN PNGs already optimal — WebP came out larger). Shipped via staging-p0-housekeeping branch. — 2026-08-24
-- [ ] **P1 conversion alignment** — restore secondary email capture (footer + mid-page after References; needs form-backend pick), consider inline Calendly embed, one-line rationale for "recommended" tier.
+- [ ] **P1 conversion alignment** — IN REVIEW, draft [PR #101](https://github.com/abatrachenko/abatrachenko.github.io/pull/101). Built: mid-page + footer capture (Buttondown plain-form embed), featured-tier rationale line, newsletter_signup GA4 event. Blocked on owner: (1) create Buttondown account → supply username to replace BUTTONDOWN_USERNAME placeholders, (2) approve the new copy (capture heading/support/microcopy + tier rationale — listed in the PR body). Inline Calendly embed deliberately deferred to P2 /contact (perf-gate risk, links already give instant scheduling).
 - [ ] **P2 multi-page expansion** — case-study deep-dives ×3 (owner approves claims), /services/enterprise-seo, /services/geo, /about, /security (vendor-readiness), /contact; sitemap/canonical/internal-link pass; one forwardable case-study PDF.
 - [ ] **P3 authority + distribution (ongoing)** — GEO framework production, third-party corroboration program (1–2/mo: podcasts, bylines, roundups), newsletter cadence, AI-referral tracking in GA4.
 
