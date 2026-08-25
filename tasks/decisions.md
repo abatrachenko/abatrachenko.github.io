@@ -199,3 +199,17 @@ Format per entry:
 **Rationale:** Main's versions were strictly newer implementations of the same fixes plus a full redesign; the branch's only unique value was the test-page publish leak and a zero-MCP verification harness. Merge preserved history without force-push and shrank the PR to a reviewable +181 lines. PR #98 merged as 8d7c467.
 **Tradeoffs:** The branch's conversion content (30-day guarantee, tier feature bullets, capacity note, testimonial metric chips) was discarded rather than ported — rebuilding those on the new design is a deliberate, separate decision.
 **Revisit if:** The owner wants risk-reversal/tier-differentiation on the new pricing section — treat as new work against the FRESH design, not a revival of the old markup.
+
+## [2026-08-24] — Strategic plan approved: four gating decisions
+
+**Context:** Full strategic review (purpose-from-sources → evidence baseline → external research → plan) at `tasks/designs/2026-08-24-strategic-plan.md`. Headline evidence: Lighthouse 98–100 everywhere except Best Practices 58 (LinkedIn Insight via GTM); Ahrefs DR 0 / 0 organic keywords / 0 organic traffic; live site had silently dropped the April capture-primary CTA model. Owner answered all four gating questions, accepting every recommendation.
+
+**Decisions:**
+1. **CTA model: call-primary, capture-secondary.** Amends the April positioning lock (doc updated with changelog). Basis: enterprise-tier exemplars (Indig/Schwartz/Solis) all run call-primary; newsletter is nurture, not conversion. Secondary email capture (footer + mid-page) to be restored in P1.
+2. **Multi-page expansion approved.** Supersedes the one-page IA from `benchmarks/SYNTHESIS.md §4`. Target: `/` stays the filter-hero; add case-study deep-dives (Adidas, J.Crew, Alchemy), `/services/enterprise-seo`, `/services/geo`, `/about`, `/security`, `/contact`. Single decision serves enterprise proof depth AND AI-search retrievability (passage-level chunking favors focused pages). Every case-study claim gated on owner approval.
+3. **BP-58 fix: pause LinkedIn Insight Tag in GTM** (owner task, container GTM-W5Z6KJ8D). Analytics-stack swap (Plausible/Fathom) deliberately deferred as a separate decision.
+4. **GEO Readiness Framework: produce it.** Owner to review the April outline's 5 structural questions; framework becomes the Stage-2 secondary-capture upgrade.
+
+**Tradeoffs:** Multi-page adds duplication risk on a no-build-step stack (revisit-trigger from the 2026-04-23 stack decision is now near — flag if page count passes ~10). Call-primary forfeits nothing measurable today (capture didn't exist on the live site anyway).
+
+**Revisit if:** GSC data (once restored) shows meaningful traffic that doesn't book calls — then the capture layer's weight increases; or multi-page maintenance friction justifies revisiting the static-stack decision.

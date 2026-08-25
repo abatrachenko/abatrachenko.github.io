@@ -11,10 +11,25 @@ const path = require('path');
 const fs = require('fs');
 
 let chromium;
-try {
-  ({ chromium } = require('playwright'));
-} catch {
-  ({ chromium } = require('/opt/node22/lib/node_modules/playwright'));
+{
+  // Resolution order: local/npx install → remote-session global (/opt/node22)
+  // → this machine's global npm root. Fail with all paths tried.
+  const { execSync } = require('child_process');
+  const candidates = ['playwright', '/opt/node22/lib/node_modules/playwright'];
+  try {
+    candidates.push(path.join(execSync('npm root -g', { encoding: 'utf8' }).trim(), 'playwright'));
+  } catch { /* npm not on PATH — skip */ }
+  for (const candidate of candidates) {
+    try {
+      ({ chromium } = require(candidate));
+      break;
+    } catch { /* try next */ }
+  }
+  if (!chromium) {
+    console.error('FAIL: playwright not found. Tried: ' + candidates.join(', '));
+    console.error('Install with: npm install -g playwright && npx playwright install chromium');
+    process.exit(1);
+  }
 }
 
 const BASE_URL = process.env.VERIFY_BASE_URL || 'http://localhost:8080';

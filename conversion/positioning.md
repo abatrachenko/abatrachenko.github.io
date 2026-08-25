@@ -94,21 +94,16 @@ Fractional SEO + GEO leadership, embedded in the client's team. Ongoing monthly 
 ### Availability signal (preserved)
 The "Hours Available This Month: X of 160" progress bar is a real scarcity signal the consultant updates manually. Stays on the site.
 
-### CTA strategy — two-layer, staged launch
+### CTA strategy — call-primary, capture-secondary (amended 2026-08-24)
 
-**Primary CTA (above the fold + first 2–3 sections):** Email capture at first-touch.
+**Primary CTA (hero + nav + pricing + bio):** *"Book a strategy call"* → Calendly. No "free" in the label. Wording locked — it's what shipped and it's consistent.
 
-The target state is a lead magnet — **GEO Readiness Framework** (vendor-neutral, "How visible is your brand in ChatGPT, Perplexity, and Google AI Overviews?"). Framework production is in flight as a parallel track (2026-04-23 decision).
+Rationale for the amendment (supersedes the April capture-primary model): 2026 research on enterprise-tier exemplars (Kevin Indig, Eli Schwartz, Aleyda Solis) shows call-primary with the newsletter as secondary/nurture is the converting pattern at this tier — the newsletter is the authority engine, not the conversion event. Embedded instant scheduling roughly doubles form→meeting rates (Chili Piper benchmark). The live site already shipped call-primary; this makes the doc match reality deliberately rather than by drift.
 
-Launch in two stages:
+**Secondary CTA (footer + one mid-page placement after References):** email capture — staged as before:
 
-- **Stage 1 (rebuild ships first):** interim newsletter signup — *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."* Captures email, builds the list, no production blocker on the rebuild.
-- **Stage 2 (when framework is ready):** swap the primary CTA to the framework download. Newsletter remains as a secondary capture point in the footer. Everyone who signed up in Stage 1 gets the framework delivered to their inbox as the first nurture email.
-
-**Secondary CTA (after proof + case studies, mid-bottom of page):**
-*"Book a strategy call"* (or *"Book a working session"*) → Calendly. No "free" in the label.
-
-All CTAs use the same wording. Consolidate from the current 8 placements to 2–3 deliberate ones.
+- **Stage 1:** interim newsletter signup — *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."* (Currently absent from the live site — restoring it as secondary is P1 work.)
+- **Stage 2 (when framework is ready):** swap the capture offer to the **GEO Readiness Framework** download (vendor-neutral, "How visible is your brand in ChatGPT, Perplexity, and Google AI Overviews?"). Newsletter remains in the footer. Stage-1 signups get the framework as the first nurture email. Framework production approved 2026-08-24.
 
 ### GEO implementation
 Integrated into whatever an engagement needs, not a separate productized service pillar. If a client wants AI search capability built out, it happens inside the regular hourly allocation. Reach LLM may be recommended; other tools may be recommended; the choice depends on the client's stack, not on vendor alignment.
@@ -179,4 +174,5 @@ Things that still need a user decision before the hero rebuild can proceed:
 
 ## 10. Changelog
 
+- **2026-08-24** — CTA model amended: call-primary / capture-secondary (was capture-primary). Owner decision against 2026 enterprise-tier research; see `tasks/decisions.md` [2026-08-24] and `tasks/designs/2026-08-24-strategic-plan.md` Q1. Open questions §9 updated: CTA wording resolved ("Book a strategy call", as shipped); multi-page expansion approved (supersedes one-page IA); GEO framework production approved.
 - **2026-04-23** — Initial lock. All strategic positioning decisions made in one session with the brainstorm-skill protocol. Evidence of decisions in `tasks/decisions.md`.

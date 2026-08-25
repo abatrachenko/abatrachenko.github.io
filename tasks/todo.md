@@ -4,12 +4,26 @@ _Update as work progresses. Close items when done, don't delete them — we refe
 
 ## Awaiting user decisions
 
-- [ ] **Strategy call CTA wording** — "Book a strategy call" vs. "Book a working session" vs. "Request a strategy session."
-- [ ] **Dark mode** — ship light-only for v1 or design for both.
-- [ ] **Analytics stack** — GA4 continues, or add/swap Plausible/Fathom.
-- [ ] **Form/lead backend** — Netlify Forms vs. Formspree vs. Tally vs. custom (needs picking before any rebuild phase with the newsletter CTA).
-- [ ] **Case-study depth** — keep 3 current length, or expand to linked deep-dives.
-- [ ] **Newsletter name + cadence** — interim primary CTA needs a name and commitment. Suggestion: *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."*
+- [x] **Strategy call CTA wording** — resolved 2026-08-24: "Book a strategy call" (as shipped, consistent).
+- [ ] **Dark mode** — ship light-only for v1 or design for both. (Assumption in force: light-only until decided.)
+- [ ] **Analytics stack** — GA4 continues, or add/swap Plausible/Fathom. (Deferred 2026-08-24; immediate fix is pausing LinkedIn Insight in GTM.)
+- [ ] **Form/lead backend** — rec 2026-08-24: Tally or Buttondown-class (zero-backend). Needs picking before P1 capture restore.
+- [x] **Case-study depth** — resolved 2026-08-24: expand to deep-dive pages (P2 of strategic plan); claims reviewed by owner claim-by-claim.
+- [ ] **Newsletter name + cadence** — secondary CTA now (2026-08-24 amendment). Suggestion stands: *"Organic growth patterns for enterprise e-commerce. Every other Tuesday."*
+
+## USER TASKS (blocking, from 2026-08-24 strategic plan)
+
+- [ ] **Pause LinkedIn Insight Tag in GTM** (container GTM-W5Z6KJ8D, GTM web UI) — the only Lighthouse gate still failing (Best Practices 58, target ≥95). While in there: verify a GA4 tag defines `gtag`, else `book_call_click` events never fire.
+- [ ] **Restore Google Search Console access** — GSC MCP times out (WinError 10060); verify the resonanceseo.com property in the GSC web UI, submit sitemap. Blocks all measurement and prediction grading.
+- [ ] **Click the Calendly link once** (calendly.com/alekseybatrachenko/intro-call) and confirm it books — HTTP-alive but render unverified (bot-blocked to automation).
+- [ ] **Review GEO Readiness Framework outline** — `conversion/geo-readiness-framework-outline.md`, 5 structural questions at the bottom. Production approved 2026-08-24; blocked on this review.
+
+## Strategic plan roadmap (2026-08-24 — see tasks/designs/2026-08-24-strategic-plan.md)
+
+- [x] **P0 housekeeping** — dead CSS purge (~300 lines), JSON-LD entity graph + FAQPage schema, gauge aria fix, verify-site resolver fix, test-page/ deleted, WebP check (dekamarkt/KPN PNGs already optimal — WebP came out larger). Shipped via staging-p0-housekeeping branch. — 2026-08-24
+- [ ] **P1 conversion alignment** — restore secondary email capture (footer + mid-page after References; needs form-backend pick), consider inline Calendly embed, one-line rationale for "recommended" tier.
+- [ ] **P2 multi-page expansion** — case-study deep-dives ×3 (owner approves claims), /services/enterprise-seo, /services/geo, /about, /security (vendor-readiness), /contact; sitemap/canonical/internal-link pass; one forwardable case-study PDF.
+- [ ] **P3 authority + distribution (ongoing)** — GEO framework production, third-party corroboration program (1–2/mo: podcasts, bylines, roundups), newsletter cadence, AI-referral tracking in GA4.
 
 ## Parallel workstream — GEO Readiness Framework (target: 1–2 weeks)
 
