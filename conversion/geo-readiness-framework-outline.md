@@ -148,3 +148,15 @@ Before I start writing the full content, confirm:
 3. Any categories to cut or reweight?
 4. Does the "Invisible / Emerging / Present / Compound-ready" tier language work, or do you have preferred framing?
 5. PDF-only or include interactive web version in v1?
+
+---
+
+## 2026-08-25 review prep (added post-strategic-plan; answers recommended so approval can be one pass)
+
+The April outline aged well with one exception. Recommendations against the cited August 2026 research (see `tasks/designs/2026-08-24-strategic-plan.md` §3):
+
+1. **Structure (Q1-3): approve with ONE amendment — replace check 4.3 (llms.txt).** The research verdict is that llms.txt is effectively dead: no platform (Google, OpenAI, Perplexity) confirms consuming it, and Google's 2026 guidance explicitly says no AI-specific files are needed. Recommending it in a GEO framework would date the asset on arrival. **Proposed replacement 4.3:** *"Is each key topic retrievable as its own focused URL — one intent per page — rather than buried in long multi-topic pages?"* (AI retrieval is passage/chunk-level; focused pages are the structural lever the research actually supports.) Everything else in the 15 checks matches current evidence — 5.1 (AI-referral attribution) is now literally implemented on this site.
+2. **Tier language (Q4): keep** — Invisible/Emerging/Present/Compound-ready reads operator-grade, no change needed.
+3. **Format (Q5 + production questions): PDF-only v1, minimal report-style design, self-scored** — fastest path, matches the April recommendation. Comparative examples: include, but only patterns or publicly documented brands (no invented client examples). Delivery: email → PDF link via Buttondown welcome email (the capture infrastructure shipped 2026-08-25 makes this the zero-new-tooling path). Nurture: the suggested 4-email sequence.
+
+**On approval, the production plan's Week-1 content writing starts** — owner expertise, drafting assistance per the plan above.
